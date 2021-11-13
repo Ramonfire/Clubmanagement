@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Club {
 
     @Id
-   // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_Club")
 
     private  long idc;
@@ -35,7 +35,7 @@ public class Club {
     }
 
     //end contructor
-
+@ManyToMany(mappedBy = "Club", cascade = CascadeType.ALL)
 
     public long getIdc() {
         return idc;
@@ -68,8 +68,7 @@ public class Club {
     public void setDescription(String description) {
         this.description = description;
     }
-    /*@OneToOne(mappedBy = "Club", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Members Mbr;*/
+
 
     @Override
     public String toString() {
