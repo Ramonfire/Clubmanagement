@@ -1,6 +1,7 @@
 package com.example.Clubmanagement.compte.generlAc;
 
 import com.example.Clubmanagement.compte.Clubsmembers.Members;
+import org.springframework.context.annotation.Primary;
 
 import javax.persistence.*;
 
@@ -9,7 +10,7 @@ import javax.persistence.*;
 
 public class Compte {
     @Id
-   // @GeneratedValue(strategy = GenerationType.AUTO)
+   @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
 
     private long idE;
@@ -102,17 +103,12 @@ public class Compte {
                 ", tel=" + tel +
                 '}';
     }
-    /*@OneToOne(mappedBy = "cmp", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "Comptes", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
-    public Members M;*/
-
-    //authentification
-    public Compte authen(){
+    public Members M;
 
 
 
-        return null;
-    }
 
 
 
