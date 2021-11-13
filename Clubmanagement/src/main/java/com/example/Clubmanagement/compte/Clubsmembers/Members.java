@@ -7,10 +7,10 @@ import com.example.Clubmanagement.compte.generlAc.Etudiant;
 
 import javax.persistence.*;
 
-//@Entity
-//@Table(name="Members")
+@Entity
+@Table(name="Members")
 public class Members {
-   /* @Id
+    @Id
     @Column(name = "Member_id")
     private Long Id;
 
@@ -20,7 +20,7 @@ public class Members {
     @JoinColumn(name = "Member_id")
 
     private Compte C;
-*/
+
 
 
 
