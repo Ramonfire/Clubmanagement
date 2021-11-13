@@ -16,10 +16,11 @@ public class Members {
 
 
     @OneToOne
-    @MapsId
     @JoinColumn(name = "Member_id")
-
     private Compte C;
+
+
+    @ManyToMany()
 
 
 
