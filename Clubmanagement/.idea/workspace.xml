@@ -28,14 +28,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
+  <component name="RunManager" selected="Spring Boot.ClubmanagementApplication">
+    <configuration name="ClubmanagementApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Clubmanagement" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Clubmanagement.ClubmanagementApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
