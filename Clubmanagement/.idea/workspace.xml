@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9e411d47-6984-4906-898b-babe9837a235" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/club/Club.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/club/Club.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/compte/Clubsmembers/Members.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/compte/Clubsmembers/Members.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +37,9 @@
       </method>
     </configuration>
     <configuration name="ClubmanagementApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="demo" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Clubmanagement.ClubmanagementApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -51,10 +54,24 @@
       <option name="presentableId" value="Default" />
       <updated>1636798550712</updated>
       <workItem from="1636798552211" duration="2822000" />
+      <workItem from="1636820760342" duration="56000" />
+      <workItem from="1637004396856" duration="64000" />
+      <workItem from="1637102376966" duration="843000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
