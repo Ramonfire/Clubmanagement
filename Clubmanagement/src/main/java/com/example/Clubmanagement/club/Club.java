@@ -1,10 +1,10 @@
 package com.example.Clubmanagement.club;
 
 import com.example.Clubmanagement.compte.Clubsmembers.Members;
+import com.example.Clubmanagement.compte.generlAc.Compte;
 
 import javax.persistence.*;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name="Clubs")
@@ -12,7 +12,7 @@ import java.util.List;
 public class Club {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_Club")
 
     private  long idc;
@@ -83,10 +83,9 @@ public class Club {
     }
 
 
-    @ManyToMany( mappedBy = "Clubs" , cascade = CascadeType.REFRESH)
-    @JoinColumn(name = "id_Club")
-    List<Members> x;
 
+    @ManyToMany(mappedBy = "Clubs", fetch = FetchType.LAZY)
+    private List<Compte> students = new ArrayList<Compte>();
 
 
 

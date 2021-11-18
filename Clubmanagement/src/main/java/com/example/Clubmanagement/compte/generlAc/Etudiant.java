@@ -1,14 +1,15 @@
 package com.example.Clubmanagement.compte.generlAc;
 
+import com.example.Clubmanagement.club.Club;
 import com.example.Clubmanagement.compte.Clubsmembers.Members;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 
 public class Etudiant extends Compte {
 
+@Id
 
 
     private  long anetud;
@@ -69,4 +70,8 @@ public class Etudiant extends Compte {
 
         return null;
     }
+
+
+
+
 }

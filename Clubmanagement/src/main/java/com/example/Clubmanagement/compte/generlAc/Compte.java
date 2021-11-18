@@ -1,16 +1,20 @@
 package com.example.Clubmanagement.compte.generlAc;
 
+import com.example.Clubmanagement.club.Club;
 import com.example.Clubmanagement.compte.Clubsmembers.Members;
 import org.springframework.context.annotation.Primary;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="Comptes")
 
 public class Compte {
     @Id
-   @GeneratedValue(strategy = GenerationType.AUTO)
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
 
     private long idE;
@@ -103,13 +107,13 @@ public class Compte {
                 ", tel=" + tel +
                 '}';
     }
-    @OneToOne(mappedBy = "Comptes", cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    public Members M;
 
 
 
-
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinTable( name = "Members" , joinColumns = {@JoinColumn ( name ="Student_id",  referencedColumnName = "id", nullable = false, updatable = false)},
+                            inverseJoinColumns = {@JoinColumn(name = "club_id",referencedColumnName="id_Club",nullable = false, updatable = false)})
+    private List<Club> C ;
 
 
 
