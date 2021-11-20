@@ -12,8 +12,10 @@ import java.lang.management.GarbageCollectorMXBean;
 public class evenement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_events")
     private  long id_event;
     private String Description;
+    private  String nomevent;
 
 
 
@@ -33,11 +35,16 @@ public class evenement {
         Description = description;
     }
 
+    public String getNomevent() {
+        return nomevent;
+    }
 
+    public void setNomevent(String nomevent) {
+        this.nomevent = nomevent;
+    }
 
-
-    public evenement(long id_event, String description) {
-
+    public evenement(long id_event, String nomevent,String description) {
+        this.nomevent =nomevent;
         this.id_event = id_event;
         Description = description;
 
@@ -46,12 +53,17 @@ public class evenement {
     public evenement() {
     }
 
-    public evenement(String description) {
-        Description = description;
+    public evenement(String nomevent,String description) {
+        this.nomevent =nomevent;
+        this.Description = description;
 
     }
 
 
-    @OneToOne(mappedBy = "Ev")
+    @ManyToOne(fetch = FetchType.LAZY)
     private  Club c;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_events")
+    private  facture Fact = new facture();
 }
