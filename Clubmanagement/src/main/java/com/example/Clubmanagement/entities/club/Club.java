@@ -95,5 +95,7 @@ public class Club {
     @JoinColumn(name = "id_events")
     private  List<evenement> Ev = new ArrayList<evenement>();
 
-
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_Clubs")
+    private  List<reunion> reunions = new ArrayList<reunion>();
         }
