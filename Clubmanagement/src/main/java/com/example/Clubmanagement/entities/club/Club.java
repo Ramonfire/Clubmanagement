@@ -88,8 +88,8 @@ public class Club {
     private List<Compte> students = new ArrayList<Compte>();
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_Club")
-    private  budget b = new budget();
+    @JoinColumn(name = "id_Budget")
+    private  budget b;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_Club")

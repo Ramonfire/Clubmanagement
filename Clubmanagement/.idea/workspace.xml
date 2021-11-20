@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e411d47-6984-4906-898b-babe9837a235" name="Changes" comment="" />
+    <list default="true" id="9e411d47-6984-4906-898b-babe9837a235" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/demo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/entities/club/Club.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/entities/club/Club.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/entities/club/Club.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/entities/club/Club.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/entities/club/evenement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/entities/club/evenement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/entities/club/facture.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/entities/club/facture.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,12 +75,26 @@
       <recent name="com.example.Clubmanagement.entities" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ClubmanagementApplication (1)">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ClubmanagementApplication (2)">
     <configuration name="ClubmanagementApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="Clubmanagement" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Clubmanagement.ClubmanagementApplication" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClubmanagementApplication (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="demo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Clubmanagement.ClubmanagementApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -89,6 +110,7 @@
     <list>
       <item itemvalue="Spring Boot.ClubmanagementApplication" />
       <item itemvalue="Spring Boot.ClubmanagementApplication (1)" />
+      <item itemvalue="Spring Boot.ClubmanagementApplication (2)" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -108,6 +130,7 @@
       <workItem from="1637258085728" duration="2454000" />
       <workItem from="1637262835660" duration="823000" />
       <workItem from="1637398446314" duration="39000" />
+      <workItem from="1637398571744" duration="733000" />
     </task>
     <servers />
   </component>
