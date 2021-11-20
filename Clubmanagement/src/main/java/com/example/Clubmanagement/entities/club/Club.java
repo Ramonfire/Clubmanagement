@@ -92,7 +92,7 @@ public class Club {
     private  budget b;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_Club")
+    @JoinColumn(name = "id_events")
     private  List<evenement> Ev = new ArrayList<evenement>();
 
 
