@@ -91,9 +91,9 @@ public class Club {
     @JoinColumn(name = "id_Club")
     private  budget b = new budget();
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_Club")
-    private  evenement Ev = new evenement();
+    private  List<evenement> Ev = new ArrayList<evenement>();
 
 
         }
