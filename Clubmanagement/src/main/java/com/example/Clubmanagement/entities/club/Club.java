@@ -87,6 +87,13 @@ public class Club {
 
     private List<Compte> students = new ArrayList<Compte>();
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_Club")
+    private  budget b = new budget();
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_Club")
+    private  evenement Ev = new evenement();
 
 
         }
