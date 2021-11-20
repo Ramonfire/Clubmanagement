@@ -4,38 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e411d47-6984-4906-898b-babe9837a235" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/entities/compte/Clubsmembers/Members.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/club/Club.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/entities/club/Club.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/club/budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/entities/club/budget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/club/evenement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/entities/club/evenement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/club/facture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/entities/club/facture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/club/reunion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/entities/club/reunion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/compte/Clubsmembers/Members.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/compte/Clubsmembers/Secretaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/entities/compte/Clubsmembers/Secretaire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/compte/Clubsmembers/Vpres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/entities/compte/Clubsmembers/Vpres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/compte/Clubsmembers/pres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/entities/compte/Clubsmembers/pres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/compte/Clubsmembers/tresoier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/entities/compte/Clubsmembers/tresoier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/compte/generlAc/Compte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/entities/compte/generlAc/Compte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/compte/generlAc/Etudiant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/entities/compte/generlAc/Etudiant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/compte/generlAc/R_clubs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/entities/compte/generlAc/R_clubs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/compte/generlAc/R_pedag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Clubmanagement/entities/compte/generlAc/R_pedag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/club/Club.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/club/budget.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/club/evenement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/club/facture.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/club/reunion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/compte/Clubsmembers/Members.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/compte/Clubsmembers/Secretaire.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/compte/Clubsmembers/Vpres.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/compte/Clubsmembers/pres.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/compte/Clubsmembers/tresoier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/compte/generlAc/Compte.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/compte/generlAc/Etudiant.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/compte/generlAc/R_clubs.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/compte/generlAc/R_pedag.class" beforeDir="false" />
-    </list>
+    <list default="true" id="9e411d47-6984-4906-898b-babe9837a235" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -138,6 +107,7 @@
       <workItem from="1637249076676" duration="615000" />
       <workItem from="1637258085728" duration="2454000" />
       <workItem from="1637262835660" duration="823000" />
+      <workItem from="1637398446314" duration="39000" />
     </task>
     <servers />
   </component>
