@@ -106,10 +106,7 @@ public class Compte {
 
 
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinTable( name = "Members" , joinColumns = {@JoinColumn ( name ="Student_id",  referencedColumnName = "id", nullable = false, updatable = false)},
-                            inverseJoinColumns = {@JoinColumn(name = "club_id",referencedColumnName="id_Club",nullable = false, updatable = false)})
-    private List<Club> C ;
+
 
 
 

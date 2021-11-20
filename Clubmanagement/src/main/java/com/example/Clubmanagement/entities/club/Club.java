@@ -1,6 +1,8 @@
 package com.example.Clubmanagement.entities.club;
 
 import com.example.Clubmanagement.entities.compte.generlAc.Compte;
+import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
+import com.example.Clubmanagement.entities.compte.generlAc.R_pedag;
 
 import javax.persistence.*;
 import java.util.*;
@@ -85,7 +87,7 @@ public class Club {
 
     @ManyToMany(  fetch = FetchType.LAZY)
 
-    private List<Compte> students = new ArrayList<Compte>();
+    private List<Etudiant> students = new ArrayList<Etudiant>();
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_Budget")
@@ -98,4 +100,8 @@ public class Club {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_Clubs")
     private  List<reunion> reunions = new ArrayList<reunion>();
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private R_pedag ped;
         }

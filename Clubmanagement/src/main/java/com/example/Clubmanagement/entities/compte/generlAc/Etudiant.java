@@ -1,7 +1,11 @@
 package com.example.Clubmanagement.entities.compte.generlAc;
 
+import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
 
+import javax.persistence.*;
+import java.util.List;
+@Entity
 
 public class Etudiant extends Compte {
 
@@ -65,7 +69,10 @@ public class Etudiant extends Compte {
 
         return null;
     }
-
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinTable( name = "Members" , joinColumns = {@JoinColumn ( name ="Student_id",  referencedColumnName = "id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "club_id",referencedColumnName="id_Club",nullable = false, updatable = false)})
+    private List<Club> C ;
 
 
 
