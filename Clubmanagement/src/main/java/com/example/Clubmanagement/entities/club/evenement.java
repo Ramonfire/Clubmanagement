@@ -64,6 +64,6 @@ public class evenement {
     private  Club c;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_events")
+    @JoinColumn(name = "id_fact")
     private  facture Fact = new facture();
 }
