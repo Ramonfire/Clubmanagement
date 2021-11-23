@@ -98,10 +98,12 @@ public class Club {
     private  List<evenement> Ev = new ArrayList<evenement>();
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_Clubs")
+    @JoinColumn(name = "id_reunions")
     private  List<reunion> reunions = new ArrayList<reunion>();
 
 
     @ManyToOne(fetch = FetchType.LAZY)
     private R_pedag ped;
+
+
         }
