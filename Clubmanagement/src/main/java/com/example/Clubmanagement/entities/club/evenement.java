@@ -17,6 +17,7 @@ public class evenement {
     private  long id_event;
     private String Description;
     private  String nomevent;
+    private int type ; // 0 public  /-1 club members only /1 uir students
     private int state = 0; //(IntRange(-1,1);) 0 waiting  1 accepted -1 refused
 
 
@@ -53,28 +54,40 @@ public class evenement {
         this.state = state;
     }
 
-    public evenement(long id_event, String nomevent, String description) {
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public evenement(long id_event, String nomevent, String description,int type) {
         this.nomevent =nomevent;
         this.id_event = id_event;
         Description = description;
+        this.type = type;
         this.state=0;
 
+
     }
-    public evenement(long id_event, String nomevent, String description, int state) {
+    public evenement(long id_event, String nomevent, String description, int state,int type) {
         this.nomevent =nomevent;
         this.id_event = id_event;
         Description = description;
         this.state=state;
+        this.type=type;
 
     }
 
     public evenement() {
     }
 
-    public evenement(String nomevent,String description) {
+    public evenement(String nomevent,String description,int type) {
         this.nomevent =nomevent;
         this.Description = description;
         this.state=0;
+        this.type=type;
 
     }
 
