@@ -1,6 +1,7 @@
 package com.example.Clubmanagement.entities.club;
 
 
+import antlr.collections.impl.IntRange;
 import org.hibernate.annotations.NotFound;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class evenement {
     private  long id_event;
     private String Description;
     private  String nomevent;
+    private int state = 0; //(IntRange(-1,1);) 0 waiting  1 accepted -1 refused
 
 
 
@@ -43,10 +45,26 @@ public class evenement {
         this.nomevent = nomevent;
     }
 
-    public evenement(long id_event, String nomevent,String description) {
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public evenement(long id_event, String nomevent, String description) {
         this.nomevent =nomevent;
         this.id_event = id_event;
         Description = description;
+        this.state=0;
+
+    }
+    public evenement(long id_event, String nomevent, String description, int state) {
+        this.nomevent =nomevent;
+        this.id_event = id_event;
+        Description = description;
+        this.state=state;
 
     }
 
@@ -56,6 +74,7 @@ public class evenement {
     public evenement(String nomevent,String description) {
         this.nomevent =nomevent;
         this.Description = description;
+        this.state=0;
 
     }
 
