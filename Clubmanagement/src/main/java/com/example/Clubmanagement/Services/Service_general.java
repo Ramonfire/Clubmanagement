@@ -25,8 +25,8 @@ private final Club_rep club_rep;
 //***********************************************************
 
 
-//getting all events and clubs
-    public List<evenement> getallevents() {return event_rep.findAll();}
+//getting all public events and  all the clubs
+    public List<evenement> getallPevents() {return event_rep.findByType(0);}
     public List<Club>      getallclubs()  {return club_rep.findAll();}
 
 
