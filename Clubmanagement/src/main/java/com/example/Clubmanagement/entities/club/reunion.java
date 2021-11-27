@@ -8,18 +8,18 @@ import java.util.Date;
 public class reunion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  long id_reunion;
+    private  Long id_reunion;
     private Date datedebut;
-    private long duree;//minute
+    private Long duree;//minute
     private  String object;
     private String lieu;
 
 
-    public long getId_reunion() {
+    public Long getId_reunion() {
         return id_reunion;
     }
 
-    public void setId_reunion(long id_reunion) {
+    public void setId_reunion(Long id_reunion) {
         this.id_reunion = id_reunion;
     }
 
@@ -31,11 +31,11 @@ public class reunion {
         this.datedebut = datedebut;
     }
 
-    public long getDuree() {
+    public Long getDuree() {
         return duree;
     }
 
-    public void setDuree(long duree) {
+    public void setDuree(Long duree) {
         this.duree = duree;
     }
 
@@ -58,7 +58,7 @@ public class reunion {
     public reunion() {
     }
 
-    public reunion(long id_reunion, Date datedebut, long duree, String object, String lieu) {
+    public reunion(Long id_reunion, Date datedebut, Long duree, String object, String lieu) {
         this.id_reunion = id_reunion;
         this.datedebut = datedebut;
         this.duree = duree;
@@ -66,7 +66,7 @@ public class reunion {
         this.lieu = lieu;
     }
 
-    public reunion(Date datedebut, long duree, String object, String lieu) {
+    public reunion(Date datedebut, Long duree, String object, String lieu) {
         this.datedebut = datedebut;
         this.duree = duree;
         this.object = object;

@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface Club_rep extends JpaRepository<Club,Long> {
-    List<Club> findByEtat(boolean etat);
+   /* List<Club> findByEtat(boolean etat);
+    List<Club> findByNomclub(String Nom);*/
 }

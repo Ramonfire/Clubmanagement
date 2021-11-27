@@ -10,9 +10,9 @@ import javax.persistence.*;
 public class Members {
     @Id
     @Column(insertable = false,updatable = false)
-   private long club_id_club;
+   private  Long club_id_club;
     @Column(insertable = false,updatable = false)
-   private  long students_id;
+   private  Long students_id;
 
 
 }

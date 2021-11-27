@@ -1,31 +1,33 @@
 package com.example.Clubmanagement.entities.compte.generlAc;
 
-import com.example.Clubmanagement.entities.club.Club;
+
 
 import javax.persistence.*;
-import java.util.List;
+
 
 @Entity
-@Table(name="Comptes")
+
+
 
 public class Compte {
     @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
 
-    private long idE;
+    private Long idE;
+    private Long idUser;
     private String civilite ;
     private String NetP;
     private  String email;
     private String pass;
-    private long tel;
+    private Long tel;
+
 
 
 //constructeur
     public Compte() {
     }
 
-    public Compte(String civilite, String netP, String email, String pass, long tel) {
+    public Compte(String civilite, String netP, String email, String pass, Long tel) {
         this.civilite = civilite;
         NetP = netP;
         this.email = email;
@@ -33,7 +35,7 @@ public class Compte {
         this.tel = tel;
     }
 
-    public Compte(long id, String civilite, String netP, String email, String pass, long tel) {
+    public Compte(Long id, String civilite, String netP, String email, String pass, Long tel) {
         this.idE = id;
         this.civilite = civilite;
         NetP = netP;
@@ -44,11 +46,11 @@ public class Compte {
     //end constructor
 
 
-    public long getId() {
+    public Long getId() {
         return idE;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.idE = id;
     }
 
@@ -84,11 +86,11 @@ public class Compte {
         this.pass = pass;
     }
 
-    public long getTel() {
+    public Long getTel() {
         return tel;
     }
 
-    public void setTel(long tel) {
+    public void setTel(Long tel) {
         this.tel = tel;
     }
 

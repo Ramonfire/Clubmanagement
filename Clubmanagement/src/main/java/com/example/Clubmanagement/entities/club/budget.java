@@ -12,7 +12,7 @@ public class budget {
     private float Budget;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  long id_budget;
+    private  Long id_budget;
 
     public float getSomme() {
         return Somme;
@@ -30,16 +30,16 @@ public class budget {
         Budget = budget;
     }
 
-    public long getId_budget() {
+    public Long getId_budget() {
         return id_budget;
     }
 
-    public void setId_budget(long id_budget) {
+    public void setId_budget(Long id_budget) {
         this.id_budget = id_budget;
     }
 
 
-    public budget(float somme, float budget, long id_budget) {
+    public budget(float somme, float budget, Long id_budget) {
         Somme = somme;
         Budget = budget;
         this.id_budget = id_budget;

@@ -20,11 +20,11 @@ public class Visitor_control {
     }
 
 
-    @GetMapping
+    @GetMapping(path = "localhost/testing/allevents" )
     public List<evenement> Getevent(){
             return  srv.getallPevents();
     }
-    @GetMapping
+    @GetMapping(path = "localhost/testing/allclubs")
     public List<Club> getClubs(){
 
         return  srv.getallclubs();
