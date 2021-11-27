@@ -1,7 +1,6 @@
 package com.example.Clubmanagement.entities.club;
 
 import javax.persistence.*;
-import javax.persistence.OneToOne;
 
 @Entity
 @Table(name = "Budget")

@@ -1,8 +1,9 @@
 package com.example.Clubmanagement.entities.compte.generlAc;
 
 
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 
 @Entity
@@ -16,7 +17,7 @@ public class Compte {
     private Long idE;
     private Long idUser;
     private String civilite ;
-    private String NetP;
+    private String NetP;//Nom et prenom
     private  String email;
     private String pass;
     private Long tel;

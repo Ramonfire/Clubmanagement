@@ -5,6 +5,7 @@ import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
 
 import javax.persistence.*;
 import java.util.List;
+
 @Entity
 
 public class Etudiant extends Compte {

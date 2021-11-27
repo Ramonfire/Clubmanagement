@@ -1,11 +1,11 @@
 package com.example.Clubmanagement.entities.club;
 
-import com.example.Clubmanagement.entities.compte.generlAc.Compte;
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
 import com.example.Clubmanagement.entities.compte.generlAc.R_pedag;
 
 import javax.persistence.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="Clubs")
