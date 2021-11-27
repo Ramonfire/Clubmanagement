@@ -1,11 +1,11 @@
 package com.example.Clubmanagement.entities.club;
 
-import com.example.Clubmanagement.entities.compte.generlAc.Compte;
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
 import com.example.Clubmanagement.entities.compte.generlAc.R_pedag;
 
 import javax.persistence.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="Clubs")
@@ -16,7 +16,7 @@ public class Club {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_Club")
 
-    private  long idc;
+    private  Long idc;
     private  String Nomclub;
     private Boolean etat;
     private  String description;
@@ -24,7 +24,7 @@ public class Club {
     public Club() {
     }
 
-    public Club(long idc, String nomclub, Boolean etat, String description) {
+    public Club(Long idc, String nomclub, Boolean etat, String description) {
         this.idc = idc;
         Nomclub = nomclub;
         this.etat = etat;
@@ -41,11 +41,11 @@ public class Club {
 
 
 
-    public long getIdc() {
+    public Long getIdc() {
         return idc;
     }
 
-    public void setIdc(long idc) {
+    public void setIdc(Long idc) {
         this.idc = idc;
     }
 

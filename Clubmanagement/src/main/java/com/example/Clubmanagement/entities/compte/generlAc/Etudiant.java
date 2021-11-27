@@ -5,13 +5,14 @@ import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
 
 import javax.persistence.*;
 import java.util.List;
+
 @Entity
 
 public class Etudiant extends Compte {
 
 
 
-    private  long anetud;
+    private  Long anetud;
     private  String programme;
 
     //contructor
@@ -20,29 +21,29 @@ public class Etudiant extends Compte {
     public Etudiant() {
     }
 
-    public Etudiant(long anetud, String programme) {
+    public Etudiant(Long anetud, String programme) {
         this.anetud = anetud;
         this.programme = programme;
     }
 
-    public Etudiant(String civilite, String netP, String email, String pass, long tel, long anetud, String programme) {
+    public Etudiant(String civilite, String netP, String email, String pass, Long tel, Long anetud, String programme) {
         super(civilite, netP, email, pass, tel);
         this.anetud = anetud;
         this.programme = programme;
     }
 
-    public Etudiant(long id, String civilite, String netP, String email, String pass, long tel, long anetud, String programme) {
+    public Etudiant(Long id, String civilite, String netP, String email, String pass, Long tel, Long anetud, String programme) {
         super(id, civilite, netP, email, pass, tel);
         this.anetud = anetud;
         this.programme = programme;
     }
     //end constructors
 //getters adn stters
-    public long getAnetud() {
+    public Long getAnetud() {
         return anetud;
     }
 
-    public void setAnetud(long anetud) {
+    public void setAnetud(Long anetud) {
         this.anetud = anetud;
     }
 
