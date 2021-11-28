@@ -1,9 +1,7 @@
 package com.example.Clubmanagement.entities.compte.generlAc;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Entity
@@ -12,10 +10,10 @@ import javax.persistence.Id;
 
 public class Compte {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
 
     private Long idE;
-    private Long idUser;
     private String civilite ;
     private String fullname;//Nom et prenom
     private  String email;

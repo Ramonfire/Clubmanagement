@@ -2,15 +2,17 @@ package com.example.Clubmanagement.entities.compte.generlAc;
 
 import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import org.springframework.context.annotation.Primary;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 
+
 public class Etudiant extends Compte {
-
-
 
     private  Long anetud;
     private  String programme;
