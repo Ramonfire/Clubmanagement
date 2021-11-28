@@ -14,10 +14,10 @@ public class Club {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_Club")
+    @Column(name = "IdClub")
 
     private  Long idc;
-    private  String Nomclub;
+    private  String nomclub;
     private Boolean etat;
     private  String description;
 //contrsuctor
@@ -26,13 +26,13 @@ public class Club {
 
     public Club(Long idc, String nomclub, Boolean etat, String description) {
         this.idc = idc;
-        Nomclub = nomclub;
+        this.nomclub = nomclub;
         this.etat = etat;
         this.description = description;
     }
 
     public Club(String nomclub, Boolean etat, String description) {
-        Nomclub = nomclub;
+        this.nomclub = nomclub;
         this.etat = etat;
         this.description = description;
     }
@@ -49,12 +49,12 @@ public class Club {
         this.idc = idc;
     }
 
-    public String getNomclub() {
-        return Nomclub;
+    public String getnomclub() {
+        return nomclub;
     }
 
-    public void setNomclub(String nomclub) {
-        Nomclub = nomclub;
+    public void setnomclub(String nomclub) {
+        nomclub = nomclub;
     }
 
     public Boolean getEtat() {
@@ -77,7 +77,7 @@ public class Club {
     @Override
     public String toString() {
         return "Club{" +
-                "Nomclub='" + Nomclub + '\'' +
+                "nomclub='" + nomclub + '\'' +
                 ", etat=" + etat +
                 ", description='" + description + '\'' +
                 '}';
