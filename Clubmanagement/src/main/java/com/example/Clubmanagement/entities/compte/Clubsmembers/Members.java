@@ -21,11 +21,15 @@ public class Members {
     private Long idmembre;// place holder collumn for security reasons
 
 
-    @Column(insertable = false,updatable = false ,name= "club_id_club")
+    @Column(nullable = false,updatable = false ,name= "club_id_club")
    private  Long clubid;
-    @Column(insertable = false,updatable = false, name ="students_id")
+    @Column(nullable = false,updatable = false, name ="students_id")
    private  Long Studentid;
     private String role;
 
-
+    public Members(Long clubid, Long studentid, String role) {
+        this.clubid = clubid;
+        Studentid = studentid;
+        this.role = role;
+    }
 }
