@@ -28,7 +28,7 @@ public class Compte {
 
     public Compte(String civilite, String fullname, String email, String pass, Long tel) {
         this.civilite = civilite;
-        fullname = fullname;
+        this.fullname = fullname;
         this.email = email;
         this.pass = pass;
         this.tel = tel;
@@ -37,7 +37,7 @@ public class Compte {
     public Compte(Long id, String civilite, String fullname, String email, String pass, Long tel) {
         this.idE = id;
         this.civilite = civilite;
-        fullname = fullname;
+        this.fullname = fullname;
         this.email = email;
         this.pass = pass;
         this.tel = tel;
@@ -66,7 +66,7 @@ public class Compte {
     }
 
     public void setfullname(String fullname) {
-        fullname = fullname;
+        this.fullname = fullname;
     }
 
     public String getEmail() {

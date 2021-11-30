@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 @Table(name="Clubs")
 
+
 public class Club {
 
     @Id

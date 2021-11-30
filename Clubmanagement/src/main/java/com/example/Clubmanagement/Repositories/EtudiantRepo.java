@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @ComponentScan
-public interface Etudiant_repo extends JpaRepository<Etudiant,Long> {
+public interface EtudiantRepo extends JpaRepository<Etudiant,Long> {
 Etudiant findByFullname(String nom);
 Etudiant findByEmail(String email);
 }

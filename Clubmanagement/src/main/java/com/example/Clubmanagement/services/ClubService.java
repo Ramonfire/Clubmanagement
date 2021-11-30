@@ -10,14 +10,14 @@ import java.util.List;
 @Service
 public class ClubService {
 
-    private ClubRepo clubRepo;
+    private final ClubRepo clubRepo;
 
     @Autowired
     public ClubService(ClubRepo clubRepo) {
         this.clubRepo = clubRepo;
     }
 
-    public List<Club> getClub(){
+    public List<Club> getAllClub(){
         return this.clubRepo.findAll();
 
     }

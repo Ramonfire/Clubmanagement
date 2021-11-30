@@ -1,5 +1,6 @@
 package com.example.Clubmanagement.Controllers.VisitorControls;
 
+import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.club.evenement;
 import com.example.Clubmanagement.services.ClubService;
 import com.example.Clubmanagement.services.EventService;
@@ -13,7 +14,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(path = "api/test")
+@RequestMapping(path = "api/v1/visitor")
 public class Visotorcontoller {
     private EventService eventService;
     private ClubService clubService;
@@ -25,9 +26,14 @@ public class Visotorcontoller {
     }
 
 
-    @GetMapping
+    @GetMapping(path = "publicevent")
     public List<evenement> getPublicevents(){
     return  eventService.getPevent();
+
+    }
+    @GetMapping(path ="allclubs")
+    public List<Club> getallClubs(){
+    return clubService.getAllClub();
 
     }
 

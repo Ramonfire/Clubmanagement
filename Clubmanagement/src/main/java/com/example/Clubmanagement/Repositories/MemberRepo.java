@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @ComponentScan
-public interface Member_repo extends JpaRepository<Members,Long> {
+public interface MemberRepo extends JpaRepository<Members,Long> {
     Members findByRole(String role);
     Members findByClubid(Long Id);
 }
