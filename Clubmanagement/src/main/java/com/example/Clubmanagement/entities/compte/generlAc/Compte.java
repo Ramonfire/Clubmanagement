@@ -17,6 +17,7 @@ public class Compte {
     private String civilite ;
     private String fullname;//Nom et prenom
     private  String email;
+
     private String pass;
     private Long tel;
 

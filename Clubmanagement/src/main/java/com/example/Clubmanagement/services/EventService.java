@@ -23,4 +23,5 @@ public List<evenement> getPevent(){
         return this.eventrepo.findByState(0);
 }
 
+    public List<evenement> getallevents() { return eventrepo.findAll(); }
 }

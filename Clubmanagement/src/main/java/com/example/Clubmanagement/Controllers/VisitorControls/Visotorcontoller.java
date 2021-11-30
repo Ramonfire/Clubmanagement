@@ -14,7 +14,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(path = "api/v1/visitor")
+@RequestMapping(path = "Clubpage/welcome")
 public class Visotorcontoller {
     private EventService eventService;
     private ClubService clubService;
