@@ -1,9 +1,7 @@
 package com.example.Clubmanagement.entities.compte.generlAc;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Entity
@@ -12,13 +10,14 @@ import javax.persistence.Id;
 
 public class Compte {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
 
     private Long idE;
-    private Long idUser;
     private String civilite ;
-    private String NetP;//Nom et prenom
+    private String fullname;//Nom et prenom
     private  String email;
+
     private String pass;
     private Long tel;
 
@@ -28,18 +27,18 @@ public class Compte {
     public Compte() {
     }
 
-    public Compte(String civilite, String netP, String email, String pass, Long tel) {
+    public Compte(String civilite, String fullname, String email, String pass, Long tel) {
         this.civilite = civilite;
-        NetP = netP;
+        this.fullname = fullname;
         this.email = email;
         this.pass = pass;
         this.tel = tel;
     }
 
-    public Compte(Long id, String civilite, String netP, String email, String pass, Long tel) {
+    public Compte(Long id, String civilite, String fullname, String email, String pass, Long tel) {
         this.idE = id;
         this.civilite = civilite;
-        NetP = netP;
+        this.fullname = fullname;
         this.email = email;
         this.pass = pass;
         this.tel = tel;
@@ -63,12 +62,12 @@ public class Compte {
         this.civilite = civilite;
     }
 
-    public String getNetP() {
-        return NetP;
+    public String getfullname() {
+        return fullname;
     }
 
-    public void setNetP(String netP) {
-        NetP = netP;
+    public void setfullname(String fullname) {
+        this.fullname = fullname;
     }
 
     public String getEmail() {
@@ -100,7 +99,7 @@ public class Compte {
     public String toString() {
         return "Compte{"+
                 " civilite='" + civilite + '\'' +
-                ", NetP='" + NetP + '\'' +
+                ", fullname='" + fullname + '\'' +
                 ", email='" + email + '\'' +
                 ", pass='" + pass + '\'' +
                 ", tel=" + tel +

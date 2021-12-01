@@ -1,8 +1,12 @@
 package com.example.Clubmanagement.entities.compte.generlAc;
 
 
-public class R_clubs extends Compte {
 
+import javax.persistence.Entity;
+
+@Entity
+//admin
+public class R_clubs extends Compte {
 
 
 

@@ -2,15 +2,17 @@ package com.example.Clubmanagement.entities.compte.generlAc;
 
 import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import org.springframework.context.annotation.Primary;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 
+
 public class Etudiant extends Compte {
-
-
 
     private  Long anetud;
     private  String programme;
@@ -26,14 +28,14 @@ public class Etudiant extends Compte {
         this.programme = programme;
     }
 
-    public Etudiant(String civilite, String netP, String email, String pass, Long tel, Long anetud, String programme) {
-        super(civilite, netP, email, pass, tel);
+    public Etudiant(String civilite, String fullname, String email, String pass, Long tel, Long anetud, String programme) {
+        super(civilite, fullname, email, pass, tel);
         this.anetud = anetud;
         this.programme = programme;
     }
 
-    public Etudiant(Long id, String civilite, String netP, String email, String pass, Long tel, Long anetud, String programme) {
-        super(id, civilite, netP, email, pass, tel);
+    public Etudiant(Long id, String civilite, String fullname, String email, String pass, Long tel, Long anetud, String programme) {
+        super(id, civilite, fullname, email, pass, tel);
         this.anetud = anetud;
         this.programme = programme;
     }
@@ -72,7 +74,7 @@ public class Etudiant extends Compte {
     }
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable( name = "Members" , joinColumns = {@JoinColumn ( name ="Student_id",  referencedColumnName = "id", nullable = false, updatable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "club_id",referencedColumnName="id_Club",nullable = false, updatable = false)})
+            inverseJoinColumns = {@JoinColumn(name = "club_id",referencedColumnName="IdClub",nullable = false, updatable = false)})
     private List<Club> C ;
 
 
