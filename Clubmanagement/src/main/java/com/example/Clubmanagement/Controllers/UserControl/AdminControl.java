@@ -51,5 +51,11 @@ public class AdminControl {
         return clubService.getAllClubs(etat);
     }
 
+    @GetMapping(path = "Club/{id}")
+    public Club getclub(@PathVariable("id") Long id){
+
+    return clubService.getclubs(id);
+    }
+
 
 }

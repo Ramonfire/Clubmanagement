@@ -28,5 +28,7 @@ public class ClubService {
     }
 
 
-
+    public Club getclubs(Long id) {
+        return  this.clubRepo.findClubByIdc(id);
+    }
 }

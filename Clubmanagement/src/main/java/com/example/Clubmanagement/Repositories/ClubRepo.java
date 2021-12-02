@@ -12,5 +12,6 @@ import java.util.List;
 public interface ClubRepo extends JpaRepository<Club,Long> {
     Club findByNomclub(String nom);
     List<Club> findByEtat(boolean etat);
+    Club findClubByIdc (Long id);
     
 }
