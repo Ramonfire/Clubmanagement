@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface DemandeRepo extends JpaRepository<CreationDemand,Long> {
 
-    List<CreationDemand> findByEtatD(Boolean etat);
+    List<CreationDemand> findByEtatD(boolean etat);
 }

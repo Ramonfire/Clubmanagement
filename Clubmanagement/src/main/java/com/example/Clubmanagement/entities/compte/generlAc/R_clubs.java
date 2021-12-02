@@ -2,13 +2,19 @@ package com.example.Clubmanagement.entities.compte.generlAc;
 
 
 
-import javax.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 @Entity
-//admin
+@Table
+@NoArgsConstructor
+@AllArgsConstructor
 public class R_clubs extends Compte {
 
-
+private  String mot;
 
 
 

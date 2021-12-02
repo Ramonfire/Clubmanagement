@@ -2,14 +2,15 @@ package com.example.Clubmanagement.Controllers.UserControl;
 
 
 import com.example.Clubmanagement.entities.Forms.CreationDemand;
+import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.club.evenement;
+import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
+import com.example.Clubmanagement.services.ClubService;
 import com.example.Clubmanagement.services.DemandeService;
+import com.example.Clubmanagement.services.EtudiantService;
 import com.example.Clubmanagement.services.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,11 +20,15 @@ public class AdminControl {
 
     private  EventService eventService;
     private DemandeService demandeService;
+    private EtudiantService etudiantService;
+    private ClubService clubService;
 
 @Autowired
-    public AdminControl(EventService eventService, DemandeService demandeService) {
+    public AdminControl(EventService eventService, DemandeService demandeService, EtudiantService etudiantService, ClubService clubService) {
         this.eventService = eventService;
     this.demandeService = demandeService;
+    this.etudiantService = etudiantService;
+    this.clubService = clubService;
 }
 
     @GetMapping(path = "events")
@@ -37,9 +42,28 @@ public class AdminControl {
     }
 
     @GetMapping(value = "demandeclub/{etat}")
-    public List<CreationDemand> getDemandebyState(@PathVariable("etat") Boolean etat ){
+    public List<CreationDemand> getDemandebyState(@PathVariable("etat") boolean etat ){
     return demandeService.getdemandeBystate(etat);
 
+    }
+    @GetMapping(path = "publicevent")
+    public List<evenement> getPublicevents(){
+        return  eventService.getPevent();
+
+    }
+    @GetMapping(path ="allclubs/{etat}")
+    public List<Club> getallClubs(@PathVariable("etat") boolean etat ){
+        return clubService.getAllClubs(etat);
+    }
+
+    @GetMapping(path = "Club/{id}")
+    public Club getclub(@PathVariable("id") Long id){
+
+    return clubService.getclubs(id);
+    }
+@GetMapping(path = "Etudiant")
+    public List<Etudiant> getAllStudents(){
+return etudiantService.getallstudents();
     }
 
 

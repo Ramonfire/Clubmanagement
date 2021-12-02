@@ -20,7 +20,7 @@ public class CreationDemand {
     private Long IdEtudiant;
     private  String NomClubD;
     private  String Descrpt;
-    private  Boolean etatD;
+    private  boolean etatD;
 
 
 }
