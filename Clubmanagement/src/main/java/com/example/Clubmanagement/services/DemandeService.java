@@ -20,7 +20,7 @@ public class DemandeService {
 public List<CreationDemand> getAllDemands(){
         return demandeRepo.findAll();
 }
-public  List<CreationDemand> getdemandeBystate(Boolean etat){
+public  List<CreationDemand> getdemandeBystate(boolean etat){
         return demandeRepo.findByEtatD(etat);
 
 }

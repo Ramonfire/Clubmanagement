@@ -17,8 +17,13 @@ public class ClubService {
         this.clubRepo = clubRepo;
     }
 
-    public List<Club> getAllClub(){
+    public List<Club> getAllActiveClub(){
         return this.clubRepo.findAll();
+
+    }
+
+    public  List<Club> getAllClubs(boolean etat){
+        return  this.clubRepo.findByEtat(etat);
 
     }
 

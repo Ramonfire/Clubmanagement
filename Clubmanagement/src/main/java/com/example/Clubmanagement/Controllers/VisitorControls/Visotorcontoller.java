@@ -32,9 +32,10 @@ public class Visotorcontoller {
 
     }
     @GetMapping(path ="allclubs")
-    public List<Club> getallClubs(){
-    return clubService.getAllClub();
+    public List<Club> getallActiveClubs(){
+    return clubService.getAllActiveClub();
 
     }
+
 
 }

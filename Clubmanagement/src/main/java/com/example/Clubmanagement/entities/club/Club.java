@@ -19,20 +19,20 @@ public class Club {
 
     private  Long idc;
     private  String nomclub;
-    private Boolean etat;
+    private boolean etat;
     private  String description;
 //contrsuctor
     public Club() {
     }
 
-    public Club(Long idc, String nomclub, Boolean etat, String description) {
+    public Club(Long idc, String nomclub, boolean etat, String description) {
         this.idc = idc;
         this.nomclub = nomclub;
         this.etat = etat;
         this.description = description;
     }
 
-    public Club(String nomclub, Boolean etat, String description) {
+    public Club(String nomclub, boolean etat, String description) {
         this.nomclub = nomclub;
         this.etat = etat;
         this.description = description;
@@ -58,11 +58,11 @@ public class Club {
         nomclub = nomclub;
     }
 
-    public Boolean getEtat() {
+    public boolean getEtat() {
         return etat;
     }
 
-    public void setEtat(Boolean etat) {
+    public void setEtat(boolean etat) {
         this.etat = etat;
     }
 
