@@ -6,11 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
-//admin
-@Data
+@Table
 @NoArgsConstructor
 @AllArgsConstructor
 public class R_clubs extends Compte {

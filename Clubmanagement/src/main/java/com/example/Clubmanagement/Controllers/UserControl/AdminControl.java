@@ -4,8 +4,10 @@ package com.example.Clubmanagement.Controllers.UserControl;
 import com.example.Clubmanagement.entities.Forms.CreationDemand;
 import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.club.evenement;
+import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
 import com.example.Clubmanagement.services.ClubService;
 import com.example.Clubmanagement.services.DemandeService;
+import com.example.Clubmanagement.services.EtudiantService;
 import com.example.Clubmanagement.services.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,12 +20,15 @@ public class AdminControl {
 
     private  EventService eventService;
     private DemandeService demandeService;
+    private EtudiantService etudiantService;
     private ClubService clubService;
 
 @Autowired
-    public AdminControl(EventService eventService, DemandeService demandeService) {
+    public AdminControl(EventService eventService, DemandeService demandeService, EtudiantService etudiantService, ClubService clubService) {
         this.eventService = eventService;
     this.demandeService = demandeService;
+    this.etudiantService = etudiantService;
+    this.clubService = clubService;
 }
 
     @GetMapping(path = "events")
@@ -55,6 +60,10 @@ public class AdminControl {
     public Club getclub(@PathVariable("id") Long id){
 
     return clubService.getclubs(id);
+    }
+@GetMapping(path = "Etudiant")
+    public List<Etudiant> getAllStudents(){
+return etudiantService.getallstudents();
     }
 
 

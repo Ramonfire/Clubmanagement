@@ -10,8 +10,8 @@ import java.util.List;
 @Repository
 @ComponentScan
 public interface ClubRepo extends JpaRepository<Club,Long> {
-    Club findByNomclub(String nom);
+    Club findAllByNomclub(String nom);
     List<Club> findByEtat(boolean etat);
-    Club findClubByIdc (Long id);
+    Club findByIdc (Long id);
     
 }
