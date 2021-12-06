@@ -4,11 +4,9 @@ package com.example.Clubmanagement.Controllers.UserControl;
 import com.example.Clubmanagement.entities.Forms.CreationDemand;
 import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.club.evenement;
+import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
-import com.example.Clubmanagement.services.ClubService;
-import com.example.Clubmanagement.services.DemandeService;
-import com.example.Clubmanagement.services.EtudiantService;
-import com.example.Clubmanagement.services.EventService;
+import com.example.Clubmanagement.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,13 +20,16 @@ public class AdminControl {
     private DemandeService demandeService;
     private EtudiantService etudiantService;
     private ClubService clubService;
+    private MemberService memberService;
 
 @Autowired
-    public AdminControl(EventService eventService, DemandeService demandeService, EtudiantService etudiantService, ClubService clubService) {
+    public AdminControl(EventService eventService, DemandeService demandeService, EtudiantService etudiantService, ClubService clubService, MemberService memberService) {
         this.eventService = eventService;
     this.demandeService = demandeService;
     this.etudiantService = etudiantService;
     this.clubService = clubService;
+    this.memberService = memberService;
+
 }
 
     @GetMapping(path = "events")
@@ -36,7 +37,7 @@ public class AdminControl {
     return eventService.getallevents();
     }
 
-    @GetMapping(path = "allclubs")
+    @GetMapping(path = "all_clubs")
     public List<CreationDemand> getallDemands(){
     return demandeService.getAllDemands();
     }
@@ -46,12 +47,12 @@ public class AdminControl {
     return demandeService.getdemandeBystate(etat);
 
     }
-    @GetMapping(path = "publicevent")
+    @GetMapping(path = "public_event")
     public List<evenement> getPublicevents(){
         return  eventService.getPevent();
 
     }
-    @GetMapping(path ="allclubs/{etat}")
+    @GetMapping(path ="all_clubs/{etat}")
     public List<Club> getallClubs(@PathVariable("etat") boolean etat ){
         return clubService.getAllClubs(etat);
     }
@@ -61,9 +62,32 @@ public class AdminControl {
 
     return clubService.getclubs(id);
     }
-@GetMapping(path = "Etudiant")
+    @GetMapping(path = "Etudiant")
     public List<Etudiant> getAllStudents(){
 return etudiantService.getallstudents();
+    }
+
+    @GetMapping(path = "Members/{id}")
+    public List<Members> getAllMembers(@PathVariable("id") Long id){return this.memberService.getClubMembers(Long.valueOf(id));}
+    @GetMapping(path = "Role/{Role}")
+    public List<Members> getMemberRole(@PathVariable("Role") String Role){return this.memberService.getClubRoles(Role);}
+
+    @GetMapping(path = "Countevents/{etat}")
+    public  Long getallevents(@PathVariable("etat")int etat){
+    return this.eventService.Countevents(etat);
+    }
+
+
+
+    @PostMapping(path = "saveClub")
+    public String insertClub(@RequestBody Club club){
+    return this.clubService.saveclub(club);
+
+    }
+    @PostMapping(path = "saveMember")
+    public String insertMember(@RequestBody Members member){
+        return this.memberService.saveMember(member);
+
     }
 
 
