@@ -23,4 +23,13 @@ private  MemberRepo memberRepo;
     public List<Members> getClubRoles(String role) {
     return  this.memberRepo.findByRole(role);
     }
+
+    public String saveMember(Members member) {
+    String s="error";
+            Members x = this.memberRepo.save(member);
+    if (x.getIdmembre()!=null){
+        s="success";
+    }
+    return s;
+    }
 }

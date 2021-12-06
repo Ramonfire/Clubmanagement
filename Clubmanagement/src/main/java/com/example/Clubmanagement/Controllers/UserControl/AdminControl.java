@@ -29,6 +29,7 @@ public class AdminControl {
     this.etudiantService = etudiantService;
     this.clubService = clubService;
     this.memberService = memberService;
+
 }
 
     @GetMapping(path = "events")
@@ -83,5 +84,11 @@ return etudiantService.getallstudents();
     return this.clubService.saveclub(club);
 
     }
+    @PostMapping(path = "saveMember")
+    public String insertMember(@RequestBody Members member){
+        return this.memberService.saveMember(member);
+
+    }
+
 
 }
