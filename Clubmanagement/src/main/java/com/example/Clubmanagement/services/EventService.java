@@ -24,4 +24,8 @@ public List<evenement> getPevent(){
 }
 
     public List<evenement> getallevents() { return eventrepo.findAll(); }
+
+    public Long Countevents(int etat) {
+        return eventrepo.countByState(etat);
+    }
 }

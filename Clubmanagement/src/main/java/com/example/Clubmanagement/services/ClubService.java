@@ -31,4 +31,13 @@ public class ClubService {
     public Club getclubs(Long id) {
         return  this.clubRepo.findByIdc(id);
     }
+
+    public String saveclub(Club club) {
+        String s="error";
+       Club x= this.clubRepo.save(club);
+       if(x.getIdc()!=null){
+    s="Sucess";
+       }
+       return s;
+    }
 }
