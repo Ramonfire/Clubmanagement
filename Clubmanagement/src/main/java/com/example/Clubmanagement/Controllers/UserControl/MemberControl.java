@@ -1,10 +1,12 @@
 package com.example.Clubmanagement.Controllers.UserControl;
 
 
+import com.example.Clubmanagement.entities.club.evenement;
 import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
 import com.example.Clubmanagement.services.ClubService;
 import com.example.Clubmanagement.services.EtudiantService;
+import com.example.Clubmanagement.services.EventService;
 import com.example.Clubmanagement.services.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,7 @@ public class MemberControl {
      private MemberService memberService;
      private EtudiantService etudiantService;
      private ClubService clubService;
+     private EventService eventService;
 
 
 
@@ -42,11 +45,21 @@ public List<Etudiant> getAllStudents(@PathVariable("Clubid") Long Clubid){
     return etudiants;
     }
 
+    @GetMapping(path = "events/{type}")
+    public List<evenement> geteventsbytype(@PathVariable int type){
+
+    return this.eventService.geteventbytype(type);
+
+
+    }
+
 
     @PostMapping(path = "saveMember")
     public String insertMember(@RequestBody Members member){
         return this.memberService.saveMember(member);
 
     }
+
+
 
 }

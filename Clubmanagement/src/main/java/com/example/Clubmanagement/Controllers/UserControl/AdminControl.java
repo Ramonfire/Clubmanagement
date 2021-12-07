@@ -10,6 +10,7 @@ import com.example.Clubmanagement.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -67,8 +68,17 @@ public class AdminControl {
 return etudiantService.getallstudents();
     }
 
-    @GetMapping(path = "Members/{id}")
-    public List<Members> getAllMembers(@PathVariable("id") Long id){return this.memberService.getClubMembers(Long.valueOf(id));}
+    @GetMapping(path = "members/{Clubid}")
+    public List<Etudiant> getAllStudents(@PathVariable("Clubid") Long Clubid){
+        List<Members> members =this.memberService.getClubMembers(Clubid);
+        List<Etudiant> etudiants = new ArrayList<>();
+        for (Members x: members) {
+            etudiants.add(this.etudiantService.getStudentbyid(x.getStudentid()));
+
+        }
+        return etudiants;
+    }
+    //Members By Role
     @GetMapping(path = "Role/{Role}")
     public List<Members> getMemberRole(@PathVariable("Role") String Role){return this.memberService.getClubRoles(Role);}
 
