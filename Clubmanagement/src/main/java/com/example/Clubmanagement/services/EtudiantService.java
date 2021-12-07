@@ -23,8 +23,8 @@ public class EtudiantService {
 
     }
 // a revoir!
-    public Optional<Etudiant> getStudentid(Long idmembre) {
+   /* public Optional<Etudiant> getStudentid(Long idmembre) {
          return this.etudiantRepo.findById(idmembre);
 
-    }
+    }*/
 }

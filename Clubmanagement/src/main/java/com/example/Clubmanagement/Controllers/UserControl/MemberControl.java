@@ -27,7 +27,7 @@ public class MemberControl {
         this.memberService = memberService;
     }
 // a revoir!
-    @GetMapping(path = "members/{Clubid}")
+   /* @GetMapping(path = "members/{Clubid}")
 public List<Optional<Etudiant>> getAllStudents(@PathVariable("Clubid") Long Clubid){
     List<Members> members =this.memberService.getClubMembers(Clubid);
         List<Optional<Etudiant>> etudiants = null;
@@ -36,7 +36,7 @@ public List<Optional<Etudiant>> getAllStudents(@PathVariable("Clubid") Long Club
 
         }
     return etudiants;
-    }
+    }*/
 
 
     @PostMapping(path = "saveMember")
