@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class R_clubs extends Compte {

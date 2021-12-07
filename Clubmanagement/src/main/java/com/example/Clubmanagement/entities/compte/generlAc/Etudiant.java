@@ -13,8 +13,9 @@ import java.util.List;
 
 
 public class Etudiant extends Compte {
-
+    @Column(nullable = false)
     private  Long anetud;
+    @Column(nullable = false)
     private  String programme;
 
     //contructor
