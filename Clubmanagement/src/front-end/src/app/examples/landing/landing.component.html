@@ -1,4 +1,6 @@
-<div class="page-header" data-parallax="true" style="background-image: url('./assets/img/Bâtiment_UIR.jpg');">
+<div  *ngIf="!timeVerifyDay()" class="page-header" data-parallax="true" style="background-image: url('./assets/img/Bâtiment_UIR.jpg');">
+    <div  *ngIf="!timeVerifyNight()" class="page-header" data-parallax="true" style="background-image: url('./assets/img/uirbynight.png');">
+
     <div class="filter"></div>
     <div class="container">
         <div class="motto text-center">
@@ -9,6 +11,7 @@
 
         </div>
     </div>
+</div>
 </div>
 <div class="main">
     <div class="section text-center">
