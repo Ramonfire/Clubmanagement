@@ -11,14 +11,18 @@ import javax.persistence.*;
 public class Compte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id" ,nullable = false)
 
     private Long idE;
+    @Column(nullable = false)
     private String civilite ;
+    @Column(nullable = false)
     private String fullname;//Nom et prenom
+    @Column(nullable = false)
     private  String email;
-
+    @Column(nullable = false)
     private String pass;
+    @Column(nullable = false)
     private Long tel;
 
 

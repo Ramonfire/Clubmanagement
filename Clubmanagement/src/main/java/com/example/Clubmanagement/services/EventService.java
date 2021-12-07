@@ -28,4 +28,8 @@ public List<evenement> getPevent(){
     public Long Countevents(int etat) {
         return eventrepo.countByState(etat);
     }
+
+    public List<evenement> geteventbytype(int type) {
+        return this.eventrepo.findByType(type);
+    }
 }
