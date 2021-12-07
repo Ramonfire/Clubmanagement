@@ -9,8 +9,8 @@ import com.example.Clubmanagement.services.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "Club")
@@ -23,20 +23,24 @@ public class MemberControl {
 
 
 @Autowired
-    public MemberControl(MemberService memberService) {
+    public MemberControl(MemberService memberService, EtudiantService etudiantService, ClubService clubService) {
         this.memberService = memberService;
-    }
-// a revoir!
-   /* @GetMapping(path = "members/{Clubid}")
-public List<Optional<Etudiant>> getAllStudents(@PathVariable("Clubid") Long Clubid){
+    this.etudiantService = etudiantService;
+    this.clubService = clubService;
+}
+
+
+
+    @GetMapping(path = "members/{Clubid}")
+public List<Etudiant> getAllStudents(@PathVariable("Clubid") Long Clubid){
     List<Members> members =this.memberService.getClubMembers(Clubid);
-        List<Optional<Etudiant>> etudiants = null;
+        List<Etudiant> etudiants = new ArrayList<>();
         for (Members x: members) {
-             etudiants.add(this.etudiantService.getStudentid(x.getStudentid()));
+             etudiants.add(this.etudiantService.getStudentbyid(x.getStudentid()));
 
         }
     return etudiants;
-    }*/
+    }
 
 
     @PostMapping(path = "saveMember")
