@@ -38,7 +38,7 @@ public class AdminControl {
     return eventService.getallevents();
     }
 
-    @GetMapping(path = "all_clubs")
+    @GetMapping(path = "allDemandeclubs")
     public List<CreationDemand> getallDemands(){
     return demandeService.getAllDemands();
     }
@@ -53,7 +53,7 @@ public class AdminControl {
         return  eventService.getPevent();
 
     }
-    @GetMapping(path ="all_clubs/{etat}")
+    @GetMapping(path ="clubs/{etat}")
     public List<Club> getallClubs(@PathVariable("etat") boolean etat ){
         return clubService.getAllClubs(etat);
     }

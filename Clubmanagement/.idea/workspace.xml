@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e411d47-6984-4906-898b-babe9837a235" name="Changes" comment="">
+    <list default="true" id="9e411d47-6984-4906-898b-babe9837a235" name="Changes" comment="isnight finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/front-end/src/app/examples/landing/landing.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/front-end/src/app/examples/landing/landing.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/front-end/src/app/examples/landing/landing.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/front-end/src/app/examples/landing/landing.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +68,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/src/front-end/node_modules/protractor" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="ts.external.directory.path" value="C:\Users\PC\OneDrive\Documents\GitHub\Clubmanagement\Clubmanagement\src\front-end\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
@@ -87,7 +86,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="npm.run">
+  <component name="RunManager" selected="Unknown.ClubmanagementApplication921554776">
     <configuration name="protractor.conf.js" type="JavaScriptTestRunnerProtractor" nameIsGenerated="true">
       <config-file value="$PROJECT_DIR$/src/front-end/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -155,8 +154,16 @@
       <workItem from="1637398446314" duration="39000" />
       <workItem from="1637398571744" duration="733000" />
       <workItem from="1638483819408" duration="1435000" />
-      <workItem from="1638829388922" duration="21824000" />
+      <workItem from="1638829388922" duration="22247000" />
     </task>
+    <task id="LOCAL-00001" summary="isnight finished">
+      <created>1638959902374</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1638959902374</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,5 +185,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="isnight finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="isnight finished" />
   </component>
 </project>
