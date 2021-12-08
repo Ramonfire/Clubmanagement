@@ -4,13 +4,15 @@ import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.context.annotation.Primary;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 
 public class Etudiant extends Compte {
     @Column(nullable = false)
@@ -20,9 +22,6 @@ public class Etudiant extends Compte {
 
     //contructor
 
-
-    public Etudiant() {
-    }
 
     public Etudiant(Long anetud, String programme) {
         this.anetud = anetud;

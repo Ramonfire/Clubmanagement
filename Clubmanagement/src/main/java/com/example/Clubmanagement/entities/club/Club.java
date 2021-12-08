@@ -2,6 +2,9 @@ package com.example.Clubmanagement.entities.club;
 
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
 import com.example.Clubmanagement.entities.compte.generlAc.R_pedag;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -9,6 +12,9 @@ import java.util.List;
 
 @Entity
 @Table(name="Clubs")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 
 
 public class Club {
@@ -21,9 +27,6 @@ public class Club {
     private  String nomclub;
     private boolean etat;
     private  String description;
-//contrsuctor
-    public Club() {
-    }
 
     public Club(Long idc, String nomclub, boolean etat, String description) {
         this.idc = idc;

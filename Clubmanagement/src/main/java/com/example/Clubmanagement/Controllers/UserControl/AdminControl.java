@@ -88,6 +88,20 @@ return etudiantService.getallstudents();
     }
 
 
+    @GetMapping(path = "members/{id}/{role}")
+    public List<Etudiant> getAllStudents(@PathVariable("role") String role,@PathVariable("id") Long id){
+        List<Members> members =this.memberService.getClubMembers(id,role);
+        List<Etudiant> etudiants = new ArrayList<>();
+        for (Members x: members) {
+            etudiants.add(this.etudiantService.getStudentbyid(x.getStudentid()));
+
+        }
+        return etudiants;
+    }
+
+    @GetMapping(path = "events/{club}")
+    public List<evenement> geteventsbyClub(@PathVariable("club") Club club){return eventService.getClubevent(club);}
+//*************************************************************************************post mapping*************************************************************************//
 
     @PostMapping(path = "saveClub")
     public String insertClub(@RequestBody Club club){

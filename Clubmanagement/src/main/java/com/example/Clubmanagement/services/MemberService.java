@@ -20,9 +20,7 @@ private  MemberRepo memberRepo;
     return  memberRepo.findByClubid(id);
     }
 
-    public List<Members> getClubRoles(String role) {
-    return  this.memberRepo.findByRole(role);
-    }
+    public List<Members> getClubRoles(String role) { return  this.memberRepo.findByRole(role); }
 
     public String saveMember(Members member) {
     String s="error";
@@ -31,6 +29,16 @@ private  MemberRepo memberRepo;
         s="success";
     }
     return s;
+    }
+
+
+    public List<Members> getAllMembersRole(String role) {
+        return  this.memberRepo.findByRole(role);
+    }
+
+    public List<Members> getClubMembers(Long id,String Role){
+        return this.memberRepo.findByClubidAndRole(id,Role);
+
     }
 
 

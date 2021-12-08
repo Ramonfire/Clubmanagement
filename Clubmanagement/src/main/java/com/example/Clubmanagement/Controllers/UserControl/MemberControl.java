@@ -1,6 +1,7 @@
 package com.example.Clubmanagement.Controllers.UserControl;
 
 
+import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.club.evenement;
 import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
@@ -9,6 +10,7 @@ import com.example.Clubmanagement.services.EtudiantService;
 import com.example.Clubmanagement.services.EventService;
 import com.example.Clubmanagement.services.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Role;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -45,6 +47,7 @@ public List<Etudiant> getAllStudents(@PathVariable("Clubid") Long Clubid){
     return etudiants;
     }
 
+
     @GetMapping(path = "events/{type}")
     public List<evenement> geteventsbytype(@PathVariable int type){
 
@@ -52,8 +55,11 @@ public List<Etudiant> getAllStudents(@PathVariable("Clubid") Long Clubid){
 
 
     }
+//a revoir : get mapping can't get an object , only elements
+    @GetMapping(path = "events/{club}" )
+    public List<evenement> geteventsbyClub(@PathVariable("club") Club club){return eventService.getClubevent(club);}
 
-
+    //*************************************************************************************post mapping*************************************************************************//
     @PostMapping(path = "saveMember")
     public String insertMember(@RequestBody Members member){
         return this.memberService.saveMember(member);

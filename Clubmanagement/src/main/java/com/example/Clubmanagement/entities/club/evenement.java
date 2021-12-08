@@ -1,10 +1,17 @@
 package com.example.Clubmanagement.entities.club;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "Events")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class evenement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -73,9 +80,6 @@ public class evenement {
         this.state=state;
         this.type=type;
 
-    }
-
-    public evenement() {
     }
 
     public evenement(String nomevent,String description,int type) {

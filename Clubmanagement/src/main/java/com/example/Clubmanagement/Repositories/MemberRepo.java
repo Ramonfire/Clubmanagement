@@ -13,6 +13,7 @@ import java.util.List;
 public interface MemberRepo extends JpaRepository<Members,Long> {
     List<Members> findByRole(String role);
     List<Members> findByClubid(Long Id);
+    List<Members>findByClubidAndRole(Long id,String role);
 
 
 }

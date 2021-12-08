@@ -1,10 +1,17 @@
 package com.example.Clubmanagement.entities.club;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class reunion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,9 +60,6 @@ public class reunion {
 
     public void setLieu(String lieu) {
         this.lieu = lieu;
-    }
-
-    public reunion() {
     }
 
     public reunion(Long id_reunion, Date datedebut, Long duree, String object, String lieu) {

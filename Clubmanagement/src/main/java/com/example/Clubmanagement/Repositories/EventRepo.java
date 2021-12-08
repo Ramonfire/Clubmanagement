@@ -1,5 +1,6 @@
 package com.example.Clubmanagement.Repositories;
 
+import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.club.evenement;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,4 +16,6 @@ public interface EventRepo extends JpaRepository<evenement,Long> {
     evenement findByNomevent(String n);
     Long countByState(int etat);
     List<evenement> findByType(int type);
+
+    List<evenement> findAllByC(Club club);
 }

@@ -1,9 +1,16 @@
 package com.example.Clubmanagement.entities.club;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "Facture")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class facture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,10 +28,6 @@ public class facture {
 
         this.frais = frais;
         this.eventname = eventname;
-    }
-
-    public facture() {
-
     }
 
     public Long getId_facture() {

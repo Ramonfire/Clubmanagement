@@ -1,11 +1,17 @@
 package com.example.Clubmanagement.entities.compte.generlAc;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 
 @Entity
 @Table
+@Data
+@NoArgsConstructor
 
 
 public class Compte {
@@ -25,11 +31,6 @@ public class Compte {
     @Column(nullable = false)
     private Long tel;
 
-
-
-//constructeur
-    public Compte() {
-    }
 
     public Compte(String civilite, String fullname, String email, String pass, Long tel) {
         this.civilite = civilite;

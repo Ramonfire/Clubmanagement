@@ -2,6 +2,7 @@ package com.example.Clubmanagement.services;
 
 
 import com.example.Clubmanagement.Repositories.EventRepo;
+import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.club.evenement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,5 +32,11 @@ public List<evenement> getPevent(){
 
     public List<evenement> geteventbytype(int type) {
         return this.eventrepo.findByType(type);
+    }
+
+    public List<evenement> getClubevent(Club club) {
+        return this.eventrepo.findAllByC(club);
+
+
     }
 }

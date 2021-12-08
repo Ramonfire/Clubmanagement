@@ -7,4 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(path = "Clubpage/student")
 public class EtudiantController {
+
+
 }

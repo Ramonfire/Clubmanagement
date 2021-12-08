@@ -1,9 +1,16 @@
 package com.example.Clubmanagement.entities.club;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "Budget")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 
 
 public class budget {
@@ -42,9 +49,6 @@ public class budget {
         Somme = somme;
         Budget = budget;
         this.id_budget = id_budget;
-    }
-
-    public budget() {
     }
 
     public budget(float somme, float budget) {
