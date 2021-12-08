@@ -2,7 +2,7 @@
     <div class="container">
         <div class="navbar-translate">
             <a  style="font-size: 22px;margin-left: -3px" class="navbar-brand" href="">UIR CLUBS</a>
-            <img  style="height:7em;position: relative;top: -3px" src="/assets/img/logo-uir.png" >
+            <img  style="height:7em;position: relative;top: -3px" src="/assets/img/logo-uir.png"  >
             <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
                 <span class="navbar-toggler-bar"></span>
                 <span class="navbar-toggler-bar"></span>
@@ -40,7 +40,7 @@
                 </li>
 
                 <li class="nav-item" *ngIf="!isHome()">
-                    <a [routerLink]="['/signup']" *ngIf="!isDocumentation()" class="nav-link"><i class="nc-icon nc-layout-11"></i>S'identifier</a>
+                    <a [routerLink]="['/signin']" *ngIf="!isDocumentation()" class="nav-link"><i class="nc-icon nc-layout-11"></i>S'identifier</a>
 
                 </li>
                 <li class="nav-item" *ngIf="isDocumentation()">

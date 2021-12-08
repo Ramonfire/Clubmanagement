@@ -1,15 +1,3 @@
-<div *ngIf="!isnight()" class="page-header" data-parallax="true"  style="background-image: url('./assets/img/Bâtiment_UIR.jpg') ;">
-    <div class="filter"></div>
-    <div class="container">
-        <div class="motto text-center">
-            <h1>UIR CLUBS</h1>
-            <h3>Découvrez les clubs de l'université internationale de Rabat.</h3>
-            <br />
-            <a href="#about_uir_clubs" class="btn btn-outline-neutral btn-round"><i class="fa fa-play"></i>En savoir plus</a>
-
-        </div>
-    </div>
-</div>
 <div *ngIf="isnight()" class="page-header" data-parallax="true" style="background-image: url('./assets/img/uirbynight.png');">
     <div class="filter"></div>
     <div class="container">
@@ -22,12 +10,28 @@
         </div>
     </div>
 </div>
+
+
+<div *ngIf="!isnight()" class="page-header" data-parallax="true"  style="background-image: url('./assets/img/Bâtiment_UIR.jpg') ;">
+    <div class="filter"></div>
+    <div class="container">
+        <div class="motto text-center">
+            <h1>UIR CLUBS</h1>
+            <h3>Découvrez les clubs de l'université internationale de Rabat.</h3>
+            <br />
+            <a href="#about_uir_clubs" class="btn btn-outline-neutral btn-round"><i class="fa fa-play"></i>En savoir plus</a>
+
+        </div>
+    </div>
+</div>
+
 <div class="main">
     <div class="section text-center">
     <div class="container">
         <div class="row">
             <div class="col-md-8 mr-auto ml-auto">
                 <h2 id="about_uir_clubs"class="title">Qu'est ce que les clubs de l'UIR?</h2>
+
                 <h5 class="description">Les clubs de l'université internationale de Rabat sont un environnement d'épanouissement de l'étudiant ,une occasion de développer et partager ses idées, une oportunité d'apprendre de nouvelles choses.</h5>
                 <br>
                 <a href="#paper-kit" class="btn btn-danger btn-round">Plus de détails</a>

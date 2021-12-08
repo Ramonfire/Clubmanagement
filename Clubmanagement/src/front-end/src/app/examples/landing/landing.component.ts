@@ -13,9 +13,9 @@ export class LandingComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {}
-
+  date=new Date();
   isnight() : boolean{
-      var date: Date = new Date();
+      var date=new Date();
       var currentHour=date.getHours();
       if (currentHour>=19 && currentHour<6){
         return true;
