@@ -1,6 +1,4 @@
-<div  *ngIf="!timeVerifyDay()" class="page-header" data-parallax="true" style="background-image: url('./assets/img/Bâtiment_UIR.jpg');">
-    <div  *ngIf="!timeVerifyNight()" class="page-header" data-parallax="true" style="background-image: url('./assets/img/uirbynight.png');">
-
+<div *ngIf="!isnight()" class="page-header" data-parallax="true"  style="background-image: url('./assets/img/Bâtiment_UIR.jpg') ;">
     <div class="filter"></div>
     <div class="container">
         <div class="motto text-center">
@@ -12,6 +10,17 @@
         </div>
     </div>
 </div>
+<div *ngIf="isnight()" class="page-header" data-parallax="true" style="background-image: url('./assets/img/uirbynight.png');">
+    <div class="filter"></div>
+    <div class="container">
+        <div class="motto text-center">
+            <h1>UIR CLUBS</h1>
+            <h3>Découvrez les clubs de l'université internationale de Rabat.</h3>
+            <br />
+            <a href="#about_uir_clubs" class="btn btn-outline-neutral btn-round"><i class="fa fa-play"></i>En savoir plus</a>
+
+        </div>
+    </div>
 </div>
 <div class="main">
     <div class="section text-center">
