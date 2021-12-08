@@ -1,4 +1,5 @@
-<div *ngIf="isnight()" class="page-header" data-parallax="true" style="background-image: url('./assets/img/uirbynight.png');">
+
+<div *ngIf="value" class="page-header" data-parallax="true" style="background-image: url('./assets/img/uirbynight.png');">
     <div class="filter"></div>
     <div class="container">
         <div class="motto text-center">
@@ -12,7 +13,7 @@
 </div>
 
 
-<div *ngIf="!isnight()" class="page-header" data-parallax="true"  style="background-image: url('./assets/img/Bâtiment_UIR.jpg') ;">
+<div *ngIf="!value" class="page-header" data-parallax="true"  style="background-image: url('./assets/img/Bâtiment_UIR.jpg') ;">
     <div class="filter"></div>
     <div class="container">
         <div class="motto text-center">
@@ -37,6 +38,41 @@
                 <a href="#paper-kit" class="btn btn-danger btn-round">Plus de détails</a>
             </div>
         </div>
+
+        <div class="section" id="carousel">
+            <div class="container">
+                <div class="tim-title">
+                    <h3>Voici quelques clubs choisis aléatoirement</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 mr-auto ml-auto">
+                        <div class="card page-carousel">
+                            <ngb-carousel>
+                                <ng-template ngbSlide>
+                                    <img src="./assets/img/soroush-karimi.jpg" alt="Random first slide">
+                                    <div class="carousel-caption">
+                                        <p>Somewhere</p>
+                                    </div>
+                                </ng-template>
+                                <ng-template ngbSlide>
+                                    <img src="./assets/img/federico-beccari.jpg" alt="Random second slide">
+                                    <div class="carousel-caption">
+                                        <p>Somewhere else</p>
+                                    </div>
+                                </ng-template>
+                                <ng-template ngbSlide>
+                                    <img src="./assets/img/joshua-stannard.jpg" alt="Random third slide">
+                                    <div class="carousel-caption">
+                                        <p>Here it is</p>
+                                    </div>
+                                </ng-template>
+                            </ngb-carousel>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <br/><br/>
         <div class="row">
             <div class="col-md-3">
