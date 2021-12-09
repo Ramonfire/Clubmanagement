@@ -10,7 +10,6 @@ import com.example.Clubmanagement.services.EtudiantService;
 import com.example.Clubmanagement.services.EventService;
 import com.example.Clubmanagement.services.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Role;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -28,15 +27,16 @@ public class MemberControl {
 
 
 @Autowired
-    public MemberControl(MemberService memberService, EtudiantService etudiantService, ClubService clubService) {
+    public MemberControl(MemberService memberService, EtudiantService etudiantService, ClubService clubService, EventService eventService) {
         this.memberService = memberService;
     this.etudiantService = etudiantService;
     this.clubService = clubService;
+    this.eventService = eventService;
 }
 
 
 
-    @GetMapping(path = "members/{Clubid}")
+    @GetMapping(path = "{Clubid}/members")
 public List<Etudiant> getAllStudents(@PathVariable("Clubid") Long Clubid){
     List<Members> members =this.memberService.getClubMembers(Clubid);
         List<Etudiant> etudiants = new ArrayList<>();
@@ -53,11 +53,15 @@ public List<Etudiant> getAllStudents(@PathVariable("Clubid") Long Clubid){
 
     return this.eventService.geteventbytype(type);
 
-
     }
 //a revoir : get mapping can't get an object , only elements
-    @GetMapping(path = "events/{club}" )
-    public List<evenement> geteventsbyClub(@PathVariable("club") Club club){return eventService.getClubevent(club);}
+    @GetMapping(path = "{clubid}/events" )
+    public List<evenement> geteventsbyClub(@PathVariable("clubid") Long clubid){
+
+    Club club = this.clubService.getclub(clubid);
+
+    return eventService.getClubevent(club);
+    }
 
     //*************************************************************************************post mapping*************************************************************************//
     @PostMapping(path = "saveMember")

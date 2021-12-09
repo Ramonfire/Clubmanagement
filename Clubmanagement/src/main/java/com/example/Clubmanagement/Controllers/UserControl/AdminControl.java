@@ -61,7 +61,7 @@ public class AdminControl {
     @GetMapping(path = "Club/{id}")
     public Club getclub(@PathVariable("id") Long id){
 
-    return clubService.getclubs(id);
+    return clubService.getclub(id);
     }
     @GetMapping(path = "Etudiant")
     public List<Etudiant> getAllStudents(){

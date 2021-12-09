@@ -40,7 +40,7 @@ public class Visotorcontoller {
     @GetMapping(path = "Club/{id}")
     public Club getclub(@PathVariable("id") Long id){
 
-        return clubService.getclubs(id);
+        return clubService.getclub(id);
     }
 
 

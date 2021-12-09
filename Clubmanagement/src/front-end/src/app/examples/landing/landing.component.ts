@@ -55,28 +55,28 @@ export class LandingComponent implements OnInit {
         return R;
     }
 
-  focus: any;
-  focus1: any;
-   value:boolean;
-  constructor() { }
+    focus: any;
+    focus1: any;
+    value:boolean;
+    constructor() { }
 
-  ngOnInit() {
-      this.slides = this.chunk(this.cards, 3);
-  }
+    ngOnInit() {
+        this.slides = this.chunk(this.cards, 3);
+    }
 
 
-  date=new Date();
-  isnight() : boolean{
-      var date=new Date(0,0,0,20);
-      var currentHour:number=date.getHours();
-      if (currentHour>=19 && currentHour<6){
-          this.value=true;
-        return this.value;
-      }
-      if (currentHour<19 && currentHour>6) {
-          this.value = true;
-          return this.value;
-      }
+    date=new Date();
+    isnight() : boolean{
+        var date=new Date(0,0,0,20);
+        var currentHour:number=date.getHours();
+        if (currentHour>=19 && currentHour<6){
+            this.value=true;
+            return this.value;
+        }
+        if (currentHour<19 && currentHour>6) {
+            this.value = true;
+            return this.value;
+        }
     }
 
 
