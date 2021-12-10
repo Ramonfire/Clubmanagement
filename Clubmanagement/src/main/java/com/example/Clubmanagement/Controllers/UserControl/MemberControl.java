@@ -18,10 +18,10 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "Club")
 public class MemberControl {
-     private MemberService memberService;
-     private EtudiantService etudiantService;
-     private ClubService clubService;
-     private EventService eventService;
+     private final MemberService memberService;
+     private final EtudiantService etudiantService;
+     private final ClubService clubService;
+     private final EventService eventService;
 
 
 
@@ -63,6 +63,16 @@ public List<Etudiant> getAllStudents(@PathVariable("Clubid") Long Clubid){
     return eventService.getClubevent(club);
     }
 
+    @GetMapping(path = "members/{id}/{role}")
+    public List<Etudiant> getMemberByRole(@PathVariable("role") String role,@PathVariable("id") Long id){
+        List<Members> members =this.memberService.getClubMember(id,role);
+        List<Etudiant> etudiants = new ArrayList<>();
+        for (Members x: members) {
+            etudiants.add(this.etudiantService.getStudentbyid(x.getStudentid()));
+
+        }
+        return etudiants;
+    }
     //*************************************************************************************post mapping*************************************************************************//
     @PostMapping(path = "saveMember")
     public String insertMember(@RequestBody Members member){

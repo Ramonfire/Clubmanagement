@@ -1,4 +1,4 @@
-package com.example.Clubmanagement.entities;
+package com.example.Clubmanagement.entities.Forms;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

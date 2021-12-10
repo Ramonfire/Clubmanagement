@@ -17,10 +17,12 @@ public class CreationDemand {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDem;
 //@one demande at time
-    private Long IdEtudiant;
+    private Long idEtudiant;
+    private String TypedeDem;
     private  String NomClubD;
     private  String Descrpt;
-    private  boolean etatD;
+//0 waiting . -1 denied . 1 accepted
+    private  Long etatD;
 
 
 }

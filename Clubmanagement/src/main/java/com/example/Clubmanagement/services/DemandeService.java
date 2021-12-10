@@ -20,10 +20,13 @@ public class DemandeService {
 public List<CreationDemand> getAllDemands(){
         return demandeRepo.findAll();
 }
-public  List<CreationDemand> getdemandeBystate(boolean etat){
-        return demandeRepo.findByEtatD(etat);
+public  List<CreationDemand> getdemandeBystate(boolean etat){return demandeRepo.findAllByEtatD(etat);}
+    public List<CreationDemand> getEtudiantDemande(Long idE){return demandeRepo.getAllByIdEtudiant(idE);}
 
-}
+    //saveguard de demande
+    public CreationDemand saveDemande(CreationDemand demand){
+        return demandeRepo.save(demand);
+    }
 
 
 }

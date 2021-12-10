@@ -17,11 +17,11 @@ import java.util.List;
 @RequestMapping(path = "Clubpage/admin")
 public class AdminControl {
 
-    private  EventService eventService;
-    private DemandeService demandeService;
-    private EtudiantService etudiantService;
-    private ClubService clubService;
-    private MemberService memberService;
+    private  final EventService eventService;
+    private final DemandeService demandeService;
+    private final EtudiantService etudiantService;
+    private final ClubService clubService;
+    private final MemberService memberService;
 
 @Autowired
     public AdminControl(EventService eventService, DemandeService demandeService, EtudiantService etudiantService, ClubService clubService, MemberService memberService) {
@@ -90,7 +90,18 @@ return etudiantService.getallstudents();
 
     @GetMapping(path = "members/{id}/{role}")
     public List<Etudiant> getAllStudents(@PathVariable("role") String role,@PathVariable("id") Long id){
-        List<Members> members =this.memberService.getClubMembers(id,role);
+        List<Members> members =this.memberService.getClubMember(id,role);
+        List<Etudiant> etudiants = new ArrayList<>();
+        for (Members x: members) {
+            etudiants.add(this.etudiantService.getStudentbyid(x.getStudentid()));
+
+        }
+        return etudiants;
+    }
+
+    @GetMapping(path = "All/{Role}")
+    public List<Etudiant> getAllRole(@PathVariable("role") String role){
+        List<Members> members =this.memberService.getAllMembersByRole(role);
         List<Etudiant> etudiants = new ArrayList<>();
         for (Members x: members) {
             etudiants.add(this.etudiantService.getStudentbyid(x.getStudentid()));

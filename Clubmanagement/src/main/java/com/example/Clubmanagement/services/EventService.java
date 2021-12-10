@@ -39,4 +39,8 @@ public List<evenement> getPevent(){
 
 
     }
+
+    public List<evenement> geteventbyState(int i) {
+        return this.eventrepo.findByState(i);
+    }
 }

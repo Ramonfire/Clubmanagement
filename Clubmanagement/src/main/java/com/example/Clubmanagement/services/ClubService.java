@@ -2,6 +2,7 @@ package com.example.Clubmanagement.services;
 
 import com.example.Clubmanagement.Repositories.ClubRepo;
 import com.example.Clubmanagement.entities.club.Club;
+import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +31,11 @@ public class ClubService {
 
     public Club getclub(Long id) {
         return  this.clubRepo.findByIdc(id);
+    }
+//get a students Club list
+    public  List<Club> GetMembersClub(Etudiant s) {
+        return this.clubRepo.findAllByStudents(s);
+
     }
 
     public String saveclub(Club club) {
