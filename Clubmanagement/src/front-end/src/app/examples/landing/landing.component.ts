@@ -57,7 +57,7 @@ export class LandingComponent implements OnInit {
 
     focus: any;
     focus1: any;
-    value:boolean;
+    value:boolean ;
     constructor() { }
 
     ngOnInit() {
@@ -67,16 +67,27 @@ export class LandingComponent implements OnInit {
 
     date=new Date();
     isnight() : boolean{
-        var date=new Date(0,0,0,20);
+        var date=new Date();
         var currentHour:number=date.getHours();
-        if (currentHour>=19 && currentHour<6){
-            this.value=true;
-            return this.value;
+        if (currentHour>=19 && currentHour<24){
+            this.value=false;
+
         }
-        if (currentHour<19 && currentHour>6) {
+            if (currentHour>=0 && currentHour<6){
+            this.value=false;
+
+        }
+
+        if (currentHour<12 && currentHour>6) {
             this.value = true;
-            return this.value;
+
         }
+
+        if (currentHour<19 && currentHour>12) {
+            this.value = true;
+
+        }
+        return this.value;
     }
 
 

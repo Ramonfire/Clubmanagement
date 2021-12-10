@@ -13,7 +13,6 @@ import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.compo
 const routes: Routes =[
     { path: '', redirectTo: 'landing', pathMatch: 'full' },
     { path: 'home',             component: ComponentsComponent },
-    { path: 'user-profile',     component: ProfileComponent },
     { path: 'signin',           component: SigninComponent },
     { path: 'signup',           component: SignupComponent },
     { path: 'landing',          component: LandingComponent },

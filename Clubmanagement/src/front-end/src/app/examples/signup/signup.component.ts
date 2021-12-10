@@ -12,16 +12,30 @@ export class SignupComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {}
-
+value:boolean;
     isnight() : boolean{
-        var date= new Date();
-        var currentHour=date.getHours();
-        if (currentHour<6 && currentHour>=19){
-            return true;
+        var date=new Date();
+        var currentHour:number=date.getHours();
+        if (currentHour>=19 && currentHour<24){
+            this.value=false;
+
         }
-        else if(currentHour>6 && currentHour<19) {
-            return false;
+        if (currentHour>=0 && currentHour<6){
+            this.value=false;
+
         }
+
+        if (currentHour<12 && currentHour>6) {
+            this.value = true;
+
+        }
+
+        if (currentHour<19 && currentHour>12) {
+            this.value = true;
+
+        }
+        return this.value;
     }
+
 
 }

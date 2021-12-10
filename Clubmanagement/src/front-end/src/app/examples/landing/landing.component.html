@@ -1,5 +1,5 @@
 
-<div *ngIf="value" class="page-header" data-parallax="true" style="background-image: url('./assets/img/uirbynight.png');">
+<div [hidden]="isnight()" class="page-header" data-parallax="true" style="background-image: url('./assets/img/uirbynight.png');">
     <div class="filter"></div>
     <div class="container">
         <div class="motto text-center">
@@ -13,7 +13,7 @@
 </div>
 
 
-<div *ngIf="!value" class="page-header" data-parallax="true"  style="background-image: url('./assets/img/Bâtiment_UIR.jpg') ;">
+<div [hidden]="!isnight()" class="page-header" data-parallax="true"  style="background-image: url('./assets/img/Bâtiment_UIR.jpg') ;">
     <div class="filter"></div>
     <div class="container">
         <div class="motto text-center">
