@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
     selector: 'app-signup',
@@ -9,8 +10,10 @@ export class SignupComponent implements OnInit {
     test : Date = new Date();
     focus;
     focus1;
+    //Declare an email to look for
+    //httpCLient HttpClient
     constructor() { }
-
+//.subscribe
     ngOnInit() {}
 value:boolean;
     isnight() : boolean{
@@ -36,6 +39,9 @@ value:boolean;
         }
         return this.value;
     }
+
+
+
 
 
 }
