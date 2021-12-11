@@ -1,18 +1,20 @@
 package com.example.Clubmanagement.entities.compte.generlAc;
 
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
 
 @Entity
 @Table
 @Data
 @NoArgsConstructor
-
+@RequiredArgsConstructor
 
 public class Compte {
     @Id
@@ -30,6 +32,8 @@ public class Compte {
     private String pass;
     @Column(nullable = false)
     private Long tel;
+    @ManyToMany(fetch = FetchType.EAGER)
+   private  Collection<Role> roles=new ArrayList<>();
 
 
     public Compte(String civilite, String fullname, String email, String pass, Long tel) {
