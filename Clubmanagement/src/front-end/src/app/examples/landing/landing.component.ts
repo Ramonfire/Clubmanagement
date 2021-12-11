@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {formatDate} from "@angular/common";
 
 @Component({
     selector: 'app-landing',
@@ -62,31 +63,34 @@ export class LandingComponent implements OnInit {
 
     ngOnInit() {
         this.slides = this.chunk(this.cards, 3);
+        this.isnight();
     }
 
 
     date=new Date();
     isnight() : boolean{
         var date=new Date();
+        formatDate(date,"HH","en-GB");
         var currentHour:number=date.getHours();
         if (currentHour>=19 && currentHour<24){
-            this.value=false;
+            this.value=true;
 
         }
             if (currentHour>=0 && currentHour<6){
-            this.value=false;
+            this.value=true;
 
         }
 
-        if (currentHour<12 && currentHour>6) {
-            this.value = true;
+        if (currentHour<12 && currentHour>=6) {
+            this.value = false;
 
         }
 
-        if (currentHour<19 && currentHour>12) {
-            this.value = true;
+        if (currentHour<19 && currentHour>=12) {
+            this.value = false;
 
         }
+        console.log(currentHour,this.value)
         return this.value;
     }
 

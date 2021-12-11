@@ -33,7 +33,7 @@ public class AdminControl {
 
 }
 
-    @GetMapping(path = "events")
+    @GetMapping(path = "Allevents")
     public List<evenement> getallevents(){
     return eventService.getallevents();
     }
