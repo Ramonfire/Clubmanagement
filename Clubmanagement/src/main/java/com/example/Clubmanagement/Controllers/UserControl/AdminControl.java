@@ -110,8 +110,8 @@ return etudiantService.getallstudents();
         return etudiants;
     }
 
-    @GetMapping(path = "events/{club}")
-    public List<evenement> geteventsbyClub(@PathVariable("club") Club club){return eventService.getClubevent(club);}
+    @GetMapping(path = "events")
+    public List<evenement> geteventsbyClub(@RequestParam Club club){return eventService.getClubevent(club);}
 //*************************************************************************************post mapping*************************************************************************//
 
     @PostMapping(path = "saveClub")
