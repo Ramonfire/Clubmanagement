@@ -2,9 +2,9 @@ package com.example.Clubmanagement.Controllers.VisitorControls;
 
 import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.club.evenement;
-import com.example.Clubmanagement.entities.compte.generlAc.Compte;
-import com.example.Clubmanagement.services.AccountService;
+import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
 import com.example.Clubmanagement.services.ClubService;
+import com.example.Clubmanagement.services.EtudiantService;
 import com.example.Clubmanagement.services.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,16 +20,17 @@ import java.util.List;
 public class Visotorcontoller {
     private final EventService eventService;
     private final ClubService clubService;
-    private final AccountService accountService;
+    private final EtudiantService etudiantService;
 
 
 
 @Autowired
-    public Visotorcontoller(EventService eventService, ClubService clubService, AccountService accountService) {
+    public Visotorcontoller(EventService eventService, ClubService clubService, EtudiantService etudiantService) {
         this.eventService = eventService;
         this.clubService = clubService;
 
-    this.accountService = accountService;
+
+    this.etudiantService = etudiantService;
 }
 
 
@@ -50,8 +51,8 @@ public class Visotorcontoller {
     }
 
     @GetMapping(path = "signup/{email}")
-    public Compte getAccount(@PathVariable("email") String email){
-    return this.accountService.findAccount(email);
+    public Etudiant getAccount(@PathVariable("email") String email){
+    return this.etudiantService.findAccount(email);
     }
 
 

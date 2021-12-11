@@ -6,6 +6,7 @@
      public email: String;
      public password :String;
      public tel:number;
+     private roles: Array<String>;
 
 
      get idE(): number {

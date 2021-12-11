@@ -12,11 +12,5 @@ public class AccountService {
         this.accountRepo = accountRepo;
     }
 
-    public Compte findAccount(String email){
-        Compte compte= this.accountRepo.findByEmail(email);
-        if (compte.getIdE()!=null)
-    return compte;
-        else return new Compte(Long.valueOf(-1),"-1","-1","-1","-1",Long.valueOf(-1));
 
-    }
 }

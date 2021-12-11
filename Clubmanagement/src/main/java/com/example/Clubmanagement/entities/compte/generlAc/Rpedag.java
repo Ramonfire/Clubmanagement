@@ -6,10 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,9 +14,23 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class R_pedag extends Compte{
+public class Rpedag extends Compte{
+
+    
 private String departement;
 
+    public Rpedag(String civilite, String fullname, String email, String pass, Long tel, String departement) {
+        super(civilite, fullname, email, pass, tel);
+        this.departement = departement;
+    }
+
+    public String getDepartement() {
+        return departement;
+    }
+
+    public void setDepartement(String departement) {
+        this.departement = departement;
+    }
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_Responsable")

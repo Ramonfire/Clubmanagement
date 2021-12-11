@@ -1,4 +1,4 @@
-class r_pedag extends compte{
+class Rpedag extends compte{
     public departement:String;
 
     constructor(idE: number, civilite: number, fullname: String, email: String, password: String, tel: number, departement: String) {

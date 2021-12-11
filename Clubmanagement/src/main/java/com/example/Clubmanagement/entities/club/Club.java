@@ -1,7 +1,7 @@
 package com.example.Clubmanagement.entities.club;
 
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
-import com.example.Clubmanagement.entities.compte.generlAc.R_pedag;
+import com.example.Clubmanagement.entities.compte.generlAc.Rpedag;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -107,7 +107,7 @@ public class Club {
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private R_pedag ped;
+    private Rpedag ped;
 
 
         }

@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -15,9 +17,11 @@ import java.util.List;
 @AllArgsConstructor
 
 public class Etudiant extends Compte {
-    @Column(nullable = false)
-    private  Long anetud;
-    @Column(nullable = false)
+
+
+
+    private  Long anetud ;
+
     private  String programme;
 
     //contructor

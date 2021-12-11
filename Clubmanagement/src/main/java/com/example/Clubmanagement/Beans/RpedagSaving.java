@@ -1,0 +1,31 @@
+package com.example.Clubmanagement.Beans;
+
+import com.example.Clubmanagement.Repositories.RclubsRepo;
+import com.example.Clubmanagement.Repositories.RpedaRepo;
+import com.example.Clubmanagement.entities.compte.generlAc.Rclubs;
+import com.example.Clubmanagement.entities.compte.generlAc.Rpedag;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.util.List;
+
+@Configuration
+public class RpedagSaving {
+
+    @Bean
+    CommandLineRunner commandLineRunnerRpedag(RpedaRepo repo){
+
+        Rpedag r1 = new Rpedag("AA5459","test","bg@uir.ac.ma","admin123",Long.valueOf(6666666),"this is a test");
+        Rpedag r2 = new Rpedag("AA5437","prof","prof@uir.ac.ma","admin123",Long.valueOf(6666666),"this is a test");
+
+
+        repo.saveAll(List.of(r1,r2));
+
+        return args -> {
+
+
+
+        };
+    }
+}
