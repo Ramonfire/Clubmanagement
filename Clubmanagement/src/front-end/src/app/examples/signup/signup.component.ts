@@ -13,15 +13,16 @@ export class SignupComponent implements OnInit {
     focus1;
     //Declare an email to look for
     //httpCLient HttpClient
-    constructor() { }
+    constructor(httpClient: HttpClient) { }
 //.subscribe
     ngOnInit() {
+
         this.isnight()
-       console.log("test");
+     
     }
 value:boolean;
     isnight() : boolean{
-        var date=new Date();
+        let date=new Date();
         formatDate(date,"HH","fr");
         var currentHour:number=date.getHours();
         if (currentHour>=19 && currentHour<=23){
