@@ -1,5 +1,6 @@
 package com.example.Clubmanagement.entities.compte.generlAc;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +13,7 @@ import javax.persistence.Id;
 @Entity
 @Data
 @NoArgsConstructor
-@RequiredArgsConstructor
+@AllArgsConstructor 
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

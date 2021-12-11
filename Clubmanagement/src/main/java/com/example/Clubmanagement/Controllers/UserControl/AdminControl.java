@@ -8,6 +8,7 @@ import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
 import com.example.Clubmanagement.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -64,23 +65,19 @@ public class AdminControl {
     return clubService.getclub(id);
     }
     @GetMapping(path = "Etudiant")
-    public List<Etudiant> getAllStudents(){
-return etudiantService.getallstudents();
-    }
+    public ResponseEntity<List<Etudiant>>getAllStudents(){return ResponseEntity.ok().body(etudiantService.getallstudents());}
 
     @GetMapping(path = "members/{Clubid}")
-    public List<Etudiant> getAllStudents(@PathVariable("Clubid") Long Clubid){
+    public ResponseEntity<List<Etudiant>> getAllStudents(@PathVariable("Clubid") Long Clubid){
         List<Members> members =this.memberService.getClubMembers(Clubid);
         List<Etudiant> etudiants = new ArrayList<>();
         for (Members x: members) {
             etudiants.add(this.etudiantService.getStudentbyid(x.getStudentid()));
 
         }
-        return etudiants;
+        return ResponseEntity.ok().body(etudiants);
     }
-    //Members By Role
-    @GetMapping(path = "Role/{Role}")
-    public List<Members> getMemberRole(@PathVariable("Role") String Role){return this.memberService.getClubRoles(Role);}
+
 
     @GetMapping(path = "Countevents/{etat}")
     public  Long getallevents(@PathVariable("etat")int etat){
@@ -100,14 +97,14 @@ return etudiantService.getallstudents();
     }
 
     @GetMapping(path = "All/{Role}")
-    public List<Etudiant> getAllRole(@PathVariable("role") String role){
+    public ResponseEntity<List<Etudiant>> getAllRole(@PathVariable("role") String role){
         List<Members> members =this.memberService.getAllMembersByRole(role);
         List<Etudiant> etudiants = new ArrayList<>();
         for (Members x: members) {
             etudiants.add(this.etudiantService.getStudentbyid(x.getStudentid()));
 
         }
-        return etudiants;
+        return ResponseEntity.ok().body(etudiants);
     }
 
     @GetMapping(path = "events")

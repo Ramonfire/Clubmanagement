@@ -1,6 +1,7 @@
 package com.example.Clubmanagement.entities.compte.generlAc;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,7 @@ import java.util.Collection;
 @Table
 @Data
 @NoArgsConstructor
-@RequiredArgsConstructor
+@AllArgsConstructor
 
 public class Compte {
     @Id
