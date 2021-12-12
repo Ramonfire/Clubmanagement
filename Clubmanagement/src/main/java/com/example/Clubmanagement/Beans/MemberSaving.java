@@ -24,10 +24,10 @@ public class MemberSaving {
 
 
 
-        Members m1 = new Members(null,Long.valueOf(1),Long.valueOf(1),"member",new ArrayList<>());
-        Members m2 = new Members(null,Long.valueOf(1),Long.valueOf(1),"pres",new ArrayList<>());
-        Members m3 = new Members(null,Long.valueOf(1),Long.valueOf(2),"Vpres",new ArrayList<>());
-        Members m4 = new Members(null,Long.valueOf(1),Long.valueOf(5),"Vpres",new ArrayList<>());
+        Members m1 = new Members(null,Long.valueOf(1),Long.valueOf(1),"member");
+        Members m2 = new Members(null,Long.valueOf(1),Long.valueOf(1),"pres");
+        Members m3 = new Members(null,Long.valueOf(1),Long.valueOf(2),"Vpres");
+        Members m4 = new Members(null,Long.valueOf(1),Long.valueOf(5),"Vpres");
 
 
         repo.saveAll(List.of(m1,m2,m3,m4));

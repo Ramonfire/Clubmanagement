@@ -30,8 +30,7 @@ public class Members {
    private  Long studentid;
     // to remove
     private String role;
-    @ManyToMany(fetch = FetchType.EAGER)
-    private Collection<Role> roles=new ArrayList<>();
+
 
     public Members(Long clubid, Long studentid, String role) {
         this.clubid = clubid;

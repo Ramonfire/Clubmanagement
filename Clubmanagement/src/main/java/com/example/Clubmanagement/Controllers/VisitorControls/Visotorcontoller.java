@@ -10,10 +10,7 @@ import com.example.Clubmanagement.services.EtudiantService;
 import com.example.Clubmanagement.services.EventService;
 import com.example.Clubmanagement.services.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -54,14 +51,13 @@ public class Visotorcontoller {
         return clubService.getclub(id);
     }
 
-    @GetMapping(path = "signup/{email}")
-    public Etudiant getAccount(@PathVariable("email") String email){
-    //make an email sending api!
-      Etudiant etudiant=  this.etudiantService.findAccount(email);
+    @GetMapping(path = "signup")
+    public Etudiant getAccount(@RequestBody String email) {
+        //make an email sending api!
+        Etudiant etudiant = this.etudiantService.findAccount(email);
         Members members = this.memberService.getmemberbystudentid(etudiant.getId());
-        for (Role x : members.getRoles())
-        etudiant.getRoles().add(x);
-    return etudiant;
+
+        return etudiant;
     }
 
 

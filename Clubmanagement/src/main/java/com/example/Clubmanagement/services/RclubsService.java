@@ -8,16 +8,21 @@ import com.example.Clubmanagement.entities.compte.generlAc.Rclubs;
 import com.example.Clubmanagement.entities.compte.generlAc.Role;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Collection;
 
 @Service
 @RequiredArgsConstructor
 @Transactional
 @Slf4j
-public class RclubsService {
+public class RclubsService  {
 
 private final RoleRepo roleRepo;
 private final EtudiantRepo etudiantRepo;
@@ -36,6 +41,7 @@ private final AccountRepo accountRepo;
 
 
 
+
 // a revoir
 
     public void addRoleToMember(String email,String Role,Long idClub){
@@ -47,11 +53,11 @@ private final AccountRepo accountRepo;
         if (etudiant!=null) {members=memberRepo.findByStudentidAndClubid(etudiant.getIdE(),idClub);
             if (members == null) {
                 System.out.println("not a member");
-                members=memberRepo.save(new Members(null,etudiant.getIdE(), idClub,Role,new ArrayList<>()));
+                members=memberRepo.save(new Members(null,etudiant.getIdE(), idClub,Role));
             }else{
                 //verifions si les memberes et deja president ou si il exist deja un president(si oui on va le render comme un membre normal)
             }
-             members.getRoles().add(role);
+             members.setRole(Role);
         }
         else System.out.println("erreur etudiant no found");
     }
@@ -70,5 +76,7 @@ private final AccountRepo accountRepo;
         Compte cmp= this.accountRepo.findByEmail(email);
         cmp.getRoles().add(role);
     }
+
+
 
 }

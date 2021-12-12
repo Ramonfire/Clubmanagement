@@ -75,11 +75,11 @@ private final EtudiantRepo etudiantRepo;
         if (etudiant!=null) {members=memberRepo.findByStudentidAndClubid(etudiant.getIdE(),idClub);
             if (members == null) {
                 System.out.println("not a member");
-                members=memberRepo.save(new Members(null,etudiant.getIdE(), idClub,Role,new ArrayList<>()));
+                members=memberRepo.save(new Members(null,etudiant.getIdE(), idClub,Role));
             }else{
                 //verifions si les memberes et deja president ou si il exist deja un president(si oui on va le render comme un membre normal)
             }
-            members.getRoles().add(role);
+            members.setRole(Role);
         }
         else System.out.println("erreur etudiant no found");
     }
