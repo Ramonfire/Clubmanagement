@@ -54,6 +54,12 @@ private final EtudiantRepo etudiantRepo;
 
     }
 
+    public Members getmemberbystudentid(Long id){
+        return this.memberRepo.findByStudentid(id);
+    }
+
+
+
 //saving a new memeber
     public Members SaveNewMember(Members members){
     return  memberRepo.save(members);
