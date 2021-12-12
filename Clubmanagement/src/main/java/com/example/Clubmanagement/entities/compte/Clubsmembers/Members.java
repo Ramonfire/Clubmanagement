@@ -1,12 +1,15 @@
 package com.example.Clubmanagement.entities.compte.Clubsmembers;
 
 
+import com.example.Clubmanagement.entities.compte.generlAc.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.context.annotation.Primary;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
 
 @Entity
@@ -24,12 +27,15 @@ public class Members {
     @Column(nullable = false,updatable = false ,name= "club_id_club")
    private  Long clubid;
     @Column(nullable = false,updatable = false, name ="students_id")
-   private  Long Studentid;
+   private  Long studentid;
+    // to remove
     private String role;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Collection<Role> roles=new ArrayList<>();
 
     public Members(Long clubid, Long studentid, String role) {
         this.clubid = clubid;
-        Studentid = studentid;
+        studentid = studentid;
         this.role = role;
     }
 }

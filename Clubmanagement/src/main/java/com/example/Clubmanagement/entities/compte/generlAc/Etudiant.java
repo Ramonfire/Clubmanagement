@@ -20,6 +20,7 @@ public class Etudiant extends Compte {
 
 
 
+    private Long codeetud;
     private  Long anetud ;
 
     private  String programme;

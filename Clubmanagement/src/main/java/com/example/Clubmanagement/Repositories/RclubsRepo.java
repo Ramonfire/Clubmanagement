@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 @ComponentScan
 public interface RclubsRepo extends JpaRepository<Rclubs,Long> {
+    Rclubs findByEmail(String email);
 }

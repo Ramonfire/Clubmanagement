@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "Club")
+@RequestMapping(path = "Clubpage/member")
 public class MemberControl {
      private final MemberService memberService;
      private final EtudiantService etudiantService;

@@ -3,20 +3,20 @@ package com.example.Clubmanagement.services;
 import com.example.Clubmanagement.Repositories.ClubRepo;
 import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
+@Transactional
+@Slf4j
 public class ClubService {
 
     private final ClubRepo clubRepo;
-
-    @Autowired
-    public ClubService(ClubRepo clubRepo) {
-        this.clubRepo = clubRepo;
-    }
 
     public List<Club> getAllActiveClub(){
         return this.clubRepo.findAll();

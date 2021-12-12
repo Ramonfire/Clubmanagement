@@ -2,22 +2,22 @@ package com.example.Clubmanagement.services;
 
 import com.example.Clubmanagement.Repositories.DemandeRepo;
 import com.example.Clubmanagement.entities.Forms.CreationDemand;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
+@Transactional
+@Slf4j
 public class DemandeService {
 
     private final DemandeRepo demandeRepo;
 
-    @Autowired
-    public DemandeService(DemandeRepo demandeRepo) {
-        this.demandeRepo = demandeRepo;
-    }
-
-public List<CreationDemand> getAllDemands(){
+    public List<CreationDemand> getAllDemands(){
         return demandeRepo.findAll();
 }
 public  List<CreationDemand> getdemandeBystate(boolean etat){return demandeRepo.findAllByEtatD(etat);}

@@ -10,6 +10,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
@@ -22,9 +23,10 @@ public class MemberSaving {
 
 
 
-        Members m1 = new Members(Long.valueOf(1),Long.valueOf(1),"member");
-        Members m2 = new Members(Long.valueOf(1),Long.valueOf(1),"pres");
-        Members m3 = new Members(Long.valueOf(1),Long.valueOf(2),"Vpres");
+        Members m1 = new Members(null,Long.valueOf(1),Long.valueOf(1),"member",new ArrayList<>());
+        Members m2 = new Members(null,Long.valueOf(1),Long.valueOf(1),"pres",new ArrayList<>());
+        Members m3 = new Members(null,Long.valueOf(1),Long.valueOf(2),"Vpres",new ArrayList<>());
+
 
         repo.saveAll(List.of(m1,m2,m3));
         return args -> {

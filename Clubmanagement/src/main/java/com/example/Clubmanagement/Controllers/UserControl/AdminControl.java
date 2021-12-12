@@ -67,6 +67,9 @@ public class AdminControl {
     @GetMapping(path = "Etudiant")
     public ResponseEntity<List<Etudiant>>getAllStudents(){return ResponseEntity.ok().body(etudiantService.getallstudents());}
 
+    @GetMapping(path = "Etudiant/{email}")
+    public ResponseEntity<Etudiant>getStudentbyemail(@PathVariable("email") String email){return ResponseEntity.ok().body(etudiantService.findAccount(email));}
+
     @GetMapping(path = "members/{Clubid}")
     public ResponseEntity<List<Etudiant>> getAllStudents(@PathVariable("Clubid") Long Clubid){
         List<Members> members =this.memberService.getClubMembers(Clubid);

@@ -4,23 +4,22 @@ package com.example.Clubmanagement.services;
 import com.example.Clubmanagement.Repositories.EventRepo;
 import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.club.evenement;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
+@Transactional
+@Slf4j
 public class EventService {
 
     private final EventRepo eventrepo;
 
-    @Autowired
-
-    public EventService(EventRepo eventrepo) {
-        this.eventrepo = eventrepo;
-    }
-
-public List<evenement> getPevent(){
+    public List<evenement> getPevent(){
         return this.eventrepo.findByState(0);
 }
 

@@ -1,64 +1,42 @@
 package com.example.Clubmanagement.services;
 
-import com.example.Clubmanagement.Repositories.EtudiantRepo;
-import com.example.Clubmanagement.Repositories.MemberRepo;
-import com.example.Clubmanagement.Repositories.RoleRepo;
-import com.example.Clubmanagement.entities.club.Club;
+import com.example.Clubmanagement.Repositories.*;
 import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
+import com.example.Clubmanagement.entities.compte.generlAc.Compte;
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
+import com.example.Clubmanagement.entities.compte.generlAc.Rclubs;
 import com.example.Clubmanagement.entities.compte.generlAc.Role;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 @Transactional
 @Slf4j
-public class MemberService {
-private final MemberRepo memberRepo;
+public class RclubsService {
+
 private final RoleRepo roleRepo;
 private final EtudiantRepo etudiantRepo;
+private final MemberRepo memberRepo;
+private  final RclubsRepo rclubsRepo;
+private final AccountRepo accountRepo;
 
 
 
-    public List<Members> getClubMembers(Long id) {
-    return  memberRepo.findByClubid(id);
-    }
 
-    public List<Members> getClubRoles(String role) { return  this.memberRepo.findByRole(role); }
 
-    public String saveMember(Members member) {
-    String s="error";
-            Members x = this.memberRepo.save(member);
-    if (x.getIdmembre()!=null){
-        s="success";
-    }
-    return s;
+//sauvegrder un role (admin donne acces)
+    public Role saveRole(Role role){
+        return this.roleRepo.save(role);
     }
 
 
-    public List<Members> getAllMembersByRole(String role) {
-        return  this.memberRepo.findByRole(role);
-    }
 
-    public List<Members> getClubMember(Long id,String Role){
-        if(Role==null) return memberRepo.findByClubid(id);
-        else return this.memberRepo.findByClubidAndRole(id,Role);
-
-
-    }
-
-//saving a new memeber
-    public Members SaveNewMember(Members members){
-    return  memberRepo.save(members);
-
-    }
+// a revoir
 
     public void addRoleToMember(String email,String Role,Long idClub){
         log.info("Added role{} to Student{}",Role,email);
@@ -73,9 +51,24 @@ private final EtudiantRepo etudiantRepo;
             }else{
                 //verifions si les memberes et deja president ou si il exist deja un president(si oui on va le render comme un membre normal)
             }
-            members.getRoles().add(role);
+             members.getRoles().add(role);
         }
         else System.out.println("erreur etudiant no found");
+    }
+
+    public void addRoleToAdmin(String email,String Role){
+        log.info("Added role{} to Admin{}",Role,email);
+        Role role=roleRepo.findByName(Role);
+        Rclubs rclubs = this.rclubsRepo.findByEmail(email);
+
+            rclubs.getRoles().add(role);
+    }
+
+    public  void addRoletoAccount(String email,String Role){
+        log.info("Added role{} to account{}",Role,email);
+        Role role=roleRepo.findByName(Role);
+        Compte cmp= this.accountRepo.findByEmail(email);
+        cmp.getRoles().add(role);
     }
 
 }
