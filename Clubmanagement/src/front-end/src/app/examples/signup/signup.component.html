@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <div  [hidden]="!isnight()" class="page-header" style="background-image: url('./assets/img/Bâtiment_UIR.jpg');">
+    <div  *ngIf="!value" class="page-header" style="background-image: url('./assets/img/Bâtiment_UIR.jpg');">
         <div class="filter"></div>
             <div class="container">
                 <div class="row">
@@ -35,7 +35,7 @@
             </div>
     </div>
 
-    <div  [hidden]="isnight()" class="page-header" style="background-image: url('./assets/img/uirbynight.png');">
+    <div  *ngIf="value" class="page-header" style="background-image: url('./assets/img/uirbynight.png');">
         <div class="filter"></div>
         <div class="container">
             <div class="row">

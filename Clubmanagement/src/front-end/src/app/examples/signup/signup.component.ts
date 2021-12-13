@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+//import {HttpClient} from "@angular/common/http";
 import {formatDate, getLocaleTimeFormat} from "@angular/common";
 
 @Component({
@@ -13,7 +13,7 @@ export class SignupComponent implements OnInit {
     focus1;
     //Declare an email to look for
     //httpCLient HttpClient
-    constructor(httpClient: HttpClient) { }
+    constructor(/*httpClient: HttpClient*/) { }
 //.subscribe
     ngOnInit() {
 
@@ -22,10 +22,9 @@ export class SignupComponent implements OnInit {
     }
 value:boolean;
     isnight() : boolean{
-        let date=new Date();
-        formatDate(date,"HH","fr");
+        var date=new Date();
         var currentHour:number=date.getHours();
-        if (currentHour>=19 && currentHour<=23){
+        if (currentHour>=19 && currentHour<24){
             this.value=true;
 
         }
@@ -34,16 +33,15 @@ value:boolean;
 
         }
 
-        if (currentHour<=12 && currentHour>=6) {
+        if (currentHour<12 && currentHour>6) {
             this.value = false;
 
         }
 
-        if (currentHour<19 && currentHour>=12) {
+        if (currentHour<19 && currentHour>12) {
             this.value = false;
 
         }
-
         return this.value;
     }
 
