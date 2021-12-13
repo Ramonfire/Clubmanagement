@@ -50,6 +50,11 @@ public class AccountService implements UserDetailsService {
     }
 
 
+    public Compte getAccountbymail(String email){
+        return this.accountRepo.findByEmail(email);
+    }
+
+
 
 
 }

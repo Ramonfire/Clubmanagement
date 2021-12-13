@@ -36,6 +36,9 @@ public List<evenement> getconfirmedevents(){
         return this.eventService.geteventbyState(1);
 }
 
+
+
+
 //****************************************************************post mapping*****************************************************************************************//
 @PostMapping(path = "newDemande")
     public CreationDemand newDemande(@RequestBody CreationDemand demand){
@@ -48,6 +51,8 @@ return this.demandeService.saveDemande(demand);
         return memberService.SaveNewMember(members);
 
 }
+
+
 
 
 

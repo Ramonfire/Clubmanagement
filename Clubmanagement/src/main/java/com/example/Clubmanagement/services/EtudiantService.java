@@ -51,12 +51,7 @@ public class EtudiantService  {
 
     //to return a bool. true for account found and email sent. false for account not found.
     public Etudiant findAccount(String email){
-        Etudiant compte= this.etudiantRepo.findByEmail(email);
-        if (compte!=null  /*compte.getPass() == ""*/){
-            //send an email!
-            return compte;}
-        else return new Etudiant("-1","-1","-1","-1",Long.valueOf(-1),Long.valueOf(-1),"non");
-
+        return  this.etudiantRepo.findByEmail(email);
     }
 
 

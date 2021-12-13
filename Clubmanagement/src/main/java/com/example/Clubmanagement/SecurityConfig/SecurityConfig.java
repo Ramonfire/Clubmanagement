@@ -1,16 +1,19 @@
 package com.example.Clubmanagement.SecurityConfig;
 
 import com.example.Clubmanagement.Filter.CustomAuthenticationfilter;
+import com.example.Clubmanagement.Filter.CustomAuthorisationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.HttpMethod.POST;
@@ -36,13 +39,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         customAuthenticationfilter.setFilterProcessesUrl("/Clubpage/login");
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(STATELESS);
-        http.authorizeRequests().antMatchers(GET, "Clubpage/Visitor/**").permitAll();
-        http.authorizeRequests().antMatchers(POST, "Clubpage/Visitor/**").permitAll();
-        http.authorizeRequests().antMatchers(POST, "/Clubpage/login").permitAll();
+        //public pages
+        http.authorizeRequests().antMatchers(GET, "/Clubpage/Visitor/**").permitAll();
+        http.authorizeRequests().antMatchers(POST, "/Clubpage/Visitor/**").permitAll();
+        http.authorizeRequests().antMatchers( "/Clubpage/login","/Clubpage/refreshtoken/**").permitAll();
+        http.authorizeRequests().antMatchers(POST, "/Clubpage/admin/**").hasAuthority("Role_Admin");
+        http.authorizeRequests().antMatchers(GET, "/Clubpage/admin/**").hasAuthority("Role_Admin");
+        http.authorizeRequests().antMatchers(POST, "/Clubpage/student/**").hasAuthority("Role_Student");
+        http.authorizeRequests().antMatchers(GET, "/Clubpage/student/**").hasAuthority("Role_Student");
+        http.authorizeRequests().antMatchers(POST, "/Clubpage/student/**").hasAuthority("Role_Admin");
+        http.authorizeRequests().antMatchers(GET, "/Clubpage/student/**").hasAuthority("Role_Admin");
         //otherpages
         http.authorizeRequests().anyRequest().authenticated();
 
         http.addFilter(customAuthenticationfilter);
+        http.addFilterBefore(new CustomAuthorisationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
     @Bean
