@@ -9,6 +9,7 @@ import { SigninComponent } from './signin/signin.component';
 import {SignupComponent} from "./signup/signup.component";
 import {RouterModule} from "@angular/router";
 import { ClubsComponent } from './clubs/clubs.component';
+import { AngularMaterialCardsClubsComponent } from './clubs/angular-material-cards-clubs/angular-material-cards-clubs.component';
 
 @NgModule({
     imports: [
@@ -22,7 +23,8 @@ import { ClubsComponent } from './clubs/clubs.component';
         SigninComponent,
         SignupComponent,
         ProfileComponent,
-        ClubsComponent
+        ClubsComponent,
+        AngularMaterialCardsClubsComponent
     ]
 })
 export class ExamplesModule { }
