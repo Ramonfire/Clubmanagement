@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -20,10 +21,9 @@ public class Etudiant extends Compte {
 
 
 
-    private Long codeetud;
     private  Long anetud ;
-
     private  String programme;
+// to declare a table with ids an roles to make getting roles easy.
 
     //contructor
 

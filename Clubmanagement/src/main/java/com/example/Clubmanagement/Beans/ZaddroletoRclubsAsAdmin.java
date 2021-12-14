@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ZaddroletoRclubsAsAdmin {
     @Bean
-    CommandLineRunner addingrole(RclubsService rclubsService){
+    CommandLineRunner addingroletoadmin(RclubsService rclubsService){
         rclubsService.addRoleToAdmin("rachid.hard@uir.ac.ma","Role_Admin");
 
 
