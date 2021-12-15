@@ -7,6 +7,7 @@ import { LandingComponent } from './landing/landing.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SigninComponent } from './signin/signin.component';
 import {SignupComponent} from "./signup/signup.component";
+import {EventComponent} from "./event/event.component";
 import {RouterModule} from "@angular/router";
 import { ClubsComponent } from './clubs/clubs.component';
 
@@ -22,6 +23,7 @@ import { ClubsComponent } from './clubs/clubs.component';
         SigninComponent,
         SignupComponent,
         ProfileComponent,
+        EventComponent,
         ClubsComponent
     ]
 })

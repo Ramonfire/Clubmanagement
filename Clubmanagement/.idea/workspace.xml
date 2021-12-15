@@ -86,7 +86,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Unknown.ClubmanagementApplication921554776">
+  <component name="RunManager" selected="npm.run">
     <configuration name="protractor.conf.js" type="JavaScriptTestRunnerProtractor" nameIsGenerated="true">
       <config-file value="$PROJECT_DIR$/src/front-end/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -155,6 +155,7 @@
       <workItem from="1637398571744" duration="733000" />
       <workItem from="1638483819408" duration="1435000" />
       <workItem from="1638829388922" duration="22247000" />
+      <workItem from="1639589557151" duration="1746000" />
     </task>
     <task id="LOCAL-00001" summary="isnight finished">
       <created>1638959902374</created>

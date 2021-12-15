@@ -8,6 +8,7 @@ import { ProfileComponent } from './examples/profile/profile.component';
 import { SigninComponent } from './examples/signin/signin.component';
 import { SignupComponent } from './examples/signup/signup.component';
 import { LandingComponent } from './examples/landing/landing.component';
+import { EventComponent } from './examples/event/event.component';
 import { ClubsComponent } from './examples/clubs/clubs.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 
@@ -18,6 +19,7 @@ const routes: Routes =[
     { path: 'signup',           component: SignupComponent },
     { path: 'landing',          component: LandingComponent },
     { path: 'clubs',          component: ClubsComponent },
+    { path: 'event',          component: EventComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent }
 ];
 
