@@ -20,7 +20,7 @@ public class EventService {
     private final EventRepo eventrepo;
 
     public List<evenement> getPevent(){
-        return this.eventrepo.findByState(0);
+        return this.eventrepo.findByStateAndType(1,0);
 }
 
     public List<evenement> getallevents() { return eventrepo.findAll(); }
@@ -41,5 +41,9 @@ public class EventService {
 
     public List<evenement> geteventbyState(int i) {
         return this.eventrepo.findByState(i);
+    }
+
+    public evenement geteventByname(String name) {
+      return  this.eventrepo.findByNomevent(name);
     }
 }

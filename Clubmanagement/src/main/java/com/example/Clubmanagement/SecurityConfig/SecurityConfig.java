@@ -14,6 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
 
 import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.HttpMethod.POST;
@@ -37,18 +38,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         CustomAuthenticationfilter customAuthenticationfilter=new CustomAuthenticationfilter(authenticationManagerBean());
         customAuthenticationfilter.setFilterProcessesUrl("/Clubpage/login");
+        http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues());
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(STATELESS);
         //public pages
-        http.authorizeRequests().antMatchers(GET, "/Clubpage/Visitor/**").permitAll();
-        http.authorizeRequests().antMatchers(POST, "/Clubpage/Visitor/**").permitAll();
+        http.authorizeRequests().antMatchers( "/Clubpage/Visitor/**").permitAll();
         http.authorizeRequests().antMatchers( "/Clubpage/login","/Clubpage/refreshtoken/**").permitAll();
-        http.authorizeRequests().antMatchers(POST, "/Clubpage/admin/**").hasAuthority("Role_Admin");
-        http.authorizeRequests().antMatchers(GET, "/Clubpage/admin/**").hasAuthority("Role_Admin");
-        http.authorizeRequests().antMatchers(POST, "/Clubpage/student/**").hasAuthority("Role_Student");
-        http.authorizeRequests().antMatchers(GET, "/Clubpage/student/**").hasAuthority("Role_Student");
-        http.authorizeRequests().antMatchers(POST, "/Clubpage/student/**").hasAuthority("Role_Admin");
-        http.authorizeRequests().antMatchers(GET, "/Clubpage/student/**").hasAuthority("Role_Admin");
+        http.authorizeRequests().antMatchers( "/Clubpage/admin/**").hasAnyAuthority("Role_Admin");
+        http.authorizeRequests().antMatchers( "/Clubpage/student/**","/Clubpage/member/**").hasAnyAuthority("Role_Student","Role_Admin");
         //otherpages
         http.authorizeRequests().anyRequest().authenticated();
 

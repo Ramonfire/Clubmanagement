@@ -65,4 +65,9 @@ public class EtudiantService  {
     }
 
 
+    public void updatePassword(String email,String generatedString) {
+        Etudiant etudiant = this.findAccount(email);
+        etudiant.setPass(generatedString);
+        this.etudiantRepo.save(etudiant);
+    }
 }

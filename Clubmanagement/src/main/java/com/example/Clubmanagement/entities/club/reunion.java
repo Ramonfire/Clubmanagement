@@ -1,5 +1,7 @@
 package com.example.Clubmanagement.entities.club;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -77,6 +79,7 @@ public class reunion {
         this.lieu = lieu;
     }
 
+    @JsonBackReference
     @ManyToOne(fetch =  FetchType.LAZY)
     private  Club cc;
 }

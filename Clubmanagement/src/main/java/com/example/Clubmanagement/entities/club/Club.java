@@ -2,6 +2,8 @@ package com.example.Clubmanagement.entities.club;
 
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
 import com.example.Clubmanagement.entities.compte.generlAc.Rpedag;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -97,10 +99,14 @@ public class Club {
     @JoinColumn(name = "id_Budget")
     private  budget b;
 
+
+    @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_events")
     private  List<evenement> Ev = new ArrayList<evenement>();
 
+
+    @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_reunions")
     private  List<reunion> reunions = new ArrayList<reunion>();

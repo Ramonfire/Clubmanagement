@@ -66,7 +66,7 @@ public class Etudiant extends Compte {
 
     @Override
     public String toString() {
-        return "Etudiant{" +
+        return super.toString() +
                 "anetud=" + anetud +
                 ", programme='" + programme + '\'' +
                 '}';
