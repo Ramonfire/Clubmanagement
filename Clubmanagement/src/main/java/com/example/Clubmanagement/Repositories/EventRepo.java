@@ -20,4 +20,6 @@ public interface EventRepo extends JpaRepository<evenement,Long> {
     List<evenement> findAllByC(Club club);
 
     List<evenement> findByStateAndType(int State,int type);
+
+    evenement findById_event(Long id);
 }

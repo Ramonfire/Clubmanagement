@@ -44,6 +44,12 @@ public class Visotorcontoller {
     public List<evenement> getPublicevents(){
     return  eventService.getPevent();
     }
+
+    @GetMapping(path = "event/{id}")
+    public evenement getPublicevents(@PathVariable("id") Long id){
+        return  eventService.geteventByid(id);
+    }
+
     @GetMapping("event/{name}")
     public evenement getEventByname(@PathVariable("name") String name){
     return this.eventService.geteventByname(name);

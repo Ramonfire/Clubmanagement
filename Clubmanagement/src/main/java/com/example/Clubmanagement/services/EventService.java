@@ -46,4 +46,8 @@ public class EventService {
     public evenement geteventByname(String name) {
       return  this.eventrepo.findByNomevent(name);
     }
+
+    public evenement geteventByid(Long id) {
+        return this.eventrepo.findById_event(id);
+    }
 }
