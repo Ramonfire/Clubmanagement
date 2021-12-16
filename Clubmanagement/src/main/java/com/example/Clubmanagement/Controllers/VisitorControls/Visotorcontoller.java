@@ -51,9 +51,9 @@ public class Visotorcontoller {
     return this.eventService.geteventByname(name);
     }
 
-    @GetMapping(path ="allclubs")
-    public List<Club> getallActiveClubs(){
-    return clubService.getAllActiveClub();
+    @GetMapping(path ="allclubs/{page}/{size}")
+    public List<Club> getallActiveClubs(@PathVariable("page") int page,@PathVariable("size") int size){
+    return clubService.getAllActiveClub(page,size);
 
     }
     @GetMapping(path = "Club/{id}")

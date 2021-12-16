@@ -5,9 +5,13 @@ import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.awt.print.Pageable;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -18,10 +22,17 @@ public class ClubService {
 
     private final ClubRepo clubRepo;
 
-    public List<Club> getAllActiveClub(){
-        return this.clubRepo.findAll();
+
+    public List<Club> getAllActiveClub(int pagenum,int size){
+        org.springframework.data.domain.Pageable pageable=  PageRequest.of(pagenum,size);
+        Page<Club> page=this.clubRepo.findAll(pageable);
+
+        List<Club> clubs =  Arrays.asList(page.getContent().toArray(new Club[0]));
+        return clubs;
 
     }
+
+
 
     public  List<Club> getAllClubs(boolean etat){
         return  this.clubRepo.findByEtat(etat);
