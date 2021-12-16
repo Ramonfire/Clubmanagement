@@ -14,12 +14,15 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Random;
 
 
 @Service
@@ -69,5 +72,26 @@ public class EtudiantService  {
         Etudiant etudiant = this.findAccount(email);
         etudiant.setPass(generatedString);
         this.etudiantRepo.save(etudiant);
+    }
+
+
+    public String Signup(String email){
+        Compte etudiant = this.etudiantRepo.findByEmail(email);
+        String password="test";//Decrypt account pass and verify
+        BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+
+        if (etudiant!=null && encoder.matches(password,etudiant.getPass())){
+            byte[] array = new byte[7]; // length is bounded by 7
+            new Random().nextBytes(array);
+            String generatedString = new String(array, Charset.forName("UTF-8"));
+            this.updatePassword(email,generatedString);
+            //send the generate String through email
+
+            return "Saved successfully";
+        }
+        else if (etudiant!=null && !encoder.matches(password,etudiant.getPass())){
+            return "account already exists";
+        }
+        else return "Not an Uir student!";
     }
 }

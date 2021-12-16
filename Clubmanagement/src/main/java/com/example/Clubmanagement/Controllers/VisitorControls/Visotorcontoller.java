@@ -52,9 +52,8 @@ public class Visotorcontoller {
     }
 
     @GetMapping(path ="allclubs/{page}/{size}")
-    public List<Club> getallActiveClubs(@PathVariable("page") int page,@PathVariable("size") int size){
+    public List<Club> getallActiveClubs(@PathVariable(name = "page") int page,@PathVariable("size") int size){
     return clubService.getAllActiveClub(page,size);
-
     }
     @GetMapping(path = "Club/{id}")
     public Club getclub(@PathVariable("id") Long id){
@@ -63,26 +62,7 @@ public class Visotorcontoller {
 
     @PutMapping(path = "signup/{email}")
     public String getAccount(@PathVariable("email") String email) {
-
-        Compte etudiant = this.etudiantService.findAccount(email);
-        String password="test";//Decrypt account pass and verify
-        BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
-
-        if (etudiant!=null && encoder.matches(password,etudiant.getPass())){
-            byte[] array = new byte[7]; // length is bounded by 7
-            new Random().nextBytes(array);
-            String generatedString = new String(array, Charset.forName("UTF-8"));
-            this.etudiantService.updatePassword(email,generatedString);
-            //send the generate String through email
-
-            return "Saved successfully";
-        }
-        else if (etudiant!=null && !encoder.matches(password,etudiant.getPass())){
-            return "account already exists";
-        }
-            else return "Not an Uir student!";
-
-
+    return this.etudiantService.Signup(email);
     }
 
 
