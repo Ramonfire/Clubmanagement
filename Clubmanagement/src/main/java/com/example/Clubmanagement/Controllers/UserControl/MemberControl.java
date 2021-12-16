@@ -48,10 +48,10 @@ public List<Etudiant> getAllStudents(@PathVariable("Clubid") Long Clubid){
     }
 
 
-    @GetMapping(path = "events/{type}")
-    public List<evenement> geteventsbytype(@PathVariable int type){
+    @GetMapping(path = "events/{type}/{pagenum}/{size}")
+    public List<evenement> geteventsbytype(@PathVariable int type,@PathVariable int pagenum,@PathVariable int size){
 
-    return this.eventService.geteventbytype(type);
+    return this.eventService.geteventbytype(type,pagenum,size);
 
     }
 //a revoir : get mapping can't get an object , only elements

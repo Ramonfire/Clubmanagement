@@ -48,9 +48,9 @@ public class EtudiantController {
         return this.demandeService.getEtudiantDemande(idE);
     }
 
-    @GetMapping(path = "plannedevents")
-    public List<evenement> getconfirmedevents() {
-        return this.eventService.geteventbyState(1);
+    @GetMapping(path = "plannedevents/{pagenum}/{size}")
+    public List<evenement> getconfirmedevents(@PathVariable int pagenum,@PathVariable int size) {
+        return this.eventService.geteventbyState(1,pagenum,size);
     }
 
 

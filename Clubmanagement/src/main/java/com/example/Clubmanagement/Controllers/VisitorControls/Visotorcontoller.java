@@ -40,9 +40,9 @@ public class Visotorcontoller {
 }
 
 
-    @GetMapping(path = "publicevent")
-    public List<evenement> getPublicevents(){
-    return  eventService.getPevent();
+    @GetMapping(path = "publicevent/{pagenum}/{size}")
+    public List<evenement> getPublicevents(@PathVariable(required = false) int pagenum,@PathVariable(required = false) int size){
+         return  eventService.getPevent(pagenum,size);
     }
 
 
