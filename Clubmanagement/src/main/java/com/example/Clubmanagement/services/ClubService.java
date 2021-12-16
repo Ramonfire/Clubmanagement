@@ -34,9 +34,11 @@ public class ClubService {
 
 
 
-    public  List<Club> getAllClubs(boolean etat){
-        return  this.clubRepo.findByEtat(etat);
-
+    public  List<Club> getAllClubs(boolean etat,int pagenum,int size){
+        org.springframework.data.domain.Pageable pageable=  PageRequest.of(pagenum,size);
+        Page<Club> page= this.clubRepo.findAllByEtat(etat,pageable);
+        List<Club> clubs =Arrays.asList(page.getContent().toArray(new Club[0]));
+        return clubs;
     }
 
 
@@ -44,8 +46,11 @@ public class ClubService {
         return  this.clubRepo.findByIdc(id);
     }
 //get a students Club list
-    public  List<Club> GetMembersClub(Etudiant s) {
-        return this.clubRepo.findAllByStudents(s);
+    public  List<Club> GetMembersClub(Etudiant s,int pagenum,int size) {
+        org.springframework.data.domain.Pageable pageable=  PageRequest.of(pagenum,size);
+        Page<Club> page=this.clubRepo.findAllByStudents(s,pageable);
+        List<Club> clubs =Arrays.asList(page.getContent().toArray(new Club[0]));
+        return clubs;
 
     }
 

@@ -54,9 +54,9 @@ public class AdminControl {
         return  eventService.getPevent();
 
     }
-    @GetMapping(path ="clubs/{etat}")
-    public List<Club> getallClubs(@PathVariable("etat") boolean etat ){
-        return clubService.getAllClubs(etat);
+    @GetMapping(path ="clubs/{etat}/{pagenum}/{size}")
+    public List<Club> getallClubs(@PathVariable("etat") boolean etat,@PathVariable("pagenum") int pagenum ,@PathVariable("size") int size  ){
+        return clubService.getAllClubs(etat,pagenum,size);
     }
 
     @GetMapping(path = "Club/{id}")

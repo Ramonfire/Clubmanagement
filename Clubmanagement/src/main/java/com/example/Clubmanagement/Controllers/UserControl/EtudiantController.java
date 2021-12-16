@@ -56,13 +56,13 @@ public class EtudiantController {
 
     //******getting someone's clubs******//
     @SneakyThrows
-    @GetMapping(path = "Myclubs")
-    public List<Club> getmesclub() {
+    @GetMapping(path = "Myclubs/{pagenum}/{size}")
+    public List<Club> getmesclub(@PathVariable(value = "pagenum", required = false ) int pagenum, @PathVariable(value = "size" ,required = false) int size) {
         Compte compte = this.accountService.getaccoutThroughheader();
 
         if (compte != null && compte instanceof Etudiant) {
             Etudiant etudiant = (Etudiant) compte;
-            return clubService.GetMembersClub(etudiant);
+            return clubService.GetMembersClub(etudiant,pagenum,size);
         }else return null;
     }
 
