@@ -47,7 +47,5 @@ public class EventService {
       return  this.eventrepo.findByNomevent(name);
     }
 
-    public evenement geteventByid(Long id) {
-        return this.eventrepo.findById_event(id);
-    }
+
 }

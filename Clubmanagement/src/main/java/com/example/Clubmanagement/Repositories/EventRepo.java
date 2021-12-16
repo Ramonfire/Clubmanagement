@@ -21,5 +21,5 @@ public interface EventRepo extends JpaRepository<evenement,Long> {
 
     List<evenement> findByStateAndType(int State,int type);
 
-    evenement findById_event(Long id);
+    evenement findByIdevent(Long id);
 }

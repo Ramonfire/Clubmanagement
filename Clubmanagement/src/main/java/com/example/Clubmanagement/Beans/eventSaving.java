@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class eventSaving {
     @Bean
     CommandLineRunner savingevents(EventRepo eventRepo, ClubRepo clubRepo){
-        eventRepo.save( new evenement(null,"test","testing1", 0,0,clubRepo.findByIdc(Long.valueOf(1)),null));
+        eventRepo.save( new evenement(null,"test","testing", 0,0,clubRepo.findByIdc(Long.valueOf(1)),null));
         eventRepo.save( new evenement(null,"test1","testing1", 0,1,clubRepo.findByIdc(Long.valueOf(1)),null));
         eventRepo.save( new evenement(null,"test2","testing2", 0,1,clubRepo.findByIdc(Long.valueOf(2)),null));
         eventRepo.save( new evenement(null,"test3","testing3", 0,1,clubRepo.findByIdc(Long.valueOf(3)),null));
