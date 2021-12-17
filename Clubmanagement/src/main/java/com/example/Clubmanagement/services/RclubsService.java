@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -78,5 +79,12 @@ private final AccountRepo accountRepo;
     }
 
 
-
+public String returnMot(){
+        List<Rclubs>rclubs = this.rclubsRepo.findAll();
+    String y="";
+        for (Rclubs x: rclubs)
+            if (x!=null)
+       y= x.getMot();
+            return y;
+}
 }
