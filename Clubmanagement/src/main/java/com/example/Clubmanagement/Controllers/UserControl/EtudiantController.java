@@ -33,6 +33,7 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200/")
 @RequestMapping(path = "Clubpage/student")
 @RequiredArgsConstructor
 public class EtudiantController {
