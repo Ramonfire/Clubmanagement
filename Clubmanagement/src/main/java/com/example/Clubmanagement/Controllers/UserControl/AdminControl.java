@@ -34,11 +34,11 @@ public class AdminControl {
 
 }
 
-    @GetMapping(path = "Allevents")
-    public List<evenement> getallevents(){
-    return eventService.getallevents();
+    @GetMapping(path = "Allevents/{page}/{size}")
+    public List<evenement> getallevents(@PathVariable(name = "page") int page,@PathVariable("size") int size){
+    return eventService.getallevents(page, size);
     }
-
+// to do pageable
     @GetMapping(path = "allDemandeclubs")
     public List<CreationDemand> getallDemands(){
     return demandeService.getAllDemands();
@@ -50,29 +50,31 @@ public class AdminControl {
 
     }
 
-    @GetMapping(path ="clubs/{etat}/{pagenum}/{size}")
-    public List<Club> getallClubs(@PathVariable("etat") boolean etat,@PathVariable("pagenum") int pagenum ,@PathVariable("size") int size  ){
-        return clubService.getAllClubs(etat,pagenum,size);
+    @GetMapping("events/{name}")
+    public evenement getEventByname(@PathVariable("name") String name){
+        return this.eventService.geteventByname(name);
+    }
+
+    @GetMapping(path ="allclubs/{page}/{size}")
+    public List<Club> getallActiveClubs(@PathVariable(name = "page") int page,@PathVariable("size") int size){
+        return clubService.getAllActiveClub(page,size);
     }
 
     @GetMapping(path = "Club/{id}")
-    public Club getclub(@PathVariable("id") Long id){
-
-    return clubService.getclub(id);
+    public Club getaclub(@PathVariable("id") Long id){
+        return clubService.getclub(id);
     }
-    @GetMapping(path = "Etudiant")
-    public ResponseEntity<List<Etudiant>>getAllStudents(){return ResponseEntity.ok().body(etudiantService.getallstudents());}
 
-    @GetMapping(path = "Etudiant/{email}")
-    public ResponseEntity<Etudiant>getStudentbyemail(@PathVariable("email") String email){return ResponseEntity.ok().body(etudiantService.findAccount(email));}
 
-    @GetMapping(path = "members/{Clubid}")
-    public ResponseEntity<List<Etudiant>> getAllStudents(@PathVariable("Clubid") Long Clubid){
-        List<Members> members =this.memberService.getClubMembers(Clubid);
+
+
+
+    @GetMapping(path = "members/{Clubid}/{page}/{size}")
+    public ResponseEntity<List<Etudiant>> getAllStudents(@PathVariable("Clubid") Long Clubid,@PathVariable("page") int page,@PathVariable("size") int size){
+        List<Members> members =this.memberService.getClubMembers(Clubid,page,size);
         List<Etudiant> etudiants = new ArrayList<>();
         for (Members x: members) {
             etudiants.add(this.etudiantService.getStudentbyid(x.getStudentid()));
-
         }
         return ResponseEntity.ok().body(etudiants);
     }
@@ -84,9 +86,9 @@ public class AdminControl {
     }
 
 
-    @GetMapping(path = "members/{id}/{role}")
-    public List<Etudiant> getAllStudents(@PathVariable("role") String role,@PathVariable("id") Long id){
-        List<Members> members =this.memberService.getClubMember(id,role);
+    @GetMapping(path = "members/{id}/{role}/{page}/{size}")
+    public List<Etudiant> getAllStudents(@PathVariable("role") String role,@PathVariable("id") Long id,@PathVariable("page")int page,@PathVariable("size") int size){
+        List<Members> members =this.memberService.getClubMemberRole(id,role,page,size);
         List<Etudiant> etudiants = new ArrayList<>();
         for (Members x: members) {
             etudiants.add(this.etudiantService.getStudentbyid(x.getStudentid()));

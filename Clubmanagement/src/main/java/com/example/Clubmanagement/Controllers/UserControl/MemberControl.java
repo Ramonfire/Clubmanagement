@@ -10,6 +10,7 @@ import com.example.Clubmanagement.services.EtudiantService;
 import com.example.Clubmanagement.services.EventService;
 import com.example.Clubmanagement.services.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -36,40 +37,35 @@ public class MemberControl {
 
 
 
-    @GetMapping(path = "{Clubid}/members")
-public List<Etudiant> getAllStudents(@PathVariable("Clubid") Long Clubid){
-    List<Members> members =this.memberService.getClubMembers(Clubid);
+    @GetMapping(path = "members/{Clubid}/{page}/{size}")
+    public ResponseEntity<List<Etudiant>> getAllStudents(@PathVariable("Clubid") Long Clubid, @PathVariable("page") int page, @PathVariable("size") int size){
+        List<Members> members =this.memberService.getClubMembers(Clubid,page,size);
         List<Etudiant> etudiants = new ArrayList<>();
         for (Members x: members) {
-             etudiants.add(this.etudiantService.getStudentbyid(x.getStudentid()));
-
+            etudiants.add(this.etudiantService.getStudentbyid(x.getStudentid()));
         }
-    return etudiants;
+        return ResponseEntity.ok().body(etudiants);
     }
 
 
     @GetMapping(path = "events/{type}/{pagenum}/{size}")
     public List<evenement> geteventsbytype(@PathVariable int type,@PathVariable int pagenum,@PathVariable int size){
-
     return this.eventService.geteventbytype(type,pagenum,size);
-
     }
+
 //a revoir : get mapping can't get an object , only elements
     @GetMapping(path = "{clubid}/events" )
     public List<evenement> geteventsbyClub(@PathVariable("clubid") Long clubid){
-
     Club club = this.clubService.getclub(clubid);
-
     return eventService.getClubevent(club);
     }
 
-    @GetMapping(path = "members/{id}/{role}")
-    public List<Etudiant> getMemberByRole(@PathVariable("role") String role,@PathVariable("id") Long id){
-        List<Members> members =this.memberService.getClubMember(id,role);
+    @GetMapping(path = "members/{id}/{role}/{page}/{size}")
+    public List<Etudiant> getMemberByRole(@PathVariable("role") String role,@PathVariable("id") Long id,@PathVariable("page")int page,@PathVariable("size") int size){
+        List<Members> members =this.memberService.getClubMemberRole(id,role,page,size);
         List<Etudiant> etudiants = new ArrayList<>();
         for (Members x: members) {
             etudiants.add(this.etudiantService.getStudentbyid(x.getStudentid()));
-
         }
         return etudiants;
     }
