@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ComponentsComponent } from './components/components.component';
 import { ProfileComponent } from './examples/profile/profile.component';
 import { SigninComponent } from './examples/signin/signin.component';
+import { AuthentificationService } from './examples/signin/auth.service';
 import { SignupComponent } from './examples/signup/signup.component';
 import { LandingComponent } from './examples/landing/landing.component';
 import { EventComponent } from './examples/event/event.component';

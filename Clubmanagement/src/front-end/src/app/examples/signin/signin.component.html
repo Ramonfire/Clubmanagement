@@ -9,6 +9,8 @@
                           <img  style="height: 7em;position: relative;top: -3px;width: 10em;align-content: center;right: -24%" src="/assets/img/logo-uir.png"  >
 
                           <form class="register-form">
+                              <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+                              <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
                               <label>Email</label>
                               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                                 <div class="input-group-prepend">
@@ -17,7 +19,7 @@
                                   </span>
                                 </div>
 
-                                  <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" >
+                                  <input type="text" class="form-control"  id="email" [(ngModel)]="email" placeholder="Email" (focus)="focus=true" (blur)="focus=false" >
                               </div>
 
                               <label>Password</label>
@@ -27,7 +29,7 @@
                                       <i class="nc-icon nc-key-25"></i>
                                   </span>
                                 </div>
-                                  <input type="password" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" >
+                                  <input type="password" (click)=handleLogin() class="form-control" [(ngModel)]="password" id="password" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" >
                               </div>
                               <button style="background-color:#d1d800;border-color:#d1d800" class="btn btn-danger btn-block btn-round">S'identifier</button>
                           </form>
