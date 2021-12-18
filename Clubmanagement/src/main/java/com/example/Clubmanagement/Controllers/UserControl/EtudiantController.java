@@ -74,9 +74,9 @@ public class EtudiantController {
 
     }
 
-    @PostMapping(path = "joinClub{")
-    public Members JoinClub(@RequestBody Members members) {
-        return memberService.SaveNewMember(members);
+    @PostMapping(path = "joinClub")
+    public String JoinClub(@RequestBody Members members) {
+        return memberService.saveMember(members);
 
     }
 }

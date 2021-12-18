@@ -30,7 +30,11 @@ public class EventService {
         return evenements;
 }
 
-    public List<evenement> getallevents() { return eventrepo.findAll(); }
+    public List<evenement> getallevents(int pagenum,int size) {
+        Pageable pageable = PageRequest.of(pagenum, size);
+        Page<evenement> page= this.eventrepo.findAll(pageable);
+        List<evenement> evenements =Arrays.asList(page.getContent().toArray(new evenement[0]));
+        return evenements; }
 
     public Long Countevents(int etat) {
         return eventrepo.countByState(etat);
