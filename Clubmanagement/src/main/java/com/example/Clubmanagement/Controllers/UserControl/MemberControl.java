@@ -50,16 +50,13 @@ public class MemberControl {
 
     @GetMapping(path = "events/{type}/{pagenum}/{size}")
     public List<evenement> geteventsbytype(@PathVariable int type,@PathVariable int pagenum,@PathVariable int size){
-
     return this.eventService.geteventbytype(type,pagenum,size);
-
     }
+
 //a revoir : get mapping can't get an object , only elements
     @GetMapping(path = "{clubid}/events" )
     public List<evenement> geteventsbyClub(@PathVariable("clubid") Long clubid){
-
     Club club = this.clubService.getclub(clubid);
-
     return eventService.getClubevent(club);
     }
 
@@ -69,7 +66,6 @@ public class MemberControl {
         List<Etudiant> etudiants = new ArrayList<>();
         for (Members x: members) {
             etudiants.add(this.etudiantService.getStudentbyid(x.getStudentid()));
-
         }
         return etudiants;
     }

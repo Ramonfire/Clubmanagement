@@ -41,6 +41,7 @@ public class EtudiantController {
     private final EventService eventService;
     private final ClubService clubService;
     private final AccountService accountService;
+    private  final  RclubsService rclubsService;
 //get header - get user - get member - view athority in club then act!
 
     @GetMapping(path = "MesDemandes")
@@ -65,6 +66,26 @@ public class EtudiantController {
             return clubService.GetMembersClub(etudiant,pagenum,size);
         }else return null;
     }
+//studentpage events
+
+    @GetMapping("events/{name}")
+    public evenement getEventByname(@PathVariable("name") String name){
+        return this.eventService.geteventByname(name);
+    }
+
+    @GetMapping(path ="allclubs/{page}/{size}")
+    public List<Club> getallActiveClubs(@PathVariable(name = "page") int page,@PathVariable("size") int size){
+        return clubService.getAllActiveClub(page,size);
+    }
+    @GetMapping(path = "Club/{id}")
+    public Club getclub(@PathVariable("id") Long id){
+        return clubService.getclub(id);
+    }
+
+    @GetMapping(path = "mot")
+    public String getclub(){
+        return rclubsService.returnMot();
+    }
 
 
     //****************************************************************post mapping*****************************************************************************************//
@@ -77,8 +98,9 @@ public class EtudiantController {
     @PostMapping(path = "joinClub")
     public String JoinClub(@RequestBody Members members) {
         return memberService.saveMember(members);
-
     }
+
+
 }
 
 

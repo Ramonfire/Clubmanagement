@@ -23,6 +23,7 @@ public class evenement {
     private  String nomevent;
     private int type ; // 0 public  /-1 club members only /1 uir students
     private int state = 0; //(IntRange(-1,1);) 0 waiting  1 accepted -1 refused
+    private boolean terminer = false; // true if the event is done, false if the event isnt done.
 
 
 
