@@ -2,22 +2,11 @@ package com.example.Clubmanagement.Controllers.VisitorControls;
 
 import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.club.evenement;
-import com.example.Clubmanagement.entities.compte.generlAc.Compte;
-import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
-import com.example.Clubmanagement.services.ClubService;
-import com.example.Clubmanagement.services.EtudiantService;
-import com.example.Clubmanagement.services.EventService;
-import com.example.Clubmanagement.services.MemberService;
+import com.example.Clubmanagement.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.nio.charset.Charset;
 import java.util.List;
-import java.util.Random;
 
 
 @RestController
@@ -27,16 +16,18 @@ public class Visotorcontoller {
     private final EventService eventService;
     private final ClubService clubService;
     private final EtudiantService etudiantService;
+    private  final RclubsService rclubsService;
 
 
 
 
 @Autowired
-    public Visotorcontoller(EventService eventService, ClubService clubService, EtudiantService etudiantService) {
+    public Visotorcontoller(EventService eventService, ClubService clubService, EtudiantService etudiantService, RclubsService rclubsService) {
         this.eventService = eventService;
         this.clubService = clubService;
         this.etudiantService = etudiantService;
 
+    this.rclubsService = rclubsService;
 }
 
 
@@ -60,6 +51,10 @@ public class Visotorcontoller {
         return clubService.getclub(id);
     }
 
+    @GetMapping(path = "mot")
+    public String getclub(){
+        return rclubsService.returnMot();
+    }
     @PutMapping(path = "signup/{email}")
     public String getAccount(@PathVariable("email") String email) {
     return this.etudiantService.Signup(email);
