@@ -15,12 +15,12 @@ export  class visitorService {
     }
 
 //to review
-     public getPublicevent(page:number,size :number) :Observable<any> {
-        return this.http.get<any>(`http://localhost:8080/Clubpage/Visitor/publicevent/${page}/${size}`);
+     public getPublicevent(page:number,size :number) :Observable<Evenement> {
+        return this.http.get<Evenement>(`http://localhost:8080/Clubpage/Visitor/publicevent/${page}/${size}`);
     }
 
-    public geteventname(name :string) :Observable<any> {
-        return this.http.get<any>(`http://localhost:8080/Clubpage/Visitor/events/${name}`);
+    public geteventname(name :string) :Observable<Evenement> {
+        return this.http.get<Evenement>(`http://localhost:8080/Clubpage/Visitor/events/${name}`);
     }
 
 
