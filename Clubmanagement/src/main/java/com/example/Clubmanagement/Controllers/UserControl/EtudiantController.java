@@ -45,9 +45,11 @@ public class EtudiantController {
     private  final  RclubsService rclubsService;
 //get header - get user - get member - view athority in club then act!
 
+    @SneakyThrows
     @GetMapping(path = "MesDemandes")
-    public List<CreationDemand> Mesdemandes(Long idE) {
-        return this.demandeService.getEtudiantDemande(idE);
+    public List<CreationDemand> Mesdemandes()  {
+        Compte etudiant = accountService.getaccoutThroughheader();
+        return this.demandeService.getEtudiantDemande(etudiant.getIdE());
     }
 
     @GetMapping(path = "plannedevents/{pagenum}/{size}")

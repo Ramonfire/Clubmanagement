@@ -14,7 +14,7 @@ export  class  eventService {
 
     }
 
-
+//to review
     getPublicevent() {
         return this.http.get(`http://localhost:8080/Clubpage/Visitor/publicevent/0/3`);
     }
