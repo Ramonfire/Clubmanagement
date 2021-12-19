@@ -9,7 +9,7 @@
                           <img  style="height: 7em;position: relative;top: -3px;width: 10em;align-content: center;right: -24%" src="/assets/img/logo-uir.png"  >
 
                           <form class="register-form">
-                              <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+                              <div class="alert alert-warning" *ngIf='invalidEmail'>{{errorMessage}}</div>
                               <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
                               <label>Email</label>
                               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
