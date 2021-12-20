@@ -23,10 +23,10 @@ authenticationService(login:LoginCredentials) {
     this.formated.append("email",login.email);
     this.formated.append("password",login.password);
 
-    return this.http.post(`http://localhost:8080/Clubpage/login`, this.formated).pipe(map((res ) => {
+    return this.http.post(`http://localhost:8080/Clubpage/login`, this.formated).pipe(map((res :"response"  ) => {
       this.email = login.email;
       this.password = login.password;
-      this.registerSuccessfulLogin(login.email, login.password);
+      this.registerSuccessfulLogin(JSON.stringify(res));
     }));
   }
 
@@ -34,7 +34,7 @@ authenticationService(login:LoginCredentials) {
     return 'Basic ' + window.btoa(email + ":" + password)
   }
 
-  registerSuccessfulLogin(email, password) {
+  registerSuccessfulLogin(email) {
     alert("Login Succesfull");
     sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, email);
   }
@@ -44,12 +44,14 @@ authenticationService(login:LoginCredentials) {
     sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
     this.email = null;
     this.password = null;
+    this.formated.delete("email");
+    this.formated.delete("password");
   }
 
   isUserLoggedIn() {
     let user = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
     if (user === null) return false
-    return true
+    else return true
   }
 
   getLoggedInUserName() {

@@ -30,6 +30,7 @@ export class SigninComponent implements OnInit {
     ngOnInit() {
         this.isnight()
         this.handleLogin()
+        console.log(sessionStorage.getItem('authenticatedUser'))
     }
 
 
@@ -40,12 +41,12 @@ export class SigninComponent implements OnInit {
             this.loginSuccess = true;
             this.successMessage = 'Login Successful.';
             this.router.navigate(['/landing']);
-            console.log(localStorage.getItem("token"))
         }, () => {
             this.invalidEmail = true;
             this.loginSuccess = false;
         });
     }
+
 
     //end of handling the login
     value:boolean;
