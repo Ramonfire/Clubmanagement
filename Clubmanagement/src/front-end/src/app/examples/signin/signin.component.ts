@@ -39,7 +39,8 @@ export class SigninComponent implements OnInit {
             this.invalidEmail = false;
             this.loginSuccess = true;
             this.successMessage = 'Login Successful.';
-            this.router.navigate(['/hello-world']);
+            this.router.navigate(['/landing']);
+            console.log(localStorage.getItem("token"))
         }, () => {
             this.invalidEmail = true;
             this.loginSuccess = false;

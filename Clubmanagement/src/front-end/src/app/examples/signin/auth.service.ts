@@ -19,11 +19,11 @@ export class AuthentificationService {
 
   }
 //to review
-  authenticationService(login:LoginCredentials) :Observable<any> {
+authenticationService(login:LoginCredentials) {
     this.formated.append("email",login.email);
     this.formated.append("password",login.password);
 
-    return this.http.post<any>(`http://localhost:8080/Clubpage/login`, this.formated).pipe(map((res) => {
+    return this.http.post(`http://localhost:8080/Clubpage/login`, this.formated).pipe(map((res ) => {
       this.email = login.email;
       this.password = login.password;
       this.registerSuccessfulLogin(login.email, login.password);
@@ -35,10 +35,12 @@ export class AuthentificationService {
   }
 
   registerSuccessfulLogin(email, password) {
-    sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, email)
+    alert("Login Succesfull");
+    sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, email);
   }
 
   logout() {
+    alert("Logging out!");
     sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
     this.email = null;
     this.password = null;
