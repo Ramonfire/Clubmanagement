@@ -1,2 +1,3 @@
 # Clubmanagement
-Please do the Work i asked you to do!
+this app is a University project and is by no means a 100% reliable .
+progress is still to be made 
