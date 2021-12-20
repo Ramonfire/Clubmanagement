@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import {LoginCredentials} from "../../../../Classes/LoginCredentials";
+import {Observable} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
@@ -11,17 +13,20 @@ export class AuthentificationService {
 
   public email: String;
   public password: String;
+  public formated = new FormData();
 
   constructor(private http: HttpClient) {
 
   }
+//to review
+  authenticationService(login:LoginCredentials) :Observable<any> {
+    this.formated.append("email",login.email);
+    this.formated.append("password",login.password);
 
-  authenticationService(email: String, password: String) {
-    return this.http.post(`http://localhost:8080/Clubpage/login`,
-        { headers: { authorization: this.createBasicAuthToken(email, password) } }).pipe(map((res) => {
-      this.email = email;
-      this.password = password;
-      this.registerSuccessfulLogin(email, password);
+    return this.http.post<any>(`http://localhost:8080/Clubpage/login`, this.formated).pipe(map((res) => {
+      this.email = login.email;
+      this.password = login.password;
+      this.registerSuccessfulLogin(login.email, login.password);
     }));
   }
 

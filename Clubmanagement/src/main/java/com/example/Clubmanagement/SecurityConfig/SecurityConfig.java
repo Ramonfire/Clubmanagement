@@ -42,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(STATELESS);
         //public pages
-        http.authorizeRequests().antMatchers( "/Clubpage/Visitor/**").permitAll();
+        http.authorizeRequests().antMatchers( "/Clubpage/Visitor/**","/Clubpage/image").permitAll();
         http.authorizeRequests().antMatchers( "/Clubpage/login","/Clubpage/refreshtoken/**").permitAll();
         http.authorizeRequests().antMatchers( "/Clubpage/admin/**").hasAnyAuthority("Role_Admin");
         http.authorizeRequests().antMatchers( "/Clubpage/student/**","/Clubpage/member/**").hasAnyAuthority("Role_Student","Role_Admin");

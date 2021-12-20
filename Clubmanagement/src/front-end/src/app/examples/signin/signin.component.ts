@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthentificationService } from './auth.service';
+import {LoginCredentials} from "../../../../Classes/LoginCredentials";
 @Component({
     selector: 'app-signin',
     templateUrl: './signin.component.html',
@@ -18,6 +19,8 @@ export class SigninComponent implements OnInit {
     successMessage: string;
     invalidEmail = false;
     loginSuccess = false;
+    formated =new FormData();
+
 
     constructor(
         private route: ActivatedRoute,
@@ -26,11 +29,13 @@ export class SigninComponent implements OnInit {
 
     ngOnInit() {
         this.isnight()
+        this.handleLogin()
     }
+
 
     //handling the login
     handleLogin() {
-        this.authenticationService.authenticationService(this.email, this.password).subscribe((result)=> {
+        this.authenticationService.authenticationService(new LoginCredentials("omar.zaida@uir.ac.ma","123")).subscribe((result)=> {
             this.invalidEmail = false;
             this.loginSuccess = true;
             this.successMessage = 'Login Successful.';
