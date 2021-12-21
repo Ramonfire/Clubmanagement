@@ -1,4 +1,6 @@
-class etudiant extends compte{
+import {compte} from "./compte";
+
+export class etudiant extends compte{
 
     public anneetude:String;
     public progamme:String;

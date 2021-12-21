@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {formatDate} from "@angular/common";
+import {VisitorService} from "../../../../Services/VisitorService";
+import {Evenement} from "../../../../Classes/evenement";
+import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 
 @Component({
     selector: 'app-landing',
@@ -56,15 +59,41 @@ export class LandingComponent implements OnInit {
         return R;
     }
 
+    public event : Evenement[];
+
     focus: any;
     focus1: any;
     value:boolean ;
-    constructor() { }
+    constructor(private  visitorService :VisitorService) { }
 
     ngOnInit() {
         this.slides = this.chunk(this.cards, 3);
         this.isnight();
+        this.getpublicevent();
     }
+
+
+    public getpublicevent() : void{
+        this.visitorService.getPublicevent(1,3).subscribe(
+            (response :Evenement[]) => {
+                                            this.event =response;
+                                            console.log(this.event);},
+            (error :HttpErrorResponse)=>{console.log("no public events");}
+
+        );
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
     date=new Date();

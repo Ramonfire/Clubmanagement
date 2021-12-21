@@ -1,4 +1,4 @@
- class compte {
+export class compte {
 
     private _idE:number;
     public civilite:number;

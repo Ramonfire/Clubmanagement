@@ -36,9 +36,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
+        http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues());
+
         CustomAuthenticationfilter customAuthenticationfilter=new CustomAuthenticationfilter(authenticationManagerBean());
         customAuthenticationfilter.setFilterProcessesUrl("/Clubpage/login");
-        http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues());
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(STATELESS);
         //public pages

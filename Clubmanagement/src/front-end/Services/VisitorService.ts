@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import {Observable} from "rxjs";
 import {environment} from "../src/environments/environment";
+import {Evenement} from "../Classes/evenement";
+import {Club} from "../Classes/Club";
 @Injectable({
     providedIn: 'root'
 })
@@ -16,8 +18,8 @@ private  apiBaseUrl = environment.apiBaseUrl;
     }
 
 //to review
-     public getPublicevent(page:number,size :number) :Observable<Evenement> {
-        return this.http.get<Evenement>(`${this.apiBaseUrl}/Visitor/publicevent/${page}/${size}`);
+     public getPublicevent(page:number,size :number) :Observable<Evenement[]> {
+        return this.http.get<Evenement[]>(`${this.apiBaseUrl}/Visitor/publicevent/${page}/${size}`);
     }
 
     public geteventname(name :string) :Observable<Evenement> {
