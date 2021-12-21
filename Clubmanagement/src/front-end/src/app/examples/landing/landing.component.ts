@@ -74,7 +74,7 @@ export class LandingComponent implements OnInit {
 
 
     public getpublicevent() : void{
-        this.visitorService.getPublicevent(1,3).subscribe(
+        this.visitorService.getPublicevent(0,3).subscribe(
             (response :Evenement[]) => {
                                             this.event =response;
                                             console.log(this.event);},
