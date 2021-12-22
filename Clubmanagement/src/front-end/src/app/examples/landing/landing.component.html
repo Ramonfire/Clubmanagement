@@ -35,7 +35,7 @@
 
                 <h5 class="description">Les clubs de l'université internationale de Rabat sont un environnement d'épanouissement de l'étudiant ,une occasion de développer et partager ses idées, une oportunité d'apprendre de nouvelles choses.</h5>
                 <br>
-                <a href="#paper-kit" class="btn btn-danger btn-round">Plus de détails</a>
+                <a href="#paper-kit" class="btn btn-danger btn-round" routerLink="/clubs">Plus de détails</a>
             </div>
         </div>
 
@@ -51,19 +51,19 @@
                                 <ng-template ngbSlide>
                                     <img src="./assets/img/soroush-karimi.jpg" alt="Random first slide">
                                     <div class="carousel-caption">
-                                        <p>Somewhere</p>
+                                        <p>{{event[0].nomevent}}</p>s
                                     </div>
                                 </ng-template>
                                 <ng-template ngbSlide>
                                     <img src="./assets/img/federico-beccari.jpg" alt="Random second slide">
                                     <div class="carousel-caption">
-                                        <p>Somewhere else</p>
+                                        <p>{{event[1].nomevent}}</p>
                                     </div>
                                 </ng-template>
                                 <ng-template ngbSlide>
                                     <img src="./assets/img/joshua-stannard.jpg" alt="Random third slide">
                                     <div class="carousel-caption">
-                                        <p>Here it is</p>
+                                        <p>{{event[2].nomevent}}</p>
                                     </div>
                                 </ng-template>
                             </ngb-carousel>

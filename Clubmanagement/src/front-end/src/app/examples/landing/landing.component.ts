@@ -59,7 +59,7 @@ export class LandingComponent implements OnInit {
         return R;
     }
 
-    public event : Evenement[];
+    public event : Evenement[]
     public mot :string;
 
 
