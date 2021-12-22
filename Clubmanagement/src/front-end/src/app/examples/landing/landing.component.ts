@@ -3,6 +3,7 @@ import {formatDate} from "@angular/common";
 import {VisitorService} from "../../../../Services/VisitorService";
 import {Evenement} from "../../../../Classes/evenement";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
+import {AuthentificationService} from "../../../../Services/auth.service";
 
 @Component({
     selector: 'app-landing',
@@ -66,7 +67,7 @@ export class LandingComponent implements OnInit {
     focus: any;
     focus1: any;
     value:boolean ;
-    constructor(private  visitorService :VisitorService) { }
+    constructor(private  visitorService :VisitorService, private  authServie : AuthentificationService) { }
 
     ngOnInit() {
         this.slides = this.chunk(this.cards, 3);
@@ -80,8 +81,7 @@ export class LandingComponent implements OnInit {
     public getpublicevent() : void{
         this.visitorService.getPublicevent(0,3).subscribe(
             (response :Evenement[]) => {
-                                            this.event =response;
-                                            console.log(this.event);},
+                                            this.event =response;},
             (error :HttpErrorResponse)=>{console.log("no public events");}
 
         );
@@ -93,14 +93,17 @@ export class LandingComponent implements OnInit {
     public getmot() : void{
         this.visitorService.getmotall().subscribe(
             (response :string) => {
-                this.mot =response;
-                console.log(this.mot);},
+                this.mot =response;},
             (error :HttpErrorResponse)=>{console.log(error.message);}
 
         );
 
     }
 
+
+public verifyauthen(): boolean{
+        return this.authServie.isUserLoggedIn();
+}
 
 
 
