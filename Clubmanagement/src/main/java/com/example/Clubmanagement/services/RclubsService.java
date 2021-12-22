@@ -80,11 +80,8 @@ private final AccountRepo accountRepo;
 
 
 public String returnMot(){
-        List<Rclubs>rclubs = this.rclubsRepo.findAll();
-    String y="";
-        for (Rclubs x: rclubs)
-            if (x!=null)
-       y= x.getMot();
-            return y;
+       Rclubs rclubs = this.rclubsRepo.findByEmail("rachid.hard@uir.ac.ma");
+    log.info("got mot  {} of {} ",rclubs.getMot(),rclubs.getEmail());
+       return rclubs.getMot();
 }
 }

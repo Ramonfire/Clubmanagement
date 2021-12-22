@@ -60,6 +60,7 @@ export class LandingComponent implements OnInit {
     }
 
     public event : Evenement[];
+    public mot :string;
 
     focus: any;
     focus1: any;
@@ -69,7 +70,8 @@ export class LandingComponent implements OnInit {
     ngOnInit() {
         this.slides = this.chunk(this.cards, 3);
         this.isnight();
-        this.getpublicevent();
+        //this.getpublicevent();
+        this.getmot();
     }
 
 
@@ -86,7 +88,16 @@ export class LandingComponent implements OnInit {
 
 
 
+    public getmot() : void{
+        this.visitorService.getmotall().subscribe(
+            (response :string) => {
+                this.mot =response;
+                console.log(this.mot);},
+            (error :HttpErrorResponse)=>{console.log(error.message);}
 
+        );
+
+    }
 
 
 

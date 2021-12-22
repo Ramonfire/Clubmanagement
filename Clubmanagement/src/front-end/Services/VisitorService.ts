@@ -36,11 +36,11 @@ private  apiBaseUrl = environment.apiBaseUrl;
     }
 
     public getmotall() :Observable<string> {
-        return this.http.get<string>(`${this.apiBaseUrl}/Visitor/mot`);
+        return this.http.get(`${this.apiBaseUrl}/Visitor/mot`,{responseType : 'text'});
     }
 
     public singup(email :string) :Observable<string> {
-        return this.http.put<string>(`${this.apiBaseUrl}/Visitor/signup/${email}`,null);
+        return this.http.put(`${this.apiBaseUrl}/Visitor/signup/${email}`,null,{responseType:'text'});
     }
 
 }

@@ -4,6 +4,7 @@ import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.club.evenement;
 import com.example.Clubmanagement.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -53,8 +54,8 @@ public class Visotorcontoller {
     }
 
     @GetMapping(path = "mot")
-    public String getclub(){
-        return rclubsService.returnMot();
+    public ResponseEntity<String> getclub(){
+        return  ResponseEntity.ok().body(rclubsService.returnMot());
     }
     @PutMapping(path = "signup/{email}")
     public String getAccount(@PathVariable("email") String email) {
