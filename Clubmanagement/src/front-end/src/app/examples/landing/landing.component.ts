@@ -62,6 +62,7 @@ export class LandingComponent implements OnInit {
     public event : Evenement[];
     public mot :string;
 
+
     focus: any;
     focus1: any;
     value:boolean ;
@@ -70,8 +71,9 @@ export class LandingComponent implements OnInit {
     ngOnInit() {
         this.slides = this.chunk(this.cards, 3);
         this.isnight();
-        //this.getpublicevent();
+        this.getpublicevent();
         this.getmot();
+
     }
 
 
