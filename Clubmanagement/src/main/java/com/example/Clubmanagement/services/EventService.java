@@ -25,7 +25,7 @@ public class EventService {
 
     public List<evenement> getPevent(int pagenum,int size){
         Pageable pageable = PageRequest.of(pagenum, size);
-        Page<evenement> page= this.eventrepo.findAllByStateAndType(1,0,pageable);
+        Page<evenement> page= this.eventrepo.findAllByStateAndTypeAndTerminer(1,0,false,pageable);
         List<evenement> evenements = Arrays.asList(page.getContent().toArray(new evenement[0]));
         return evenements;
 }
