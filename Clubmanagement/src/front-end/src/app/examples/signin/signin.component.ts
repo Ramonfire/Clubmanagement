@@ -13,13 +13,13 @@ export class SigninComponent implements OnInit {
     focus1;
 
     //authentification //
-    email: string;
-    password : string;
+
     errorMessage = 'Invalid Credentials';
     successMessage: string;
     invalidEmail = false;
     loginSuccess = false;
     formated =new FormData();
+    loginCred = new LoginCredentials("","");
 
 
     constructor(
@@ -29,13 +29,12 @@ export class SigninComponent implements OnInit {
 
     ngOnInit() {
         this.isnight()
-        this.handleLogin()
     }
 
 
     //handling the login
     handleLogin() {
-        this.authenticationService.authenticationService(new LoginCredentials("omar.zaida@uir.ac.ma","123")).subscribe((result)=> {
+        this.authenticationService.authenticationService(this.loginCred).subscribe((result)=> {
             this.invalidEmail = false;
             this.loginSuccess = true;
             this.successMessage = 'Login Successful.';
