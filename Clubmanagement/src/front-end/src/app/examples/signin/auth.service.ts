@@ -46,6 +46,7 @@ authenticationService(login:LoginCredentials) {
     this.password = null;
     this.formated.delete("email");
     this.formated.delete("password");
+    window.location.reload();
   }
 
   isUserLoggedIn() {
