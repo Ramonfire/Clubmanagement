@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {formatDate} from "@angular/common";
 import {VisitorService} from "../../../../Services/VisitorService";
+import {StudentService} from "../../../../Services/StudentService";
 import {Evenement} from "../../../../Classes/evenement";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {AuthentificationService} from "../../../../Services/auth.service";
@@ -67,25 +68,37 @@ export class LandingComponent implements OnInit {
     focus: any;
     focus1: any;
     value:boolean ;
-    constructor(private  visitorService :VisitorService, private  authServie : AuthentificationService) { }
+    constructor(private  visitorService :VisitorService, private  authServie : AuthentificationService,private studentservice : StudentService ) { }
 
     ngOnInit() {
         this.slides = this.chunk(this.cards, 3);
         this.isnight();
-        this.getpublicevent();
+        this.getevent();
         this.getmot();
 
     }
 
 
-    public getpublicevent() : void{
-        this.visitorService.getPublicevent(0,3).subscribe(
-            (response :Evenement[]) => {
-                                            this.event =response;},
-            (error :HttpErrorResponse)=>{console.log("no public events");}
-
-        );
-
+    public getevent() : void{
+        if(!this.verifyauthen()) {
+            this.visitorService.getPublicevent(0, 3).subscribe(
+                (response: Evenement[]) => {
+                    this.event = response;
+                },
+                (error: HttpErrorResponse) => {
+                    console.log("no public events");
+                }
+            );
+        }else {
+            this.studentservice.getevent(0, 3).subscribe(
+                (response: Evenement[]) => {
+                    this.event = response;
+                },
+                (error: HttpErrorResponse) => {
+                    console.log("no public events");
+                }
+            );
+        }
     }
 
 

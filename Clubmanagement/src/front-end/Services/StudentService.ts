@@ -4,7 +4,7 @@ import {Observable} from "rxjs";
 import {Evenement} from "../Classes/evenement";
 import {Club} from "../Classes/Club";
 
-class StudentService {
+export class StudentService {
     private  apiBaseUrl = environment.apiBaseUrl;
     constructor(private http: HttpClient) {
     }
@@ -12,7 +12,7 @@ class StudentService {
 
 
 //to review
-    public getPublicevent(page:number,size :number) :Observable<Evenement[]> {
+    public getevent(page:number,size :number) :Observable<Evenement[]> {
         return this.http.get<Evenement[]>(`${this.apiBaseUrl}/student/plannedevents/${page}/${size}`,);
     }
 
