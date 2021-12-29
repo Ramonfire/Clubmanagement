@@ -26,7 +26,7 @@ authenticationService(login:LoginCredentials) {
     return this.http.post(`http://localhost:8080/Clubpage/login`, this.formated).pipe(map((res :"response"  ) => {
       this.email = login.email;
       this.password = login.password;
-      this.registerSuccessfulLogin(JSON.stringify(res));
+      this.registerSuccessfulLogin(res);
     }));
   }
 

@@ -12,6 +12,7 @@ import com.example.Clubmanagement.entities.club.evenement;
 import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
 import com.example.Clubmanagement.entities.compte.generlAc.Compte;
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
+import com.example.Clubmanagement.entities.compte.generlAc.Rclubs;
 import com.example.Clubmanagement.services.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AccessLevel;
@@ -89,6 +90,20 @@ public class EtudiantController {
     public String getclub(){
         return rclubsService.returnMot();
     }
+
+    @SneakyThrows
+    @GetMapping("AccountType")
+    public String getAccountType(){
+        Compte compte =accountService.getaccoutThroughheader();
+        if (compte instanceof Etudiant){
+            return "S";
+        }
+        else if (compte instanceof Rclubs){
+            return  "Rc";}
+        else return "Rp";
+    }
+
+
 
 
     //****************************************************************post mapping*****************************************************************************************//
