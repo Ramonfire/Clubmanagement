@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthentificationService } from './auth.service';
 import {LoginCredentials} from "../../../../Classes/LoginCredentials";
+import {waitForAsync} from "@angular/core/testing";
 @Component({
     selector: 'app-signin',
     templateUrl: './signin.component.html',
@@ -30,6 +31,7 @@ export class SigninComponent implements OnInit {
     ngOnInit() {
         this.isnight()
     }
+
 
 
     //handling the login

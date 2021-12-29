@@ -31,7 +31,7 @@
                                 </div>
                                   <input type="password"  class="form-control" [(ngModel)]="loginCred.password" name="password" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" >
                               </div>
-                              <button  (click)=handleLogin() style="background-color:#d1d800;border-color:#d1d800" class="btn btn-danger btn-block btn-round">S'identifier</button>
+                              <button  (click)="handleLogin()" style="background-color:#d1d800;border-color:#d1d800" class="btn btn-danger btn-block btn-round">S'identifier</button>
                           </form>
                           <div class="forgot">
                               <a href="#" style="color:#d1d800;" class="btn btn-link btn-danger">Forgot password?</a>
