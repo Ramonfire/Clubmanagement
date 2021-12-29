@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import {LoginCredentials} from "../Classes/LoginCredentials";
-import {Session} from "../Classes/Session";
 @Injectable({
   providedIn: 'root'
 })
@@ -36,11 +35,7 @@ authenticationService(login:LoginCredentials) {
 
   registerSuccessfulLogin(email) {
     alert("Login Succesfull");
-    let sess = new Session();
-    sess=email;
-
-    sessionStorage.setItem("access_token", sess.access_token.toString());
-    sessionStorage.setItem("refresh_token", sess.refresh_token.toString());
+    sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, email);
   }
 
   logout() {
