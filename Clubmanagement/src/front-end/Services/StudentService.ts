@@ -16,14 +16,18 @@ export class StudentService {
     }
 
 
-    alltokens:string;
 
      header =new HttpHeaders();
+    session = new Session();
+
 
 
 
 //to review
     public getevent(page:number,size :number) :Observable<Evenement[]> {
+
+        this.session.acces_token=sessionStorage.getItem("acces_token")
+
         return this.http.get<Evenement[]>(`${this.apiBaseUrl}/student/plannedevents/${page}/${size}`,{headers:{}});
     }
 

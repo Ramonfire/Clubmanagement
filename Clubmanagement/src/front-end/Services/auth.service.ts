@@ -23,25 +23,26 @@ authenticationService(login:LoginCredentials) {
     this.formated.append("email",login.email);
     this.formated.append("password",login.password);
 
-    return this.http.post(`http://localhost:8080/Clubpage/login`, this.formated).pipe(map((res :Session  ) => {
-      this.email = login.email;
-      this.password = login.password;
-      this.registerSuccessfulLogin(res);
-    }));
-  }
+  return this.http.post(`http://localhost:8080/Clubpage/login`, this.formated).pipe(map((res :Session  ) => {
+    this.registerSuccessfulLogin(res);
+  }));
+}
 
   createBasicAuthToken(email: String, password: String) {
     return 'Basic ' + window.btoa(email + ":" + password)
   }
 
-  registerSuccessfulLogin(email) {
+  registerSuccessfulLogin(email:Session) {
     alert("Login Succesfull");
-    sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, email);
+    sessionStorage.setItem("acces_token", "Bearer "+email.acces_token.toString());
+    sessionStorage.setItem("refresh_token", "Bearer "+email.refresh_token.toString());
   }
 
   logout() {
     alert("Logging out!");
-    sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+    sessionStorage.removeItem("acces_token");
+    sessionStorage.removeItem("refresh_token");
+
     this.email = null;
     this.password = null;
     this.formated.delete("email");
@@ -50,16 +51,15 @@ authenticationService(login:LoginCredentials) {
   }
 
   isUserLoggedIn() {
-    let user = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
+    let user = sessionStorage.getItem("acces_token")
     if (user === null) return false
     else return true
   }
 
   getLoggedInUserName() {
-    let user = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
+    let user = sessionStorage.getItem("acces_token")
     if (user === null) return ''
     return user
   }
-
 
 }
