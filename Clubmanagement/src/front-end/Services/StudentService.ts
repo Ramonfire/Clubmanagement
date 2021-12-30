@@ -48,6 +48,10 @@ export class StudentService {
     public ViewDemande():Observable<any>{
         return null;
     }
+/*
+    public makeDemande(Demande : any) :Observable<string> {
+        return this.http.post(`${this.apiBaseUrl}/student/newDemande`,Demande);
 
-
+    }
+*/
 }

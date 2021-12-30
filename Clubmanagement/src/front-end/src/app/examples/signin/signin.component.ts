@@ -45,6 +45,7 @@ export class SigninComponent implements OnInit {
         }, () => {
             this.invalidEmail = true;
             this.loginSuccess = false;
+            location.reload();
         });
     }
 
