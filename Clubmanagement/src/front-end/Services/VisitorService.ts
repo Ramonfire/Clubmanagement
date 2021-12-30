@@ -40,7 +40,7 @@ private  apiBaseUrl = environment.apiBaseUrl;
     }
 
     public singup(email :string) :Observable<string> {
-        return this.http.put(`${this.apiBaseUrl}/Visitor/signup/${email}`,null,{responseType:'text'});
+        return this.http.get(`${this.apiBaseUrl}/Visitor/signup/${email}`,{responseType:'text' ,});
     }
 
 }

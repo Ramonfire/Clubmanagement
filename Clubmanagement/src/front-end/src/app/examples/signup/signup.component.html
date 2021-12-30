@@ -17,13 +17,13 @@
                                   </span>
                                 </div>
 
-                                  <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" name="emailsignup" >
+                                  <input type="text" class="form-control" [(ngModel)]="emailsignup" n placeholder="Email" (focus)="focus=true" (blur)="focus=false" name="emailsignup" >
                               </div>
 
 
                               <p _ngcontent-c7="" class="text-primary">Nous allons procéder à la verification de votre addresse email et ensuite vous envoyer un mot de passe dans la même addresse.</p>
 
-                              <button  style="background-color:#d1d800;border-color:#d1d800 " class="btn btn-danger btn-block btn-round">Faire une demande d'inscription</button>
+                              <button   (click)="singup()" style="background-color:#d1d800;border-color:#d1d800 " class="btn btn-danger btn-block btn-round">Faire une demande d'inscription</button>
                           </form>
 
                       </div>
@@ -53,13 +53,13 @@
                                   </span>
                                 </div>
 
-                                <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" >
+                                <input type="text" class="form-control" [(ngModel)]="emailsignup"  name="emailsignup" placeholder="Email" (focus)="focus=true" (blur)="focus=false" >
                             </div>
 
 
                             <p _ngcontent-c7="" class="text-primary">Nous allons procéder à la verification de votre addresse email et ensuite vous envoyer un mot de passe dans la même addresse.</p>
 
-                            <button  style="background-color:#d1d800;border-color:#d1d800 " class="btn btn-danger btn-block btn-round">Faire une demande d'inscription</button>
+                            <button (click)="singup()" style="background-color:#d1d800;border-color:#d1d800 " class="btn btn-danger btn-block btn-round">Faire une demande d'inscription</button>
                         </form>
 
                     </div>

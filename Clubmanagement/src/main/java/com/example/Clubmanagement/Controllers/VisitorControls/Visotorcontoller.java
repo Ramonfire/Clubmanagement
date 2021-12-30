@@ -57,7 +57,7 @@ public class Visotorcontoller {
     public ResponseEntity<String> getclub(){
         return  ResponseEntity.ok().body(rclubsService.returnMot());
     }
-    @PutMapping(path = "signup/{email}")
+    @GetMapping(path = "signup/{email}")
     public String getAccount(@PathVariable("email") String email) {
     return this.etudiantService.Signup(email);
     }
