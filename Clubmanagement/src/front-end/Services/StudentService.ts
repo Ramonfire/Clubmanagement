@@ -3,7 +3,11 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Evenement} from "../Classes/evenement";
 import {Club} from "../Classes/Club";
+import {Injectable} from "@angular/core";
 
+@Injectable({
+    providedIn: 'root'
+})
 export class StudentService {
     private  apiBaseUrl = environment.apiBaseUrl;
     constructor(private http: HttpClient) {
