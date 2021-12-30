@@ -26,34 +26,35 @@ export class StudentService {
 //to review
     public getevent(page:number,size :number) :Observable<Evenement[]> {
 
-        this.session.acces_token=sessionStorage.getItem("acces_token")
+        this.session.acces_token=sessionStorage.getItem("acces_token");
+        this.header.append("acces_token",this.session.acces_token.toString())
 
-        return this.http.get<Evenement[]>(`${this.apiBaseUrl}/student/plannedevents/${page}/${size}`,{headers:{}});
+        return this.http.get<Evenement[]>(`${this.apiBaseUrl}/student/plannedevents/${page}/${size}`,{headers:this.header});
     }
 
     public geteventname(name :string) :Observable<Evenement> {
-        return this.http.get<Evenement>(`${this.apiBaseUrl}/student/events/${name}`);
+        return this.http.get<Evenement>(`${this.apiBaseUrl}/student/events/${name}`,{headers:this.header});
     }
 
 
     public getAllclubs(page:number,size :number) :Observable<Club[]> {
-        return this.http.get<Club[]>(`${this.apiBaseUrl}/student/allclubs/${page}/${size}`);
+        return this.http.get<Club[]>(`${this.apiBaseUrl}/student/allclubs/${page}/${size}`,{headers:this.header});
     }
     public Myclubs(page:number,size :number) :Observable<Club[]> {
-        return this.http.get<Club[]>(`${this.apiBaseUrl}/student/Myclubs/${page}/${size}`);
+        return this.http.get<Club[]>(`${this.apiBaseUrl}/student/Myclubs/${page}/${size}`,{headers:this.header});
     }
 
     public getClubId(idc : number) :Observable<Club> {
-        return this.http.get<Club>(`${this.apiBaseUrl}/student/Club/${idc}`);
+        return this.http.get<Club>(`${this.apiBaseUrl}/student/Club/${idc}`,{headers:this.header});
     }
 
     public getmotall() :Observable<string> {
-        return this.http.get(`${this.apiBaseUrl}/student/mot`,{responseType : 'text'});
+        return this.http.get(`${this.apiBaseUrl}/student/mot`,{responseType : 'text',headers:this.header});
 
     }
 
     public AccountType() :Observable<string> {
-        return this.http.get(`${this.apiBaseUrl}/student/AccountType`,{responseType : 'text'});
+        return this.http.get(`${this.apiBaseUrl}/student/AccountType`,{responseType : 'text',headers:this.header});
 
     }
     public ViewDemande():Observable<any>{
