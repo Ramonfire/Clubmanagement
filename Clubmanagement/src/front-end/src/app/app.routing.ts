@@ -11,7 +11,6 @@ import { SignupComponent } from './examples/signup/signup.component';
 import { LandingComponent } from './examples/landing/landing.component';
 import { EventComponent } from './examples/event/event.component';
 import { ClubsComponent } from './examples/clubs/clubs.component';
-import { ClubsUirComponent } from './examples/clubsuir/clubsuir.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 
 const routes: Routes =[
@@ -22,7 +21,6 @@ const routes: Routes =[
     { path: 'landing',          component: LandingComponent },
     { path: 'clubs',          component: ClubsComponent },
     { path: 'event',          component: EventComponent },
-    { path: 'clubsuir',          component: ClubsUirComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent }
 ];
 
