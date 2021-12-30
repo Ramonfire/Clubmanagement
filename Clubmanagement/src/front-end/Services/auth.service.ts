@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import {LoginCredentials} from "../Classes/LoginCredentials";
+import {Session} from "../Classes/Session";
 @Injectable({
   providedIn: 'root'
 })
@@ -22,7 +23,7 @@ authenticationService(login:LoginCredentials) {
     this.formated.append("email",login.email);
     this.formated.append("password",login.password);
 
-    return this.http.post(`http://localhost:8080/Clubpage/login`, this.formated).pipe(map((res :"response"  ) => {
+    return this.http.post(`http://localhost:8080/Clubpage/login`, this.formated).pipe(map((res :Session  ) => {
       this.email = login.email;
       this.password = login.password;
       this.registerSuccessfulLogin(res);

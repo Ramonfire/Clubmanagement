@@ -1,14 +1,14 @@
 export class Session {
-   private _access_token:String;
+   private _acces_token:String;
    private _refresh_token:String;
 
 
-   get access_token(): String {
-      return this._access_token;
+   get acces_token(): String {
+      return this._acces_token;
    }
 
-   set access_token(value: String) {
-      this._access_token = value;
+   set acces_token(value: String) {
+      this._acces_token = value;
    }
 
    get refresh_token(): String {

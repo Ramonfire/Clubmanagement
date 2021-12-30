@@ -95,7 +95,7 @@ export class LandingComponent implements OnInit {
                     this.event = response;
                 },
                 (error: HttpErrorResponse) => {
-                    console.log("no public events");
+                    console.log("no events");
                 }
             );
         }
