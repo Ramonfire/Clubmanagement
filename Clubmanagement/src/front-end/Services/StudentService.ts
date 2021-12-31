@@ -17,7 +17,6 @@ export class StudentService {
 
 
 
-     header =new HttpHeaders();
     session = new Session();
 
 
@@ -25,10 +24,13 @@ export class StudentService {
 
 //to review
     public getevent(page:number,size :number) :Observable<Evenement[]> {
+        this.session.acces_token=sessionStorage.getItem("acces_token");
+        let header =new HttpHeaders();
+        header = header.set("Authorization",this.session.acces_token.toString());
+        console.log(header);
+        console.log(header.get("Authorization"));
 
-        this.session.acces_token=sessionStorage.getItem("acces_token")
-
-        return this.http.get<Evenement[]>(`${this.apiBaseUrl}/student/plannedevents/${page}/${size}`,{headers:{}});
+        return this.http.get<Evenement[]>(`${this.apiBaseUrl}/student/plannedevents/${page}/${size}`,{headers:header});
     }
 
     public geteventname(name :string) :Observable<Evenement> {
