@@ -5,7 +5,6 @@ import {Evenement} from "../Classes/evenement";
 import {Club} from "../Classes/Club";
 import {Injectable} from "@angular/core";
 import {Session} from "../Classes/Session";
-import * as stream from "stream";
 
 @Injectable({
     providedIn: 'root'
@@ -17,18 +16,14 @@ export class StudentService {
 
 
 
-     header =new HttpHeaders();
-    session = new Session();
-
 
 
 
 //to review
     public getevent(page:number,size :number) :Observable<Evenement[]> {
 
-        this.session.acces_token=sessionStorage.getItem("acces_token")
 
-        return this.http.get<Evenement[]>(`${this.apiBaseUrl}/student/plannedevents/${page}/${size}`,{headers:{}});
+        return this.http.get<Evenement[]>(`${this.apiBaseUrl}/student/plannedevents/${page}/${size}`);
     }
 
     public geteventname(name :string) :Observable<Evenement> {
