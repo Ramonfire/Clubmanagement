@@ -11,7 +11,7 @@ import {VisitorService} from "../../../../Services/VisitorService";
   styleUrls: ['./clubs.component.scss']
 })
 export class ClubsComponent implements OnInit {
-
+//pp
   clubs:Club[];
 
   constructor(private visservice:VisitorService) { }
