@@ -1,5 +1,6 @@
 package com.example.Clubmanagement.services;
 
+import com.example.Clubmanagement.Components.EmailService;
 import com.example.Clubmanagement.Repositories.EtudiantRepo;
 import com.example.Clubmanagement.Repositories.MemberRepo;
 import com.example.Clubmanagement.Repositories.RoleRepo;
@@ -15,6 +16,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -33,6 +35,8 @@ public class EtudiantService  {
     private final EtudiantRepo etudiantRepo;
     private final RoleRepo roleRepo;
     private final MemberRepo memberRepo;
+    private final EmailService emailService;
+    private final PasswordEncoder passwordEncoder;
 
 
 
@@ -70,7 +74,7 @@ public class EtudiantService  {
 
     public void updatePassword(String email,String generatedString) {
         Etudiant etudiant = this.findAccount(email);
-        etudiant.setPass(generatedString);
+        etudiant.setPass(passwordEncoder.encode(generatedString));
         this.etudiantRepo.save(etudiant);
     }
 
@@ -81,11 +85,23 @@ public class EtudiantService  {
         BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
 
         if (etudiant!=null && encoder.matches(password,etudiant.getPass())){
-            byte[] array = new byte[7]; // length is bounded by 7
-            new Random().nextBytes(array);
-            String generatedString = new String(array, Charset.forName("UTF-8"));
+            //generating a random string
+            int leftLimit = 97; // letter 'a'
+            int rightLimit = 122; // letter 'z'
+            int targetStringLength = 10;
+            Random random = new Random();
+
+            String generatedString = random.ints(leftLimit, rightLimit + 1)
+                    .limit(targetStringLength)
+                    .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                    .toString();
+            //string generated
             this.updatePassword(email,generatedString);
+            log.info("new password {}",generatedString);
+
             //send the generate String through email
+            String message = "Votre nouveau mot de passe est "+generatedString;
+            emailService.sendSimpleMessage(etudiant.getEmail(),"Nouveau mot de passe de votre compte UIR CLUBS",message);
 
             return "Saved successfully";
         }
