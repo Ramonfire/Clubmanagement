@@ -71,6 +71,7 @@ export class LandingComponent implements OnInit {
     constructor(private  visitorService :VisitorService, private  authServie : AuthentificationService,private studentservice : StudentService ) { }
 
     ngOnInit() {
+        sessionStorage.setItem("pagenum","0");
         this.slides = this.chunk(this.cards, 3);
         this.isnight();
         this.getevent();
