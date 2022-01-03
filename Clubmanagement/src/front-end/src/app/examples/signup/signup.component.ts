@@ -6,6 +6,7 @@ import {Observable} from "rxjs";
 import {Evenement} from "../../../../Classes/evenement";
 import {HttpErrorResponse} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {waitForAsync} from "@angular/core/testing";
 
 @Component({
     selector: 'app-signup',
@@ -16,10 +17,10 @@ export class SignupComponent implements OnInit {
     test : Date = new Date();
     focus;
     focus1;
-    private router :Router;
+
     //Declare an email to look for
     //httpCLient HttpClient
-    constructor(private visitorService:VisitorService) { }
+    constructor(private visitorService:VisitorService,private router :Router) { }
 //.subscribe
     ngOnInit() {
 
@@ -55,7 +56,9 @@ value:boolean;
     successMessage:string;
     fail:string;
     singup(){
+
        this.visitorService.singup(this.emailsignup).subscribe(
+
             (response: string) => {
                 alert(response.toString());
                 this.router.navigate(['/landing']);

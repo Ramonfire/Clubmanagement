@@ -22,6 +22,7 @@ const routes: Routes =[
     { path: 'clubs',          component: ClubsComponent },
     { path: 'event',          component: EventComponent },
     { path: 'club',          component: EventComponent },
+    { path: 'profile',          component: ProfileComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent }
 ];
 
