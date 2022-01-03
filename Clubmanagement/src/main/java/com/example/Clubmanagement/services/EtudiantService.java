@@ -101,7 +101,7 @@ public class EtudiantService  {
 
             //send the generate String through email
             String message = "Votre nouveau mot de passe est "+generatedString;
-            emailService.sendSimpleMessage(etudiant.getEmail(),"Nouveau mot de passe de votre compte UIR CLUBS",message);
+            emailService.sendSimpleMessage(etudiant.getEmail(),"",message);
 
             return "Saved successfully";
         }

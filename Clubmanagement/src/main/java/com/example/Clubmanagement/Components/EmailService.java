@@ -16,7 +16,7 @@ public class EmailService {
             SimpleMailMessage message = new SimpleMailMessage();
             message.setFrom("no-reply@clubpageproject1.com");
             message.setTo(to);
-            message.setSubject(subject);
+            message.setSubject("MDP_UIR");
             message.setText(text);
             emailSender.send(message);
         }
