@@ -6,6 +6,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 import {VisitorService} from "../../../../Services/VisitorService";
 import {Router} from "@angular/router";
 import {stringify} from "@angular/compiler/src/util";
+import {waitForAsync} from "@angular/core/testing";
 
 @Component({
   selector: 'app-clubs',
@@ -15,23 +16,32 @@ import {stringify} from "@angular/compiler/src/util";
 export class ClubsComponent implements OnInit {
 //pp
   clubs:Club[];
+  clublenght: number;
 
 
   constructor(private visservice:VisitorService,private router :Router) { }
 
   ngOnInit(): void {
+
       this.getClubs();
+
   }
 
 getClubs(){
 
-    this.visservice.getAllclubs(parseInt(sessionStorage.getItem("pagenum")),10).subscribe(
+    this.visservice.getAllclubs(parseInt(sessionStorage.getItem("pagenum")),6).subscribe(
         (response: Club[]) => {
           this.clubs = response;
+          this.clublenght=response.length;
         },
         (error: HttpErrorResponse) => {
+            if (sessionStorage.getItem("pagenum")){
             sessionStorage.setItem("pagenum","0");
-            location.reload();
+            location.reload();}
+            else {
+                alert("Session expired");
+                this.router.navigate(["/signin"])
+            }
         }
     );
 }
