@@ -11,7 +11,7 @@
                 </div>
             </div>
 
-            <div  style="display: flex" class="row">
+            <div  [hidden]="!(3<=clublenght)" tyle="display: flex" class="row">
                 <div style="display: inline-flex" class="col-md-6 ml-auto mr-auto text-center">
 
                     <!-- ici je vais insérer mes clubs -->
@@ -81,7 +81,7 @@
             </div><br/>
 
 
-            <div style="display: flex" class="row">
+            <div [hidden]="!(6<=clublenght) "style="display: flex" class="row">
                 <div style="display: inline-flex" class="col-md-6 ml-auto mr-auto text-center">
 
                     <!-- ici je vais insérer mes clubs -->
