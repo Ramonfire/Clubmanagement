@@ -56,7 +56,7 @@ value:boolean;
     successMessage:string;
     fail:string;
     singup(){
-
+    alert("operation en cours de traitement ceci peut prendre un moment")
        this.visitorService.singup(this.emailsignup).subscribe(
 
             (response: string) => {
