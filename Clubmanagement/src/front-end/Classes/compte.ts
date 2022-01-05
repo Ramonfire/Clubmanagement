@@ -1,12 +1,12 @@
 export class compte {
 
     private _idE:number;
-    public civilite:number;
-    public  fullname:String;
-     public email: String;
-     public password :String;
-     public tel:number;
-     private roles: Array<String>;
+    private _civilite:number;
+    private _fullname:String;
+     private _email: String;
+     private _password :String;
+     private _tel:number;
+     private _roles: Array<String>;
 
 
      get idE(): number {
@@ -17,12 +17,61 @@ export class compte {
          this._idE = value;
      }
 
-     constructor(idE: number, civilite: number, fullname: String, email: String, password: String, tel: number) {
+
+    get civilite(): number {
+        return this._civilite;
+    }
+
+    set civilite(value: number) {
+        this._civilite = value;
+    }
+
+    get fullname(): String {
+        return this._fullname;
+    }
+
+    set fullname(value: String) {
+        this._fullname = value;
+    }
+
+    get email(): String {
+        return this._email;
+    }
+
+    set email(value: String) {
+        this._email = value;
+    }
+
+    get password(): String {
+        return this._password;
+    }
+
+    set password(value: String) {
+        this._password = value;
+    }
+
+    get tel(): number {
+        return this._tel;
+    }
+
+    set tel(value: number) {
+        this._tel = value;
+    }
+
+    get roles(): Array<String> {
+        return this._roles;
+    }
+
+    set roles(value: Array<String>) {
+        this._roles = value;
+    }
+
+    constructor(idE: number, civilite: number, fullname: String, email: String, password: String, tel: number) {
          this._idE = idE;
-         this.civilite = civilite;
-         this.fullname = fullname;
-         this.email = email;
-         this.password = password;
-         this.tel = tel;
+         this._civilite = civilite;
+         this._fullname = fullname;
+         this._email = email;
+         this._password = password;
+         this._tel = tel;
      }
  }

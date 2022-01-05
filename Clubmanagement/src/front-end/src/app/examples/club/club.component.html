@@ -1,0 +1,16 @@
+<div class="wrapper">
+    <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/Bâtiment_UIR.jpg');">
+        <div class="filter"></div>
+    </div>
+    <div class="section profile-content">
+        <div class="container">
+            <div class="owner">
+                <div class="name">
+                    <h6 style="padding: 22px" class="description">{{club.nomclub}}</h6>
+                </div>
+            </div>
+        </div>
+        <button  *ngIf="authentifserv.isUserLoggedIn()" (click)="rejoindreClub()" class="btn btn-primary" style="float: right" ><i class="fa fa-cog"></i>  rejoindre</button>
+    </div>
+
+</div>

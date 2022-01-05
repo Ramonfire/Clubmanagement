@@ -10,6 +10,7 @@ import {SignupComponent} from "./signup/signup.component";
 import {EventComponent} from "./event/event.component";
 import {RouterModule} from "@angular/router";
 import { ClubsComponent } from './clubs/clubs.component';
+import { ClubComponent } from './club/club.component';
 
 @NgModule({
     imports: [
@@ -24,7 +25,8 @@ import { ClubsComponent } from './clubs/clubs.component';
         SignupComponent,
         ProfileComponent,
         EventComponent,
-        ClubsComponent
+        ClubsComponent,
+        ClubComponent
     ]
 })
 export class ExamplesModule { }

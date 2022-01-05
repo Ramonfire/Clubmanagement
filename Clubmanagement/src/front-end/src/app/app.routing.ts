@@ -12,6 +12,7 @@ import { LandingComponent } from './examples/landing/landing.component';
 import { EventComponent } from './examples/event/event.component';
 import { ClubsComponent } from './examples/clubs/clubs.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
+import {ClubComponent} from "./examples/club/club.component";
 
 const routes: Routes =[
     { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -21,7 +22,7 @@ const routes: Routes =[
     { path: 'landing',          component: LandingComponent },
     { path: 'clubs',          component: ClubsComponent },
     { path: 'event',          component: EventComponent },
-    { path: 'club',          component: EventComponent },
+    { path: 'club',          component: ClubComponent },
     { path: 'profile',          component: ProfileComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent }
 ];

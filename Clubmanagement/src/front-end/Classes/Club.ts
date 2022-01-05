@@ -4,7 +4,7 @@ import {Rpedag} from "./r_pedag";
 
 export class Club {
     //image a ajouter
-    private _id:number;
+    private _idc:number;
     private _nomclub:String;
     private _etat: number;
     private _description:String;
@@ -14,13 +14,14 @@ export class Club {
     private _ped:Rpedag;
 
 
-    get id(): number {
-        return this._id;
+    get idc(): number {
+        return this._idc;
     }
 
-    set id(value: number) {
-        this._id = value;
+    set idc(value: number) {
+        this._idc = value;
     }
+
 
     get nomclub(): String {
         return this._nomclub;

@@ -63,7 +63,6 @@ getClubs(){
 
     sendToclubinfo(id:number) {
       //doesnt work to review in html adn ts
-        let integer:number=id;
       sessionStorage.setItem("id",""+id);
       console.log(sessionStorage.getItem("id"));
       this.router.navigate(["/club" ] );
