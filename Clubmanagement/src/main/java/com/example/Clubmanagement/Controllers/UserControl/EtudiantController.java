@@ -18,6 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,6 +38,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @CrossOrigin(origins = "http://localhost:4200/")
 @RequestMapping(path = "Clubpage/student")
 @RequiredArgsConstructor
+@Slf4j
 public class EtudiantController {
     private final DemandeService demandeService;
     private final MemberService memberService;
@@ -105,17 +107,23 @@ public class EtudiantController {
 
 
 
-
     //****************************************************************post mapping*****************************************************************************************//
     @PostMapping(path = "newDemande")
     public CreationDemand newDemande(@RequestBody CreationDemand demand) {
         return this.demandeService.saveDemande(demand);
 
     }
+    @SneakyThrows
+    @PostMapping(path = "joinClub", consumes = "*/*")
+    public String JoinClub( Members members) {
+        log.info("got member Clubid:{}  Studentid:{}  role :{}", members.getClubid(),members.getStudentid(),members.getRole());
+        Compte compte = accountService.getaccoutThroughheader();
+        members.setStudentid(compte.getId());
+        if (members.getClubid()==null){return "club id is null";}
+        else {
+            log.info("member saved here Clubid:{}  Studentid:{}", members.getClubid(),members.getStudentid());
+            return memberService.saveMember(members);}
 
-    @PostMapping(path = "joinClub")
-    public String JoinClub(@RequestBody Members members) {
-        return memberService.saveMember(members);
     }
 
 
