@@ -3,9 +3,9 @@ import {VisitorService} from "../../../../Services/VisitorService";
 import {StudentService} from "../../../../Services/StudentService";
 import {Router} from "@angular/router";
 import {Club} from "../../../../Classes/Club";
-import {error} from "protractor";
 import {HttpErrorResponse} from "@angular/common/http";
 import {AuthentificationService} from "../signin/auth.service";
+import {Members} from "../../../../Classes/Members";
 
 @Component({
     selector: 'app-clubs',
@@ -40,6 +40,12 @@ constructor(private VisitorService:VisitorService
 
 
     rejoindreClub() {
+        console.log(this.club.idc);
+        let integer = this.club.idc;
+        let member= new Members(integer,0,"member");
+        this.studenService.JoinClub(member).subscribe((response:string)=>{
+            alert(response);
 
+            }, (error:HttpErrorResponse)=>{alert(error.error.code)});
     }
 }

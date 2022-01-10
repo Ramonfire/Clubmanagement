@@ -5,6 +5,7 @@ import {Evenement} from "../Classes/evenement";
 import {Club} from "../Classes/Club";
 import {Injectable} from "@angular/core";
 import {Session} from "../Classes/Session";
+import {Members} from "../Classes/Members";
 
 @Injectable({
     providedIn: 'root'
@@ -14,7 +15,7 @@ export class StudentService {
     constructor(private http: HttpClient) {
     }
 
-
+    public formated = new FormData();
 
 
 
@@ -54,6 +55,17 @@ export class StudentService {
     public ViewDemande():Observable<any>{
         return null;
     }
+//not working to be reviewed
+    public JoinClub(member:Members): Observable<string>{
+        this.formated.append("idmember", null)
+        this.formated.append("clubid", ""+member.clubid)
+        this.formated.append("studentid", ""+member.studentid)
+        this.formated.append("role", ""+member.role)
+        console.log(member);
+        console.log(this.formated.get("clubid"));
+        return this.http.post(`${this.apiBaseUrl}/student/joinClub`,member,{responseType : 'text'});
+    }
+
 /*
     public makeDemande(Demande : any) :Observable<string> {
         return this.http.post(`${this.apiBaseUrl}/student/newDemande`,Demande);
