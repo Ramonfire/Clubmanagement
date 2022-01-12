@@ -8,6 +8,10 @@
                 <div class="name">
                     <h6 style="padding: 22px" class="description">{{club.nomclub}}</h6>
                 </div>
+
+                <div class="name">
+                    <h6 style="padding: 22px" class="description">{{club.description}}</h6>
+                </div>
             </div>
         </div>
         <button *ngIf="authentifserv.isUserLoggedIn()" (click)="rejoindreClub()" class="btn btn-primary" style="float: right;right: 22em;position: relative" ><i class="fa fa-cog"></i>  rejoindre</button>

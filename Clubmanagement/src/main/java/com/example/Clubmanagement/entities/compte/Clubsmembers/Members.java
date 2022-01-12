@@ -34,7 +34,7 @@ public class Members {
 
     public Members(Long clubid, Long studentid, String role) {
         this.clubid = clubid;
-        studentid = studentid;
+        this.studentid = studentid;
         this.role = role;
     }
 }

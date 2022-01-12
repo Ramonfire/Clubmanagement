@@ -48,4 +48,10 @@ constructor(private VisitorService:VisitorService
 
             }, (error:HttpErrorResponse)=>{alert(error.error.code)});
     }
+
+
+
+
+
+
 }

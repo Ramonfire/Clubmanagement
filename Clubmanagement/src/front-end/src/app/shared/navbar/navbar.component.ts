@@ -75,6 +75,8 @@ export class NavbarComponent implements OnInit {
     isloggedin() :boolean{
         return this.authService.isUserLoggedIn();
     }
-
+isadmin(){
+return
+}
 
 }

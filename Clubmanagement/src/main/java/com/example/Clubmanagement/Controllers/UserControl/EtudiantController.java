@@ -104,6 +104,14 @@ public class EtudiantController {
             return  "Rc";}
         else return "Rp";
     }
+    @SneakyThrows
+    @GetMapping("Verify/{idc}")
+    public boolean verifyMembership(@PathVariable("idc") Long idc){
+   Compte compte =accountService.getaccoutThroughheader();
+   Members members= new Members();
+   members=memberService.getMemberbyClubAndStudent(compte.getId(),idc);
+   if (members.getStudentid()!=-1){return true;} else return false;
+    }
 
 
 

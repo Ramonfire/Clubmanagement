@@ -42,11 +42,19 @@ private final EtudiantRepo etudiantRepo;
 //saving new member
     public String saveMember(Members member) {
     String s="error";
-            Members x = this.memberRepo.save(member);
+        Members x= new Members();
+    if (memberRepo.findByStudentidAndClubid(member.getStudentid(), member.getClubid() )==null){ x = this.memberRepo.save(member);}else return "Already member";
     if (x.getIdmembre()!=null){
         s="success";
     }
     return s;
+    }
+    public Members getMemberbyClubAndStudent(Long ids,Long idc){
+        Members member =new Members();
+        if (memberRepo.findByStudentidAndClubid(ids,idc)==null){
+            member=new Members(Long.valueOf(-1),Long.valueOf(-1),"-1");
+        }else member=memberRepo.findByStudentidAndClubid(ids,idc);
+        return member;
     }
 
 

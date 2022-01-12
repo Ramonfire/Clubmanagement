@@ -57,13 +57,10 @@ export class StudentService {
     }
 //not working to be reviewed
     public JoinClub(member:Members): Observable<string>{
-        this.formated.append("idmember", null)
-        this.formated.append("clubid", ""+member.clubid)
-        this.formated.append("studentid", ""+member.studentid)
-        this.formated.append("role", ""+member.role)
-        console.log(member);
-        console.log(this.formated.get("clubid"));
-        return this.http.post(`${this.apiBaseUrl}/student/joinClub`,member,{responseType : 'text'});
+        return this.http.post(`${this.apiBaseUrl}/student/joinClub`,{idmember:member.idmember,clubid:member.clubid,studentid:member.studentid,role:member.role},{responseType : 'text'});
+    }
+    public verifyMembership(idc:number):Observable<boolean>{
+        return  this.http.get<boolean>(`${this.apiBaseUrl}/student/Verify/${idc}`);
     }
 
 /*
