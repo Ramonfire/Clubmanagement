@@ -1,0 +1,164 @@
+<div class="wrapper">
+    <!-- Redo is night here!-->
+    <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/Bâtiment_UIR.jpg');">
+        <div class="filter"></div>
+    </div>
+    <div class="section profile-content">
+        <div class="container">
+            <div class="owner">
+                <div class="name">
+                    <h6 style="padding: 22px" class="description">Les Evenements de Clubs de l'UIR</h6>
+                </div>
+            </div>
+
+            <div  [hidden]="!(3<=clublenght)" tyle="display: flex" class="row">
+                <div style="display: inline-flex" class="col-md-6 ml-auto mr-auto text-center">
+
+                    <!-- ici je vais insérer mes clubs -->
+
+                    <div   style="display: inline-block;margin: 1em;" class="card">
+                        <div  style="">
+                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                            <img
+                                    src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
+                                    class="img-fluid"
+                            />
+                            <a href="#!">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{clubs[0].nomclub}}</h5>
+                            <p class="card-text">
+                                {{clubs[0].description}}
+                            </p>
+                            <a href="#!"(click)="sendToclubinfo(clubs[0].idc)" class="btn btn-primary">Voir plus...</a>
+                        </div>
+                    </div>
+                   </div>
+                    <div  style="display: inline-block;margin: 1em;" class="card">
+                        <div  style="">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img
+                                        src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
+                                        class="img-fluid"
+                                />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{clubs[1].nomclub}}</h5>
+                                <p class="card-text">
+                                    {{clubs[1].description}}
+                                </p>
+                                <a href="#!" (click)="sendToclubinfo(clubs[1].idc)" class="btn btn-primary">Voir plus...</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div  style="display: inline-block;margin: 1em;" class="card">
+                        <div  style="">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img
+                                        src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
+                                        class="img-fluid"
+                                />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{clubs[2].nomclub}}</h5>
+                                <p class="card-text">
+                                    {{clubs[2].description}}
+                                </p>
+                                <a href="#!" (click)="sendToclubinfo(clubs[2].idc)" class="btn btn-primary">Voir plus...</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div><br/>
+
+
+            <div [hidden]="!(6<=clublenght) "style="display: flex" class="row">
+                <div style="display: inline-flex" class="col-md-6 ml-auto mr-auto text-center">
+
+                    <!-- ici je vais insérer mes clubs -->
+
+                    <div  style="display: inline-block;margin: 1em;" class="card">
+                        <div  style="">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img
+                                        src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
+                                        class="img-fluid"
+                                />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{clubs[3].nomclub}}</h5>
+                                <p class="card-text">
+                                    {{clubs[3].description}}
+                                </p>
+                                <a href="#!" (click)="sendToclubinfo(clubs[3].idc)" class="btn btn-primary">Voir plus...</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div  style="display: inline-block;margin: 1em;" class="card">
+                        <div  style="">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img
+                                        src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
+                                        class="img-fluid"
+                                />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{clubs[4].nomclub}}</h5>
+                                <p class="card-text">
+                                    {{clubs[4].description}}
+                                </p>
+                                <a href="#!" (click)="sendToclubinfo(clubs[4].idc)" class="btn btn-primary">Voir plus...</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div  style="display: inline-block;margin: 1em;" class="card">
+                        <div  style="">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img
+                                        src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
+                                        class="img-fluid"
+                                />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{clubs[5].nomclub}}</h5>
+                                <p class="card-text">
+                                    {{clubs[5].description}}
+                                </p>
+                                <a href="#!" (click)="sendToclubinfo(clubs[5].idc)" class="btn btn-primary">Voir plus...</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+            <button class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i>  Mes clubs</button>
+                <button (click)="refreshtonext()" class="btn btn-primary" style="float: right" ><i class="fa fa-cog"></i>  next</button>
+                <button (click)="refreshtobefore()" class="btn btn-primary" style="float: right" ><i class="fa fa-cog"></i>  back</button>
+            <br/>
+
+
+        </div>
+    </div>
+</div>

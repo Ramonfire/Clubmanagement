@@ -12,6 +12,7 @@ import {RouterModule} from "@angular/router";
 import { ClubsComponent } from './clubs/clubs.component';
 import { ClubComponent } from './club/club.component';
 import { AdminComponent } from './admin/admin.component';
+import { EventsClubComponent } from './eventsclub/eventsclub.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { AdminComponent } from './admin/admin.component';
         EventComponent,
         ClubsComponent,
         AdminComponent,
+        EventsClubComponent,
         ClubComponent
     ]
 })
