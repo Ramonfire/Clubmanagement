@@ -104,13 +104,20 @@ public class EtudiantController {
             return  "Rc";}
         else return "Rp";
     }
+
+
     @SneakyThrows
     @GetMapping("Verify/{idc}")
     public boolean verifyMembership(@PathVariable("idc") Long idc){
    Compte compte =accountService.getaccoutThroughheader();
+   if (compte==null){return false;}
+
+   else {
    Members members= new Members();
    members=memberService.getMemberbyClubAndStudent(compte.getId(),idc);
    if (members.getStudentid()!=-1){return true;} else return false;
+   }
+
     }
 
 
@@ -127,7 +134,7 @@ public class EtudiantController {
         log.info("got member Clubid:{}  Studentid:{}  role :{}", members.getClubid(),members.getStudentid(),members.getRole());
         Compte compte = accountService.getaccoutThroughheader();
         members.setStudentid(compte.getId());
-        if (members.getClubid()==null){return "club id is null";}
+        if (members.getClubid()==null || members.getStudentid()==null){return "club id  or student id is null";}
         else {
             log.info("member saved here Clubid:{}  Studentid:{}", members.getClubid(),members.getStudentid());
             return memberService.saveMember(members);}

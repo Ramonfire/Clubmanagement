@@ -4,7 +4,7 @@ export class compte {
     private _civilite:number;
     private _fullname:String;
      private _email: String;
-     private _password :String;
+     private _pass :String;
      private _tel:number;
      private _roles: Array<String>;
 
@@ -43,11 +43,11 @@ export class compte {
     }
 
     get password(): String {
-        return this._password;
+        return this._pass;
     }
 
     set password(value: String) {
-        this._password = value;
+        this._pass = value;
     }
 
     get tel(): number {
@@ -71,7 +71,7 @@ export class compte {
          this._civilite = civilite;
          this._fullname = fullname;
          this._email = email;
-         this._password = password;
+         this._pass = password;
          this._tel = tel;
      }
  }

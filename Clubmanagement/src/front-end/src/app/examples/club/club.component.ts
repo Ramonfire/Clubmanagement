@@ -40,7 +40,6 @@ constructor(private VisitorService:VisitorService
 
 
     rejoindreClub() {
-        console.log(this.club.idc);
         let integer = this.club.idc;
         let member= new Members(integer,0,"member");
         this.studenService.JoinClub(member).subscribe((response:string)=>{

@@ -57,6 +57,7 @@ export class StudentService {
     }
 //not working to be reviewed
     public JoinClub(member:Members): Observable<string>{
+        console.log(member);
         return this.http.post(`${this.apiBaseUrl}/student/joinClub`,{idmember:member.idmember,clubid:member.clubid,studentid:member.studentid,role:member.role},{responseType : 'text'});
     }
     public verifyMembership(idc:number):Observable<boolean>{
