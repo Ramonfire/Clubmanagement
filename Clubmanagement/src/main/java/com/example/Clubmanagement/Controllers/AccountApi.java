@@ -11,6 +11,7 @@ import com.example.Clubmanagement.services.AccountService;
 import com.example.Clubmanagement.services.EtudiantService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
@@ -77,6 +78,12 @@ private final AccountService accountService;
 
 
 
+    }
+
+    @SneakyThrows
+    @GetMapping("info")
+    public Compte getAccount(){
+        return accountService.getaccoutThroughheader();
     }
 
 }

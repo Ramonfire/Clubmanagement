@@ -58,11 +58,11 @@ public class Compte {
     //end constructor
 
 
-    public Long getId() {
+    public Long getIdE() {
         return idE;
     }
 
-    public void setId(Long id) {
+    public void setIdE(Long id) {
         this.idE = id;
     }
 

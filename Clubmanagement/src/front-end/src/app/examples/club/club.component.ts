@@ -38,12 +38,13 @@ constructor(private VisitorService:VisitorService
 
     }
 
-
+// not working to be reviwed
     rejoindreClub() {
         let integer = this.club.idc;
         let member= new Members(integer,0,"member");
         this.studenService.JoinClub(member).subscribe((response:string)=>{
             alert(response);
+            location.reload();
 
             }, (error:HttpErrorResponse)=>{alert(error.error.code)});
     }

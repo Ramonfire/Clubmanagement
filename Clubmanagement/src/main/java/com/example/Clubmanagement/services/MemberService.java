@@ -96,4 +96,7 @@ private final EtudiantRepo etudiantRepo;
         else System.out.println("erreur etudiant no found");
     }
 
+    public int getClubCount(Long idE) {
+        return this.memberRepo.countByStudentid(idE);
+    }
 }

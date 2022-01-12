@@ -42,11 +42,12 @@ export class compte {
         this._email = value;
     }
 
-    get password(): String {
+
+    get pass(): String {
         return this._pass;
     }
 
-    set password(value: String) {
+    set pass(value: String) {
         this._pass = value;
     }
 

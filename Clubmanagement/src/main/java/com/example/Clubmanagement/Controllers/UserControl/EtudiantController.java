@@ -106,19 +106,13 @@ public class EtudiantController {
     }
 
 
-    @SneakyThrows
-    @GetMapping("Verify/{idc}")
-    public boolean verifyMembership(@PathVariable("idc") Long idc){
-   Compte compte =accountService.getaccoutThroughheader();
-   if (compte==null){return false;}
+@GetMapping("MyClubCount")
+@SneakyThrows
+public int ClubCount(){
+        Compte compte = accountService.getaccoutThroughheader();
+        return memberService.getClubCount(compte.getIdE());
+}
 
-   else {
-   Members members= new Members();
-   members=memberService.getMemberbyClubAndStudent(compte.getId(),idc);
-   if (members.getStudentid()!=-1){return true;} else return false;
-   }
-
-    }
 
 
 
@@ -128,15 +122,16 @@ public class EtudiantController {
         return this.demandeService.saveDemande(demand);
 
     }
+    //not working to be reviewed  . object are Null
     @SneakyThrows
     @PostMapping(path = "joinClub", consumes = "*/*")
     public String JoinClub( Members members) {
         log.info("got member Clubid:{}  Studentid:{}  role :{}", members.getClubid(),members.getStudentid(),members.getRole());
         Compte compte = accountService.getaccoutThroughheader();
-        members.setStudentid(compte.getId());
+        members.setStudentid(compte.getIdE());
         if (members.getClubid()==null || members.getStudentid()==null){return "club id  or student id is null";}
         else {
-            log.info("member saved here Clubid:{}  Studentid:{}", members.getClubid(),members.getStudentid());
+            log.info("member saved here Clubid:{}  Studentid:{} role {}", members.getClubid(),members.getStudentid(),members.getRole());
             return memberService.saveMember(members);}
 
     }
