@@ -37,4 +37,36 @@ public class Members {
         this.studentid = studentid;
         this.role = role;
     }
+
+    public Long getIdmembre() {
+        return idmembre;
+    }
+
+    public void setIdmembre(Long idmembre) {
+        this.idmembre = idmembre;
+    }
+
+    public Long getClubid() {
+        return clubid;
+    }
+
+    public void setClubid(Long clubid) {
+        this.clubid = clubid;
+    }
+
+    public Long getStudentid() {
+        return studentid;
+    }
+
+    public void setStudentid(Long studentid) {
+        this.studentid = studentid;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 }

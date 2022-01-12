@@ -47,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers( "/Clubpage/Visitor/**","/Clubpage/image").permitAll();
         http.authorizeRequests().antMatchers( "/Clubpage/login","/Clubpage/refreshtoken/**").permitAll();
         http.authorizeRequests().antMatchers( "/Clubpage/admin/**").hasAnyAuthority("Role_Admin");
-        http.authorizeRequests().antMatchers( "/Clubpage/student/**","/Clubpage/member/**").hasAnyAuthority("Role_Student","Role_Admin");
+        http.authorizeRequests().antMatchers( "/Clubpage/student/**","/Clubpage/member/**","/Clubpage/info").hasAnyAuthority("Role_Student","Role_Admin");
         //otherpages
         http.authorizeRequests().anyRequest().authenticated();
 
