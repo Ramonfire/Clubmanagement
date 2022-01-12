@@ -13,6 +13,7 @@ import { EventComponent } from './examples/event/event.component';
 import { ClubsComponent } from './examples/clubs/clubs.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import {ClubComponent} from "./examples/club/club.component";
+import {AdminComponent} from "./examples/admin/admin.component";
 
 const routes: Routes =[
     { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -24,6 +25,7 @@ const routes: Routes =[
     { path: 'event',          component: EventComponent },
     { path: 'club',          component: ClubComponent },
     { path: 'profile',          component: ProfileComponent },
+    { path: 'admin',          component: AdminComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent }
 ];
 
