@@ -15,6 +15,7 @@ import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.compo
 import {ClubComponent} from "./examples/club/club.component";
 import {AdminComponent} from "./examples/admin/admin.component";
 import {EventsClubComponent} from "./examples/eventsclub/eventsclub.component";
+import {CreateclubComponent} from "./examples/createclub/createclub.component";
 
 const routes: Routes =[
     { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -28,6 +29,7 @@ const routes: Routes =[
     { path: 'profile',          component: ProfileComponent },
     { path: 'admin',          component: AdminComponent },
     { path: 'eventsclub',          component: EventsClubComponent },
+    {path: 'createclub',          component: CreateclubComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent }
 ];
 

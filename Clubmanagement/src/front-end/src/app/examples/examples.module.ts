@@ -13,6 +13,7 @@ import { ClubsComponent } from './clubs/clubs.component';
 import { ClubComponent } from './club/club.component';
 import { AdminComponent } from './admin/admin.component';
 import { EventsClubComponent } from './eventsclub/eventsclub.component';
+import { CreateclubComponent } from './createclub/createclub.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { EventsClubComponent } from './eventsclub/eventsclub.component';
         ClubsComponent,
         AdminComponent,
         EventsClubComponent,
-        ClubComponent
+        ClubComponent,
+        CreateclubComponent
     ]
 })
 export class ExamplesModule { }
