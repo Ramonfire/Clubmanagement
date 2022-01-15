@@ -1,3 +1,5 @@
+import {role} from "./role";
+
 export class compte {
 
     private _idE:number;
@@ -6,7 +8,7 @@ export class compte {
      private _email: String;
      private _pass :String;
      private _tel:number;
-     private _roles: Array<String>;
+     private _roles: Array<role>;
 
 
      get idE(): number {
@@ -59,11 +61,11 @@ export class compte {
         this._tel = value;
     }
 
-    get roles(): Array<String> {
+    get roles(): Array<role> {
         return this._roles;
     }
 
-    set roles(value: Array<String>) {
+    set roles(value: Array<role>) {
         this._roles = value;
     }
 

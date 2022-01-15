@@ -5,6 +5,9 @@ import {StudentService} from "../../../../Services/StudentService";
 import {Evenement} from "../../../../Classes/evenement";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {AuthentificationService} from "../../../../Services/auth.service";
+import {AccountService} from "../../../../Services/AccountService";
+import {compte} from "../../../../Classes/compte";
+import {role} from "../../../../Classes/role";
 
 @Component({
     selector: 'app-landing',
@@ -68,7 +71,7 @@ export class LandingComponent implements OnInit {
     focus: any;
     focus1: any;
     value:boolean ;
-    constructor(private  visitorService :VisitorService, private  authServie : AuthentificationService,private studentservice : StudentService ) { }
+    constructor(private  visitorService :VisitorService, private  authServie : AuthentificationService,private studentservice : StudentService,private accoutnServ:AccountService) { }
 
     ngOnInit() {
         sessionStorage.setItem("pagenum","0");
@@ -76,6 +79,7 @@ export class LandingComponent implements OnInit {
         this.isnight();
         this.getevent();
         this.getmot();
+        this.getRole();
 
     }
 
@@ -114,6 +118,25 @@ export class LandingComponent implements OnInit {
 
     }
 
+
+
+
+
+
+
+    
+    Role:role;
+    // works .error is cz of angualr logic
+    public getRole(){
+        if(this.verifyauthen()){
+            this.accoutnServ.GetAccountInto().subscribe((response:compte)=>{
+                this.Role=response.roles[0];
+                sessionStorage.setItem("role",this.Role.name);
+                console.log(sessionStorage.getItem("role"));
+            })
+
+        }
+    }
 
 public verifyauthen(): boolean{
         return this.authServie.isUserLoggedIn();
@@ -156,3 +179,4 @@ public verifyauthen(): boolean{
 
 
 }
+
