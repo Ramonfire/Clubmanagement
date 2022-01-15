@@ -17,6 +17,7 @@ export class ClubComponent implements OnInit {
     club:Club;
 
     ngOnInit(): void {
+
         this.getClub();
     }
 constructor(private VisitorService:VisitorService
@@ -27,15 +28,19 @@ constructor(private VisitorService:VisitorService
 
     getClub(){
         console.log(sessionStorage.getItem("id"));
-        this.VisitorService.getClubId(parseInt(sessionStorage.getItem("id"))).subscribe(
-            (response:Club)=>{
-                this.club=response;
+        if (sessionStorage.getItem("id")==null){
+            alert("redirecting to all clubs page");
+            this.router.navigate(["/clubs"])
+        }else {
+            this.VisitorService.getClubId(parseInt(sessionStorage.getItem("id"))).subscribe(
+                (response: Club) => {
+                    this.club = response;
 
-            },(error:HttpErrorResponse)=>{
-                alert("error while finding the club");
-            }
-        );
-
+                }, (error: HttpErrorResponse) => {
+                    alert("error while finding the club");
+                }
+            );
+        }
     }
 
 // not working to be reviwed
@@ -49,9 +54,8 @@ constructor(private VisitorService:VisitorService
             }, (error:HttpErrorResponse)=>{alert(error.error.code)});
     }
 
-
-
-
-
-
+//sending to admin panel of the club
+    redirectClubAdminpage() {
+        this.router.navigate(["/clubs"])
+    }
 }

@@ -76,7 +76,9 @@ export class NavbarComponent implements OnInit {
         return this.authService.isUserLoggedIn();
     }
 isadmin(){
-return
+if (sessionStorage.getItem("role")=="Role_Admin"){
+    return true;
+}else return false;
 }
 
 }

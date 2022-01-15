@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" xmlns="http://www.w3.org/1999/html">
     <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/Bâtiment_UIR.jpg');">
         <div class="filter"></div>
     </div>
@@ -16,5 +16,9 @@
         </div>
         <button *ngIf="authentifserv.isUserLoggedIn()" (click)="rejoindreClub()" class="btn btn-primary" style="float: right;right: 22em;position: relative" ><i class="fa fa-cog"></i>  rejoindre</button>
     </div>
+<br/>
+    <br/>
+    <br/>
+    <button *ngIf="authentifserv.isUserLoggedIn()" (click)="redirectClubAdminpage()" class="btn btn-primary" style="margin-left: 45%" ><i class="fa fa-cog"></i>  adminstrate</button>
 
 </div>
