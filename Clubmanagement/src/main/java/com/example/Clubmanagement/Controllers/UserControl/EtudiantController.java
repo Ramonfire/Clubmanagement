@@ -125,7 +125,7 @@ public int ClubCount(){
     //not working to be reviewed  . object are Null
     @SneakyThrows
     @PostMapping(path = "joinClub", consumes = "*/*")
-    public String JoinClub( Members members) {
+    public String JoinClub( @RequestBody  Members members) {
         log.info("got member Clubid:{}  Studentid:{}  role :{}", members.getClubid(),members.getStudentid(),members.getRole());
         Compte compte = accountService.getaccoutThroughheader();
         members.setStudentid(compte.getIdE());
