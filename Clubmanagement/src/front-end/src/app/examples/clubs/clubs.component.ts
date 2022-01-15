@@ -70,6 +70,8 @@ getClubs(){
 
     }
 
-
+sendToCreate(){
+      this.router.navigate(["/createclub"]);
+}
 
 }
