@@ -117,10 +117,18 @@ public int ClubCount(){
 
 
     //****************************************************************post mapping*****************************************************************************************//
-    @PostMapping(path = "newDemande")
-    public CreationDemand newDemande(@RequestBody CreationDemand demand) {
-        return this.demandeService.saveDemande(demand);
-
+    @PostMapping(path = "newDemande",consumes = "*/*")
+    @SneakyThrows
+    public String newDemande(@RequestBody CreationDemand demand) {
+        log.info(demand.toString());
+      Compte compte=  accountService.getaccoutThroughheader();
+        if (compte==null){
+            return "Not a valid user";
+        }else {
+            log.info("from {}",compte.getfullname());
+            demand.setIdEtudiant(compte.getIdE());
+            return this.demandeService.saveDemande(demand);
+        }
     }
     //not working to be reviewed  . object are Null
     @SneakyThrows

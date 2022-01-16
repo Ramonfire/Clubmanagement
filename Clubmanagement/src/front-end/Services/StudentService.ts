@@ -6,6 +6,7 @@ import {Club} from "../Classes/Club";
 import {Injectable} from "@angular/core";
 import {Session} from "../Classes/Session";
 import {Members} from "../Classes/Members";
+import {Demande} from "../Classes/demande";
 
 @Injectable({
     providedIn: 'root'
@@ -80,10 +81,11 @@ export class StudentService {
 
 
 
-/*
-    public makeDemande(Demande : any) :Observable<string> {
-        return this.http.post(`${this.apiBaseUrl}/student/newDemande`,Demande);
+
+    public makeDemande(Demande : Demande) :Observable<string> {
+        return this.http.post(`${this.apiBaseUrl}/student/newDemande`,{idDem:Demande.idDem,idEtudiant:Demande.idEtudiant,typedeDem:Demande.typedeDem,nomClubD:Demande.nomClubD,
+                                                                                descrpt:Demande.descrpt,etatD:Demande.etatD},{responseType:"text"});
 
     }
-*/
+
 }

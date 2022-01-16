@@ -1,6 +1,8 @@
 package com.example.Clubmanagement.services;
 
+import com.example.Clubmanagement.Repositories.ClubRepo;
 import com.example.Clubmanagement.Repositories.DemandeRepo;
+import com.example.Clubmanagement.Repositories.RclubsRepo;
 import com.example.Clubmanagement.entities.Forms.CreationDemand;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +18,7 @@ import java.util.List;
 public class DemandeService {
 
     private final DemandeRepo demandeRepo;
+    private final ClubRepo clubRepo;
 
     public List<CreationDemand> getAllDemands(){
         return demandeRepo.findAll();
@@ -24,8 +27,16 @@ public  List<CreationDemand> getdemandeBystate(boolean etat){return demandeRepo.
     public List<CreationDemand> getEtudiantDemande(Long idE){return demandeRepo.getAllByIdEtudiant(idE);}
 
     //saveguard de demande
-    public CreationDemand saveDemande(CreationDemand demand){
-        return demandeRepo.save(demand);
+    public String saveDemande(CreationDemand demand){
+        CreationDemand demand1 = new CreationDemand();
+
+
+        log.info("saving Demande : {}",demand.toString() );
+        if (clubRepo.findAllByNomclub(demand.getNomClubD())==null) {demand1 = demandeRepo.save(demand);}else {return "Club already exist \n  choose an other name or join the existin club";}
+
+        if (demand1 == null){
+            return "try again something went wrong";
+        }else return "demande saved for club creation : " +demand.getNomClubD();
     }
 
 

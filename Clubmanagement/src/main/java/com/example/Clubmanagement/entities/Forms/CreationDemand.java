@@ -1,8 +1,6 @@
 package com.example.Clubmanagement.entities.Forms;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.IdentityHashMap;
@@ -10,6 +8,8 @@ import java.util.IdentityHashMap;
 @Entity
 @Table
 @Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreationDemand {
@@ -18,9 +18,9 @@ public class CreationDemand {
     private Long idDem;
 //@one demande at time
     private Long idEtudiant;
-    private String TypedeDem;
-    private  String NomClubD;
-    private  String Descrpt;
+    private String typedeDem;
+    private  String nomClubD;
+    private  String descrpt;
 //0 waiting . -1 denied . 1 accepted
     private  Long etatD;
 
