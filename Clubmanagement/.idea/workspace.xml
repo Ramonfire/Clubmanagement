@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9e411d47-6984-4906-898b-babe9837a235" name="Changes" comment="isnight finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/Services/RclubsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/Clubmanagement/Services/RclubsService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +37,7 @@
         <entry key="JPA Inspector" value="true" />
         <entry key="JPA Palette" value="true" />
         <entry key="JPA Structure" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
@@ -43,6 +45,7 @@
         <entry key="JPA Inspector" value="false" />
         <entry key="JPA Palette" value="false" />
         <entry key="JPA Structure" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>
@@ -133,6 +136,9 @@
     <list>
       <item itemvalue="npm.run" />
       <item itemvalue="Protractor.protractor.conf.js" />
+      <item itemvalue="Spring Boot.ClubmanagementApplication" />
+      <item itemvalue="Spring Boot.ClubmanagementApplication (1)" />
+      <item itemvalue="Spring Boot.ClubmanagementApplication (2)" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -156,6 +162,8 @@
       <workItem from="1638483819408" duration="1435000" />
       <workItem from="1638829388922" duration="22247000" />
       <workItem from="1639589557151" duration="1746000" />
+      <workItem from="1642396575728" duration="13000" />
+      <workItem from="1642396605178" duration="26000" />
     </task>
     <task id="LOCAL-00001" summary="isnight finished">
       <created>1638959902374</created>
