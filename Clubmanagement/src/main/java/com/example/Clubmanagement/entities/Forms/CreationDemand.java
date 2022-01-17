@@ -22,7 +22,7 @@ public class CreationDemand {
     private  String nomClubD;
     private  String descrpt;
 //0 waiting . -1 denied . 1 accepted
-    private  Long etatD;
+    private  int etatD;
 
 
 }

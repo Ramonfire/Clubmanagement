@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Demande} from "../../../../Classes/demande";
 import {StudentService} from "../../../../Services/StudentService";
 import {Router} from "@angular/router";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-createclub',
@@ -22,7 +23,9 @@ export class CreateclubComponent implements OnInit {
       this.router.navigate(["/clubs"]);
       alert("request being treated \n it might take a few days");
 
-    })
+    },(error:HttpErrorResponse)=>{
+      alert(error.error.code)
+    });
   }
 
 

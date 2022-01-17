@@ -46,11 +46,31 @@ public class AdminControl {
     }
 
     @GetMapping(value = "demandeclub/{etat}")
-    public List<CreationDemand> getDemandebyState(@PathVariable("etat") boolean etat ){
+    public List<CreationDemand> getDemandebyState(@PathVariable("etat") int etat ){
     return demandeService.getdemandeBystate(etat);
 
     }
 
+    /***counts****/
+    @GetMapping(value = "demandeCount/{etat}")
+    public int getCountDemandebyState(@PathVariable("etat") int etat ){
+        return demandeService.getDemandesCountBystate(etat);
+
+    }
+
+    @GetMapping(value = "ClubCount")
+    public int getCountClubsbyState(){
+        return clubService.clubcount().intValue();
+
+    }
+
+    @GetMapping(path = "Countevents/{etat}")
+    public  Long getallevents(@PathVariable("etat")int etat){
+        return this.eventService.Countevents(etat);
+    }
+
+
+    /***end counts***/
     @GetMapping("events/{name}")
     public evenement getEventByname(@PathVariable("name") String name){
         return this.eventService.geteventByname(name);
@@ -81,10 +101,7 @@ public class AdminControl {
     }
 
 
-    @GetMapping(path = "Countevents/{etat}")
-    public  Long getallevents(@PathVariable("etat")int etat){
-    return this.eventService.Countevents(etat);
-    }
+
 
 
     @GetMapping(path = "members/{id}/{role}/{page}/{size}")

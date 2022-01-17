@@ -54,6 +54,11 @@ public class ClubService {
 
     }
 
+    public Long clubcount(){
+        return clubRepo.count();
+    }
+
+
     public String saveclub(Club club) {
         String s="error";
        Club x= this.clubRepo.save(club);

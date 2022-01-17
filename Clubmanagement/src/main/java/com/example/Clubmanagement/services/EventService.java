@@ -50,8 +50,6 @@ public class EventService {
 
     public List<evenement> getClubevent(Club club) {
         return this.eventrepo.findAllByC(club);
-
-
     }
 
     public List<evenement> geteventbyState(int i, int pagenum,int size) {

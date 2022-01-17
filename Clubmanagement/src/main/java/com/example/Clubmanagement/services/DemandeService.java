@@ -23,8 +23,12 @@ public class DemandeService {
     public List<CreationDemand> getAllDemands(){
         return demandeRepo.findAll();
 }
-public  List<CreationDemand> getdemandeBystate(boolean etat){return demandeRepo.findAllByEtatD(etat);}
+public  List<CreationDemand> getdemandeBystate(int etat){return demandeRepo.findAllByEtatD(etat);}
     public List<CreationDemand> getEtudiantDemande(Long idE){return demandeRepo.getAllByIdEtudiant(idE);}
+
+    public int getDemandesCountBystate(int etat){
+    return demandeRepo.countAllByEtatD(etat);
+    }
 
     //saveguard de demande
     public String saveDemande(CreationDemand demand){
