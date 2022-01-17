@@ -60,22 +60,6 @@ totalClubNumber(){
     });
 }
 
-word:string;
-
-UpdateAdminWord(){
-this.AdminServ.UpdateMot(this.word).subscribe((response:string)=>{
-    alert(response)
-},(error:HttpErrorResponse)=>{
-    alert(error.error.code)
-});
-}
-
-
-
-
-
-
-
 
 
     verifyadmin(){

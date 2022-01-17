@@ -40,7 +40,8 @@ authenticationService(login:LoginCredentials) {
 
   logout() {
     alert("Logging out!");
-    sessionStorage.clear();
+    sessionStorage.removeItem("acces_token");
+    sessionStorage.removeItem("refresh_token");
 
     this.email = null;
     this.password = null;
