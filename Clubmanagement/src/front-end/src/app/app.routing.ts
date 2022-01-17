@@ -17,6 +17,7 @@ import {AdminComponent} from "./examples/admin/admin.component";
 import {EventsClubComponent} from "./examples/eventsclub/eventsclub.component";
 import {CreateclubComponent} from "./examples/createclub/createclub.component";
 import {ViewclubdemandComponent} from "./examples/viewclubdemand/viewclubdemand.component";
+import {VieweventdemandComponent} from "./examples/vieweventdemand/vieweventdemand.component";
 
 const routes: Routes =[
     { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -32,6 +33,7 @@ const routes: Routes =[
     { path: 'eventsclub',          component: EventsClubComponent },
     {path: 'createclub',          component: CreateclubComponent },
     {path: 'viewclubdemand',          component: ViewclubdemandComponent },
+    {path: 'vieweventdemand',          component: VieweventdemandComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent }
 ];
 
