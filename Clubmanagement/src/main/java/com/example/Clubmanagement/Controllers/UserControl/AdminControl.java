@@ -7,6 +7,7 @@ import com.example.Clubmanagement.entities.club.evenement;
 import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
 import com.example.Clubmanagement.services.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200/")
 @RequestMapping(path = "Clubpage/admin")
+@Slf4j
 public class AdminControl {
 
     private  final EventService eventService;
@@ -24,15 +26,16 @@ public class AdminControl {
     private final EtudiantService etudiantService;
     private final ClubService clubService;
     private final MemberService memberService;
+    private final RclubsService rclubs;
 
 @Autowired
-    public AdminControl(EventService eventService, DemandeService demandeService, EtudiantService etudiantService, ClubService clubService, MemberService memberService) {
+    public AdminControl(EventService eventService, DemandeService demandeService, EtudiantService etudiantService, ClubService clubService, MemberService memberService, RclubsService rclubs) {
         this.eventService = eventService;
     this.demandeService = demandeService;
     this.etudiantService = etudiantService;
     this.clubService = clubService;
     this.memberService = memberService;
-
+    this.rclubs = rclubs;
 }
 
     @GetMapping(path = "Allevents/{page}/{size}")
@@ -141,5 +144,15 @@ public class AdminControl {
 
     }
 
+    @PostMapping(path = "updatemot")
+    public String UpdateMot(@RequestBody mot mot){
+        log.info("updated mot \n"+mot.mot);
+        return rclubs.Changemot(mot.mot);
+    }
 
+
+}
+
+class mot{
+    public String mot;
 }
