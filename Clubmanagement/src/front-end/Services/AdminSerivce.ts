@@ -24,4 +24,9 @@ public  GetCountDemandeByState(state:number):Observable<number>{
         return this.http.get<number>(`${this.apiBaseUrl}/admin/ClubCount`);
     }
 
+
+    public UpdateMot(Mot:string){
+        return this.http.post(`${this.apiBaseUrl}/admin/updatemot`,{mot:Mot},{responseType:"text"});
+    }
+
 }

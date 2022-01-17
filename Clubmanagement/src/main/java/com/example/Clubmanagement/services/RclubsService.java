@@ -7,6 +7,7 @@ import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
 import com.example.Clubmanagement.entities.compte.generlAc.Rclubs;
 import com.example.Clubmanagement.entities.compte.generlAc.Role;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -30,6 +31,7 @@ private final EtudiantRepo etudiantRepo;
 private final MemberRepo memberRepo;
 private  final RclubsRepo rclubsRepo;
 private final AccountRepo accountRepo;
+private  final AccountService accountService;
 
 
 
@@ -84,4 +86,22 @@ public String returnMot(){
     log.info("got mot  {} of {} ",rclubs.getMot(),rclubs.getEmail());
        return rclubs.getMot();
 }
+
+ @SneakyThrows
+ public String Changemot(String mot){
+        Compte compte = accountService.getaccoutThroughheader();
+        Rclubs rclubs=new Rclubs();
+        if (compte==null) return "NOT ADMIN!";
+        else{
+        if (compte instanceof  Rclubs){
+            rclubs=(Rclubs) compte;
+            rclubs.setMot(mot);
+            rclubsRepo.save(rclubs);
+            return "Mot updated";
+        }
+        else return "NOT AN ADMIN!";
+             }
+    }
+
+
 }

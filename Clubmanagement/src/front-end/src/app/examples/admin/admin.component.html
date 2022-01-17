@@ -167,11 +167,11 @@
 
                         <div class="form-floating"  style="text-align: center;margin-left: 40%">
                             <h4><label for="floatingTextarea2">Modifier son mot d'accueil</label></h4>
-                            <textarea class="form-control" placeholder="écrivez quelque chose qui apparaitra à la page d'accueil" id="floatingTextarea2" style="height: 100px"></textarea>
+                            <textarea [(ngModel)]="word" class="form-control" placeholder="écrivez quelque chose qui apparaitra à la page d'accueil" id="floatingTextarea2" style="height: 100px"></textarea>
 
                             <div style="margin-top: 10px" class="d-grid gap-2 d-md-flex justify-content-md-end">
 
-                                <button class="btn btn-primary" type="button">modifier</button>
+                                <button (click)="UpdateAdminWord()" class="btn btn-primary" type="button">modifier</button>
                             </div>
 
                         </div>
