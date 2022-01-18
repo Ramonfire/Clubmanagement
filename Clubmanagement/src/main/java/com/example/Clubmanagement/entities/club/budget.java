@@ -1,5 +1,6 @@
 package com.example.Clubmanagement.entities.club;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -56,7 +57,7 @@ public class budget {
         Budget = budget;
     }
 
-
+    @JsonBackReference
     @OneToOne(mappedBy = "b")
     private  Club C ;
 }

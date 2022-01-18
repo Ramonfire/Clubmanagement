@@ -155,6 +155,29 @@ public class AdminControl {
         return rclubs.Changemot(mot.mot);
     }
 
+    @PostMapping("accepterDemande")
+    public String AccepterDemande(@RequestBody CreationDemand demand){
+        log.info("Demande to create club {} accepted ",demand.getNomClubD());
+        String response;
+        demandeService.updateDemandeState(demand, 1);
+       return clubService.AcceptClubDemande(demand);
+    }
+
+    @PostMapping("refuserDemande")
+    public String RefuserDemande(@RequestBody CreationDemand demand){
+        log.info("Demande to create club {} revoqued ",demand.getNomClubD());
+        boolean x= demandeService.updateDemandeState(demand, -1);
+        if (x==false){
+            return "done";
+        }else return " Error !please try again";
+
+    }
+
+
+    /****put mapping***/
+
+
+
 
 }
 

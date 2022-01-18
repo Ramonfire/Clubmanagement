@@ -34,4 +34,12 @@ public  GetCountDemandeByState(state:number):Observable<number>{
     return this.http.get<Demande[]>(`${this.apiBaseUrl}/admin/demandeclub/${state}`)
     }
 
+    public AcceptDemande(demand:Demande):Observable<string>{
+    return   this.http.post(`${this.apiBaseUrl}/admin/accepterDemande`,demand,{responseType:"text"});
+    }
+
+    public RefusedDemande(demand:Demande):Observable<string>{
+        return   this.http.post(`${this.apiBaseUrl}/admin/refuserDemande`,demand,{responseType:"text"});
+    }
+
 }

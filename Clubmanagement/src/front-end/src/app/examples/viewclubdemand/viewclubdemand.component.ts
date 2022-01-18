@@ -39,7 +39,39 @@ this.GetWaitingDemands();
 GetWaitingDemands(){
 this.Adminserv.getDemande(0).subscribe((response:Demande[])=>{
   this.demande=response;
+  console.log(this.demande)
 },(error:HttpErrorResponse)=>{alert(error.error.code)});
 }
+
+  AcceptDemande(idDem: number) {
+    let de:Demande;
+    let Chosen:Demande;
+    for (de of this.demande){
+      if (de.idDem==idDem){
+        Chosen = de;
+        console.log(Chosen)
+      }
+    }
+this.Adminserv.AcceptDemande(Chosen).subscribe((response:string)=>{
+  alert(response);
+  location.reload();
+},(error:HttpErrorResponse)=>{alert(error.error.code)});
+  }
+
+  refuserDemande(idDem: number) {
+    let de:Demande;
+    let Chosen:Demande;
+    for (de of this.demande){
+      if (de.idDem==idDem){
+        Chosen = de;
+        console.log(Chosen)
+      }
+    }
+    this.Adminserv.RefusedDemande(Chosen).subscribe((response:string)=>{
+      alert(response);
+      location.reload();
+    },(error:HttpErrorResponse)=>{alert(error.error.code)});
+  }
+
 
 }

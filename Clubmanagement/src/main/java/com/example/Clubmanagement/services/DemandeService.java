@@ -44,4 +44,11 @@ public  List<CreationDemand> getdemandeBystate(int etat){return demandeRepo.find
     }
 
 
+    public Boolean updateDemandeState(CreationDemand demand, int i) {
+        demand.setEtatD(i);
+        CreationDemand testing = demandeRepo.save(demand);
+        if (testing == null) {
+            return true;
+        }else return false;
+    }
 }

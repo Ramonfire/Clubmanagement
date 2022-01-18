@@ -1,7 +1,11 @@
 package com.example.Clubmanagement.services;
 
 import com.example.Clubmanagement.Repositories.ClubRepo;
+import com.example.Clubmanagement.Repositories.MemberRepo;
+import com.example.Clubmanagement.entities.Forms.CreationDemand;
 import com.example.Clubmanagement.entities.club.Club;
+import com.example.Clubmanagement.entities.club.budget;
+import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +25,7 @@ import java.util.List;
 public class ClubService {
 
     private final ClubRepo clubRepo;
+    private final MemberRepo memberRepo;
 
 
     public List<Club> getAllActiveClub(int pagenum,int size){
@@ -70,5 +75,31 @@ public class ClubService {
 
     public Club getClubByname(String clubname) {
         return this.clubRepo.findAllByNomclub(clubname);
+    }
+
+    public String AcceptClubDemande(CreationDemand demand) {
+        Club club= new Club();
+        club.setDescription(demand.getDescrpt());
+        club.setEtat(true);
+        log.info(demand.getNomClubD());
+        club.setnomclub(demand.getNomClubD());
+        log.info(club.getnomclub());
+
+
+        Club test= clubRepo.save(club);
+        if(test == null){
+            return "Error while creating teh club";
+        }else {
+            log.info("Succesfully Created Club {} {}",test.getnomclub(),test.getDescription());
+            Members members= new Members(test.getIdc(), demand.getIdEtudiant(), "pres");
+            Members Mtest = memberRepo.save(members);
+            if (Mtest == null) {
+                return "error while saving the president";
+            }else {
+                log.info("Student {} is pres of Club {}",Mtest.getStudentid(), Mtest.getClubid() );
+                return "Succesfully saved the club";
+            }
+
+        }
     }
 }

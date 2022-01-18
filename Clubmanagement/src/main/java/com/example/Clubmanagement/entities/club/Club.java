@@ -60,7 +60,7 @@ public class Club {
     }
 
     public void setnomclub(String nomclub) {
-        nomclub = nomclub;
+        this.nomclub = nomclub;
     }
 
     public boolean getEtat() {
@@ -95,6 +95,7 @@ public class Club {
 
     private List<Etudiant> students = new ArrayList<Etudiant>();
 
+    @JsonManagedReference
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_Budget")
     private  budget b;

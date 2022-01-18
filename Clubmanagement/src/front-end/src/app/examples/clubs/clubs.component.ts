@@ -75,4 +75,11 @@ sendToCreate(){
       this.router.navigate(["/createclub"]);
 }
 
+verifyUser(){
+      if (this.authenServ.isUserLoggedIn()){
+          if (sessionStorage.getItem("role")=="Role_Admin"){return false;}
+          else return true
+      }else return false
+}
+
 }
