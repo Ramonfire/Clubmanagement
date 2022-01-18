@@ -37,7 +37,7 @@ this.GetWaitingDemands();
 
 
 GetWaitingDemands(){
-this.Adminserv.getDemande(0).subscribe((response:Demande[])=>{
+this.Adminserv.getDemande(0,parseInt(sessionStorage.getItem("pagenum")),6).subscribe((response:Demande[])=>{
   this.demande=response;
   console.log(this.demande)
 },(error:HttpErrorResponse)=>{alert(error.error.code)});
@@ -71,6 +71,21 @@ this.Adminserv.AcceptDemande(Chosen).subscribe((response:string)=>{
       alert(response);
       location.reload();
     },(error:HttpErrorResponse)=>{alert(error.error.code)});
+  }
+
+
+  refreshtonext() {
+    let integer:number= parseInt(sessionStorage.getItem("pagenum"))+1;
+    sessionStorage.setItem("pagenum",integer.toString());
+    location.reload();
+  }
+
+  refreshtobefore() {
+    let integer:number= parseInt(sessionStorage.getItem("pagenum"))-1;
+    if (integer<0){integer=0}
+    sessionStorage.setItem("pagenum",integer.toString());
+    location.reload();
+
   }
 
 

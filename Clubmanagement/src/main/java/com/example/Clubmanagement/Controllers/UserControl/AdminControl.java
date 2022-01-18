@@ -48,9 +48,9 @@ public class AdminControl {
     return demandeService.getAllDemands();
     }
 
-    @GetMapping(value = "demandeclub/{etat}")
-    public List<CreationDemand> getDemandebyState(@PathVariable("etat") int etat ){
-    return demandeService.getdemandeBystate(etat);
+    @GetMapping(value = "demandeclub/{etat}/{page}/{size}")
+    public List<CreationDemand> getDemandebyState(@PathVariable("etat") int etat ,@PathVariable("page") int page,@PathVariable("size") int size){
+    return demandeService.getdemandeBystate(etat,page,size);
 
     }
 

@@ -4,11 +4,15 @@ import com.example.Clubmanagement.Repositories.ClubRepo;
 import com.example.Clubmanagement.Repositories.DemandeRepo;
 import com.example.Clubmanagement.Repositories.RclubsRepo;
 import com.example.Clubmanagement.entities.Forms.CreationDemand;
+import com.example.Clubmanagement.entities.club.Club;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -23,7 +27,14 @@ public class DemandeService {
     public List<CreationDemand> getAllDemands(){
         return demandeRepo.findAll();
 }
-public  List<CreationDemand> getdemandeBystate(int etat){return demandeRepo.findAllByEtatD(etat);}
+
+
+public  List<CreationDemand> getdemandeBystate(int etat, int pagenum,int size){
+    org.springframework.data.domain.Pageable pageable=  PageRequest.of(pagenum,size);
+    Page<CreationDemand> demands = demandeRepo.findAllByEtatD(etat,pageable);
+    List<CreationDemand> demands1 = Arrays.asList(demands.getContent().toArray(new CreationDemand[0]));
+
+        return demands1;}
     public List<CreationDemand> getEtudiantDemande(Long idE){return demandeRepo.getAllByIdEtudiant(idE);}
 
     public int getDemandesCountBystate(int etat){

@@ -29,6 +29,7 @@ public class Club {
     private  String nomclub;
     private boolean etat;
     private  String description;
+    private float budget;
 
     public Club(Long idc, String nomclub, boolean etat, String description) {
         this.idc = idc;
@@ -43,6 +44,12 @@ public class Club {
         this.description = description;
     }
 
+    public Club(String nomclub, boolean etat, String description, float budget) {
+        this.nomclub = nomclub;
+        this.etat = etat;
+        this.description = description;
+        this.budget = budget;
+    }
     //end contructor
 
 
@@ -95,10 +102,6 @@ public class Club {
 
     private List<Etudiant> students = new ArrayList<Etudiant>();
 
-    @JsonManagedReference
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_Budget")
-    private  budget b;
 
 
     @JsonManagedReference

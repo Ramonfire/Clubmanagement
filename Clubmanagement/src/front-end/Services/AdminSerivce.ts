@@ -30,8 +30,8 @@ public  GetCountDemandeByState(state:number):Observable<number>{
         return this.http.post(`${this.apiBaseUrl}/admin/updatemot`,{mot:Mot},{responseType:"text"});
     }
 
-    public getDemande(state:number):Observable<Demande[]>{
-    return this.http.get<Demande[]>(`${this.apiBaseUrl}/admin/demandeclub/${state}`)
+    public getDemande(state:number,page:number,size:number):Observable<Demande[]>{
+    return this.http.get<Demande[]>(`${this.apiBaseUrl}/admin/demandeclub/${state}/${page}/${size}`)
     }
 
     public AcceptDemande(demand:Demande):Observable<string>{

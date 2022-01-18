@@ -9,6 +9,7 @@ export class Club {
     private _etat: number;
     private _description:String;
     private _students:etudiant[];
+    private _budget:number;
     //private budget
     private _ev:Evenement[];
     private _ped:Rpedag;
@@ -69,5 +70,13 @@ export class Club {
 
     set Ped(value: Rpedag) {
         this._ped = value;
+    }
+
+    get budget(): number {
+        return this._budget;
+    }
+
+    set budget(value: number) {
+        this._budget = value;
     }
 }

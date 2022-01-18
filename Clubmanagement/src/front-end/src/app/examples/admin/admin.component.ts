@@ -20,6 +20,7 @@ export class AdminComponent implements OnInit {
         this.NewDemandeNumber();
         this.totalActifEventnumber();
         this.totalClubNumber();
+        sessionStorage.setItem("pagenum","0");
     }
 
     waitingevents:number;
