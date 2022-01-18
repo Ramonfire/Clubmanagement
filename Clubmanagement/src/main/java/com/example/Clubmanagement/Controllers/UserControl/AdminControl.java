@@ -118,7 +118,7 @@ public class AdminControl {
         return etudiants;
     }
 
-    @GetMapping(path = "All/{Role}")
+    @GetMapping(path = "All/{role}")
     public ResponseEntity<List<Etudiant>> getAllRole(@PathVariable("role") String role){
         List<Members> members =this.memberService.getAllMembersByRole(role);
         List<Etudiant> etudiants = new ArrayList<>();
@@ -136,11 +136,16 @@ public class AdminControl {
     @PostMapping(path = "saveClub")
     public String insertClub(@RequestBody Club club){
     return this.clubService.saveclub(club);
-
     }
-    @PostMapping(path = "saveMember")
-    public String insertMember(@RequestBody Members member){
-        return this.memberService.saveMember(member);
+    @PostMapping(path = "saveMember/{clubname}/{role}/{idS}")
+    public String insertMember(@PathVariable("clubname") String clubname, @PathVariable("role") String role,@PathVariable("idS")Long StudentID){
+        Club club =clubService.getClubByname(clubname);
+        if (club == null){
+            return "club not found";
+        }
+        else {
+        Members member = new Members(club.getIdc(),StudentID,role);
+        return this.memberService.saveMember(member);}
 
     }
 

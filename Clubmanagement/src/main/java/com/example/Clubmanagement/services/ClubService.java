@@ -67,4 +67,8 @@ public class ClubService {
        }
        return s;
     }
+
+    public Club getClubByname(String clubname) {
+        return this.clubRepo.findAllByNomclub(clubname);
+    }
 }

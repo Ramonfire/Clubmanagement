@@ -42,6 +42,7 @@ private final EtudiantRepo etudiantRepo;
 //saving new member
     public String saveMember(Members member) {
     String s="error";
+    log.info("got Member {} for club {}",member.getStudentid(),member.getClubid());
         Members x= new Members();
     if (memberRepo.findByStudentidAndClubid(member.getStudentid(), member.getClubid() )==null){ x = this.memberRepo.save(member);}else return "Already member";
     if (x.getIdmembre()!=null){
@@ -49,6 +50,10 @@ private final EtudiantRepo etudiantRepo;
     }
     return s;
     }
+
+
+
+
     public Members getMemberbyClubAndStudent(Long ids,Long idc){
         Members member =new Members();
         if (memberRepo.findByStudentidAndClubid(ids,idc)==null){

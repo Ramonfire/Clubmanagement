@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../src/environments/environment";
 import {Observable} from "rxjs";
 import {Evenement} from "../Classes/evenement";
+import {Demande} from "../Classes/demande";
 
 @Injectable({
     providedIn: 'root'
@@ -27,6 +28,10 @@ public  GetCountDemandeByState(state:number):Observable<number>{
 
     public UpdateMot(Mot:string){
         return this.http.post(`${this.apiBaseUrl}/admin/updatemot`,{mot:Mot},{responseType:"text"});
+    }
+
+    public getDemande(state:number):Observable<Demande[]>{
+    return this.http.get<Demande[]>(`${this.apiBaseUrl}/admin/demandeclub/${state}`)
     }
 
 }
