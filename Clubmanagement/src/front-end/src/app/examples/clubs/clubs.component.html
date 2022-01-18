@@ -10,7 +10,7 @@
                     <h6 style="padding: 22px" class="description">Les Clubs de L'UIR</h6>
                 </div>
             </div>
-            <button (click)="sendToCreate()" class="btn btn-outline-default btn-round" style="margin-left: 42% "><i class="fa fa-cog"></i>  Creer un club</button>
+            <button *ngIf="authenServ.isUserLoggedIn()" (click)="sendToCreate()" class="btn btn-outline-default btn-round" style="margin-left: 42% "><i class="fa fa-cog"></i>  Creer un club</button>
             <div  [hidden]="!(3<=clublenght)" tyle="display: flex" class="row">
                 <div style="display: inline-flex" class="col-md-6 ml-auto mr-auto text-center">
 

@@ -7,6 +7,7 @@ import {VisitorService} from "../../../../Services/VisitorService";
 import {Router} from "@angular/router";
 import {stringify} from "@angular/compiler/src/util";
 import {waitForAsync} from "@angular/core/testing";
+import {AuthentificationService} from "../signin/auth.service";
 
 @Component({
   selector: 'app-clubs',
@@ -19,7 +20,7 @@ export class ClubsComponent implements OnInit {
   clublenght: number;
 
 
-  constructor(private visservice:VisitorService,private router :Router) { }
+  constructor(private visservice:VisitorService,private router :Router,private authenServ:AuthentificationService) { }
 
   ngOnInit(): void {
 
