@@ -14,12 +14,12 @@ import javax.persistence.*;
 public class facture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id_facture;
+    private  Long idfacture;
     private  Long frais;
     private  String eventname;
 
     public facture(Long id_facture, Long frais, String e) {
-        this.id_facture = id_facture;
+        this.idfacture = id_facture;
         this.frais = frais;
         this.eventname = e;
     }
@@ -30,12 +30,12 @@ public class facture {
         this.eventname = eventname;
     }
 
-    public Long getId_facture() {
-        return id_facture;
+    public Long getIdfacture() {
+        return idfacture;
     }
 
-    public void setId_facture(Long id_facture) {
-        this.id_facture = id_facture;
+    public void setIdfacture(Long id_facture) {
+        this.idfacture = id_facture;
     }
 
     public Long getFrais() {
