@@ -27,9 +27,10 @@ public class MemberSaving {
         Members m1 = new Members(null,Long.valueOf(1),Long.valueOf(7),"member");
         Members m2 = new Members(null,Long.valueOf(1),Long.valueOf(5),"pres");
         Members m3 = new Members(null,Long.valueOf(2),Long.valueOf(6),"Vpres");
+        Members m4 = new Members(null,Long.valueOf(1),Long.valueOf(6),"secr");
 
 
-        repo.saveAll(List.of(m1,m2,m3));
+        repo.saveAll(List.of(m1,m2,m3,m4));
         return args -> {
 
 

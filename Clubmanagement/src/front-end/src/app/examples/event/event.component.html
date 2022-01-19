@@ -6,21 +6,23 @@
         <div class="container">
             <div class="owner">
                 <div class="name">
-                    <h6 style="padding: 22px;text-align: left" class="description">Informations à propos de l'evenement</h6>
+                    <h6 style="padding: 22px;text-align: left" class="description">Informations à propos de l'evenement : <div class="d-flex justify-content-center flex-nowrap">{{event.nomevent}}</div></h6>
                 </div>
             </div>
 
-            <div style="display: inline-block" class="row">
-                <div style="display: inline-flex" class="col-md-6 ml-auto mr-auto text-center">
+            <div style="display: inline-block" class="row d-flex justify-content-center flex-nowrap">
+                <div style="display: inline-flex" class="text-center">
 
                     <!-- ici je vais insérer la dexription -->
-                <div style=" "><p>Un club d’animation qui aide à l’organisation de différents événements et activités de divertissement au sein de la communauté UIR, notamment des projections de films hebdomadaires, l’organisation de tournois de jeux vidéo, des chasses au trésor etc..</p>
-                    <br>
-                    <p>email : placeholder@gmail.com</p></div>
+                <div style=" ">
+                    <p>{{event.description}}</p>
+                    <br></div>
                     <br />
 
                 </div>
             </div>
+            <br />
+            <div class="float-right"> <p>For more informations contact : {{email}}</p></div>
 
 
 
@@ -28,3 +30,5 @@
 
 
         </div>
+    </div>
+</div>

@@ -7,6 +7,7 @@ import {VisitorService} from "../../../../Services/VisitorService";
 import {Router} from "@angular/router";
 import {stringify} from "@angular/compiler/src/util";
 import {waitForAsync} from "@angular/core/testing";
+import {AuthentificationService} from "../signin/auth.service";
 
 @Component({
   selector: 'app-clubs',
@@ -15,11 +16,11 @@ import {waitForAsync} from "@angular/core/testing";
 })
 export class EventsClubComponent implements OnInit {
 //pp
-  clubs:Club[];
+  evenements:Evenement[];
   clublenght: number;
 
 
-  constructor(private visservice:VisitorService,private router :Router) { }
+  constructor(private visservice:VisitorService,private router :Router,private authserv:AuthentificationService,private studenetServ:StudentService) { }
 
   ngOnInit(): void {
 
@@ -28,10 +29,10 @@ export class EventsClubComponent implements OnInit {
   }
 
 getClubs(){
-
-    this.visservice.getAllclubs(parseInt(sessionStorage.getItem("pagenum")),6).subscribe(
-        (response: Club[]) => {
-          this.clubs = response;
+            if (!this.authserv.isUserLoggedIn()){
+    this.visservice.getPublicevent(parseInt(sessionStorage.getItem("pagenum")),6).subscribe(
+        (response: Evenement[]) => {
+          this.evenements= response;
           this.clublenght=response.length;
         },
         (error: HttpErrorResponse) => {
@@ -44,6 +45,23 @@ getClubs(){
             }
         }
     );
+}else {
+                this.studenetServ.getevent(parseInt(sessionStorage.getItem("pagenum")),6).subscribe(
+                    (response: Evenement[]) => {
+                        this.evenements= response;
+                        this.clublenght=response.length;
+                    },
+                    (error: HttpErrorResponse) => {
+                        if (sessionStorage.getItem("pagenum")){
+                            sessionStorage.setItem("pagenum","0");
+                            location.reload();}
+                        else {
+                            alert("Session expired");
+                            this.router.navigate(["/signin"])
+                        }
+                    }
+                );
+            }
 }
 
 
@@ -61,11 +79,11 @@ getClubs(){
 
     }
 
-    sendToclubinfo(id:number) {
+    sendToeventinfo(id:number) {
       //doesnt work to review in html adn ts
       sessionStorage.setItem("id",""+id);
       console.log(sessionStorage.getItem("id"));
-      this.router.navigate(["/club" ] );
+      this.router.navigate(["/event" ] );
 
 
     }

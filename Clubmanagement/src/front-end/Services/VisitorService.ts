@@ -40,7 +40,14 @@ private  apiBaseUrl = environment.apiBaseUrl;
     }
 
     public singup(email :string) :Observable<string> {
-        return this.http.get(`${this.apiBaseUrl}/Visitor/signup/${email}`,{responseType:'text' ,});
+        return this.http.get(`${this.apiBaseUrl}/Visitor/signup/${email}`,{responseType:'text' });
     }
 
+    getEventId(number: number) :Observable<Evenement>{
+        return this.http.get<Evenement>(`${this.apiBaseUrl}/Visitor/event/${number}`)
+    }
+
+    getSecr(number: number) :Observable<string>{
+        return this.http.get(`${this.apiBaseUrl}/Visitor/getResp/${number}`,{responseType:"text"})
+    }
 }

@@ -58,4 +58,15 @@ constructor(private VisitorService:VisitorService
     redirectClubAdminpage() {
         this.router.navigate(["/clubs"])
     }
+
+
+
+
+    verifyUser(){
+        if (this.authentifserv.isUserLoggedIn()){
+            if (sessionStorage.getItem("role")=="Role_Admin"){return false;}
+            else return true
+        }else return false
+    }
+
 }
