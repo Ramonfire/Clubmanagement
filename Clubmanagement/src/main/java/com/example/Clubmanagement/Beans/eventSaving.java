@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class eventSaving {
+    //create facture then insert into event
     @Bean
     CommandLineRunner savingevents(EventRepo eventRepo, ClubRepo clubRepo){
         eventRepo.save( new evenement(null,"test","testing", 0,0,false,clubRepo.findByIdc(Long.valueOf(1)),null));
