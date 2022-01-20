@@ -132,7 +132,6 @@ export class LandingComponent implements OnInit {
             this.accoutnServ.GetAccountInto().subscribe((response:compte)=>{
                 this.Role=response.roles[0];
                 sessionStorage.setItem("role",this.Role.name);
-                console.log(sessionStorage.getItem("role"));
             })
 
         }
