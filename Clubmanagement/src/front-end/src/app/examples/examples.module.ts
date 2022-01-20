@@ -16,6 +16,7 @@ import { EventsClubComponent } from './eventsclub/eventsclub.component';
 import { CreateclubComponent } from './createclub/createclub.component';
 import { ViewclubdemandComponent } from './viewclubdemand/viewclubdemand.component';
 import { VieweventdemandComponent } from './vieweventdemand/vieweventdemand.component';
+import { CreateEventComponent } from './create-event/create-event.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { VieweventdemandComponent } from './vieweventdemand/vieweventdemand.comp
         ClubComponent,
         CreateclubComponent,
         ViewclubdemandComponent,
-        VieweventdemandComponent
+        VieweventdemandComponent,
+        CreateEventComponent
     ]
 })
 export class ExamplesModule { }
