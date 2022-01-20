@@ -23,9 +23,13 @@
             </div>
             <br />
             <div class="float-right"> <p>For more informations contact : {{email}}</p></div>
-
-
-
+            <br/>
+            <br/>
+            <br/>
+            <div *ngIf="verifyEventtype()">
+                <button (click)="RefuseEvent(event.idevent)" class="btn btn-danger float-left">Refuser</button>
+                <button (click)="AcceptEvent(event.idevent)" class="btn btn-success float-right">Accepter</button>
+            </div>
 
 
 

@@ -49,6 +49,15 @@ public class AdminControl {
     return eventService.geteventbyState(0,page,size);
     }
 
+    @GetMapping("Refuserevent/{id}")
+    public String RefuseEvent(@PathVariable("id") Long id){
+    return eventService.ChangeEventState(-1);
+    }
+    @GetMapping("Acecpterevent/{id}")
+    public String AccepterEvent(@PathVariable("id") Long id){
+        return eventService.ChangeEventState(1);
+    }
+
 
 
 // to do pageable

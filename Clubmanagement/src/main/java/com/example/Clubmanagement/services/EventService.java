@@ -68,4 +68,8 @@ public class EventService {
 
     public Optional<evenement> getEventById(Long id) {return this.eventrepo.findById(id);
     }
+
+    public String ChangeEventState(int i) {
+        return "beeboop" ;
+    }
 }

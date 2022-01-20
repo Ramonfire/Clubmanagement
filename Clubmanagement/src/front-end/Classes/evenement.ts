@@ -5,7 +5,7 @@ export class Evenement {
     private _description:String;
     private _nomevent:String;
     private _type :number;
-    private _etat : number;
+    private _state : number;
     private _terminer : boolean;
 
 
@@ -41,12 +41,12 @@ export class Evenement {
         this._type = value;
     }
 
-    get etat(): number {
-        return this._etat;
+    get state(): number {
+        return this._state;
     }
 
-    set etat(value: number) {
-        this._etat = value;
+    set state(value: number) {
+        this._state = value;
     }
 
     get terminer(): boolean {

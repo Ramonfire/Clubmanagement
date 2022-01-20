@@ -46,4 +46,11 @@ public  GetCountDemandeByState(state:number):Observable<number>{
     public  GetWaitingEvents(page:number,size:number):Observable<Evenement[]>{
         return this.http.get<Evenement[]>(`${this.apiBaseUrl}/admin/Waitingevents/${page}/${size}`);
     }
+    public Acceptevent(id:number):Observable<string>{
+        return   this.http.get(`${this.apiBaseUrl}/admin/Refuserevent/${id}`,{responseType:"text"});
+    }
+    public RefuserEvent(id:number):Observable<string>{
+        return   this.http.get(`${this.apiBaseUrl}/admin/Acecpterevent/${id}`,{responseType:"text"});
+    }
+
 }
