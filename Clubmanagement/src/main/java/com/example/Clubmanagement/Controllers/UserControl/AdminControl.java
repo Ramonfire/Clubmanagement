@@ -42,6 +42,15 @@ public class AdminControl {
     public List<evenement> getallevents(@PathVariable(name = "page") int page,@PathVariable("size") int size){
     return eventService.getallevents(page, size);
     }
+
+
+    @GetMapping(path="Waitingevents/{page}/{size}")
+    public List<evenement> getWatingevents(@PathVariable("page") int page,@PathVariable("size") int size){
+    return eventService.geteventbyState(0,page,size);
+    }
+
+
+
 // to do pageable
     @GetMapping(path = "allDemandeclubs")
     public List<CreationDemand> getallDemands(){
@@ -117,6 +126,8 @@ public class AdminControl {
         }
         return etudiants;
     }
+
+
 
     @GetMapping(path = "All/{role}")
     public ResponseEntity<List<Etudiant>> getAllRole(@PathVariable("role") String role){

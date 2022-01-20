@@ -42,4 +42,8 @@ public  GetCountDemandeByState(state:number):Observable<number>{
         return   this.http.post(`${this.apiBaseUrl}/admin/refuserDemande`,demand,{responseType:"text"});
     }
 
+
+    public  GetWaitingEvents(page:number,size:number):Observable<Evenement[]>{
+        return this.http.get<Evenement[]>(`${this.apiBaseUrl}/admin/Waitingevents/${page}/${size}`);
+    }
 }
