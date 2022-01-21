@@ -1,6 +1,8 @@
 import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {environment} from "../src/environments/environment";
+import {Observable} from "rxjs";
+import {ImageModel} from "../Classes/ImageModel";
 @Injectable({
     providedIn: 'root'
 })
@@ -39,15 +41,8 @@ export class ImageService {
     );
     }
     //Gets called when the user clicks on retieve image button to get the image from back end
-    getImage() {
-        //Make a call to Sprinf Boot to get the Image Bytes.
-        this.httpClient.get('http://localhost:8080/Clubpage/image/get/' + this.imageName)
-            .subscribe(
-        res => {
-            this.retrieveResonse = res;
-            this.base64Data = this.retrieveResonse.picByte;
-            this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-        }
-    );
+   public getImage(name:string) :Observable<ImageModel>{
+        //Make a call to Spring Boot to get the Image Bytes.
+       return  this.httpClient.get<ImageModel>('http://localhost:8080/Clubpage/image/get/' + name);
     }
 }

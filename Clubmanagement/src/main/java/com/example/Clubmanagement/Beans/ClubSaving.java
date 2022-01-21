@@ -16,7 +16,7 @@ public class ClubSaving {
     @Bean
     CommandLineRunner commandLineRunnerClub(ClubRepo repo) {
 
-        Club C1 = new Club("Chillin'side",Boolean.TRUE," Games.and.Movies ");
+        Club C1 = new Club("Chillin side",Boolean.TRUE," Games.and.Movies ");
         Club C2 = new Club("Rotarac",Boolean.TRUE," Donor ");
         Club C3 = new Club("Bridge",Boolean.FALSE," Media ");
 
