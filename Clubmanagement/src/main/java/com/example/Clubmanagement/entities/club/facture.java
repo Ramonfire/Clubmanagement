@@ -18,12 +18,6 @@ public class facture {
     private  Long frais;
     private  String eventname;
 
-    public facture(Long id_facture, Long frais, String e) {
-        this.idfacture = id_facture;
-        this.frais = frais;
-        this.eventname = e;
-    }
-
     public facture(Long frais, String eventname) {
 
         this.frais = frais;
@@ -55,6 +49,4 @@ public class facture {
     }
 
 
-    @OneToOne(mappedBy = "Fact")
-    private  evenement evt;
 }

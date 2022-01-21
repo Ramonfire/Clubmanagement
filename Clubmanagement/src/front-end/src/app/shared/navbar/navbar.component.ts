@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import {AuthentificationService} from "../../../../Services/auth.service";
+import {Route, Router} from "@angular/router";
 
 @Component({
     selector: 'app-navbar',
@@ -11,7 +12,7 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(public location: Location, private element : ElementRef,private  authService : AuthentificationService) {
+    constructor(public location: Location, private element : ElementRef,private  authService : AuthentificationService,private router:Router) {
         this.sidebarVisible = false;
     }
 
@@ -81,4 +82,8 @@ if (sessionStorage.getItem("role")=="Role_Admin"){
 }else return false;
 }
 
+    logout() {
+        this.authService.logout();
+        this.router.navigate['/singin'];
+    }
 }

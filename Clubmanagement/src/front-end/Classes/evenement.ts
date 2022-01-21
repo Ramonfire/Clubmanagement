@@ -1,3 +1,4 @@
+import {Facture} from "./facture";
 
 
 export class Evenement {
@@ -7,6 +8,7 @@ export class Evenement {
     private _type :number;
     private _state : number;
     private _terminer : boolean;
+    private _fact:Facture;
 
 
     get idevent(): number {
@@ -55,5 +57,13 @@ export class Evenement {
 
     set terminer(value: boolean) {
         this._terminer = value;
+    }
+
+    get fact(): Facture {
+        return this._fact;
+    }
+
+    set fact(value: Facture) {
+        this._fact = value;
     }
 }

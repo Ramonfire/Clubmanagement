@@ -34,7 +34,7 @@
 
                 </li>
                 <li class="nav-item" *ngIf=" isloggedin()" >
-                    <a [routerLink]="['/landing']" *ngIf="!isDocumentation()" (click)="authService.logout()"   class="nav-link"><i class="nc-icon nc-layout-11"></i>logout</a>
+                    <a  [routerLink]="['/signin']" *ngIf="!isDocumentation()" (click)="logout()"   class="nav-link"><i class="nc-icon nc-layout-11"></i>logout</a>
 
                 </li>
 

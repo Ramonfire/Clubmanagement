@@ -20,10 +20,13 @@ export class EventComponent implements OnInit {
 
   event:Evenement;
   email:string;
-
+verifySession(){
+  if (sessionStorage.length==0){}
+}
   getEvent(){
     this.visitorService.getEventId(parseInt(sessionStorage.getItem("id"))).subscribe((response:Evenement)=>{
       this.event=response;
+      console.log(this.event)
     },(error:HttpErrorResponse)=>{
       alert(error.error.code);
     })
@@ -32,6 +35,7 @@ export class EventComponent implements OnInit {
   getemail(){
     this.visitorService.getSecr(parseInt(sessionStorage.getItem("id"))).subscribe((resp:string)=>{
       this.email=resp;
+
     },(error:HttpErrorResponse)=>{
 
       alert(error.error.code);
@@ -56,5 +60,10 @@ export class EventComponent implements OnInit {
     this.adminServ.Acceptevent(this.event.idevent).subscribe((response:string)=>{
       alert(response);
     },()=>{})
+  }
+
+
+  verifyAdmin(){
+    if (sessionStorage.getItem("role")=="Role_Admin"){return true}else return false;
   }
 }
