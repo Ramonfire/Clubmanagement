@@ -6,7 +6,7 @@ import {environment} from "../src/environments/environment";
 })
 
 
-export class AppComponent {
+export class ImageService {
     constructor(private httpClient: HttpClient) { }
     selectedFile: File;
     retrievedImage: any;
