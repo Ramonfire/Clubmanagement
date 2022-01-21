@@ -28,7 +28,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class ImageApi {
     @Autowired
     ImageRepo imageRepository;
-    @PostMapping("/upload")
+    @PostMapping("upload")
     public BodyBuilder uplaodImage(@RequestParam("imageFile") MultipartFile file) throws IOException {
 
         System.out.println("Original Image Byte Size - " + file.getBytes().length);
@@ -39,7 +39,7 @@ public class ImageApi {
         return ResponseEntity.status(HttpStatus.OK);
     }
 
-    @GetMapping(path = { "/get/{imageName}" })
+    @GetMapping(path = { "get/{imageName}" })
     public ImageModel getImage(@PathVariable("imageName") String imageName) throws IOException {
         final ImageModel retrievedImage = imageRepository.findByName(imageName);
         ImageModel img = new ImageModel(retrievedImage.getName(), retrievedImage.getType(),

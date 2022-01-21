@@ -36,7 +36,7 @@ public class CustomAuthorisationFilter extends OncePerRequestFilter {
         if(request.getServletPath().equals("/Clubpage/login" )
                         || request.getServletPath().equals("/Clubpage/refreshtoken")
                         || request.getServletPath().equals("/Clubpage/Visitor")
-                ||request.getServletPath().equals("/Clubpage/image")) {
+                        ||request.getServletPath().equals("/Clubpage/image")) {
             filterChain.doFilter(request,response);
         }else {
             String authorisationHeader =request.getHeader(AUTHORIZATION);
