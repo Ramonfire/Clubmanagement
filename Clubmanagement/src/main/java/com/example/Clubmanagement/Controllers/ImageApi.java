@@ -28,12 +28,13 @@ import org.springframework.web.multipart.MultipartFile;
 public class ImageApi {
     @Autowired
     ImageRepo imageRepository;
-    @PostMapping("upload")
-    public BodyBuilder uplaodImage(@RequestParam("imageFile") MultipartFile file) throws IOException {
+
+    @PostMapping("upload/{name}")
+    public BodyBuilder uplaodImage(@RequestParam("imageFile") MultipartFile file,@PathVariable("name") String name) throws IOException {
 
         System.out.println("Original Image Byte Size - " + file.getBytes().length);
 
-        ImageModel img = new ImageModel(file.getOriginalFilename(), file.getContentType(),
+        ImageModel img = new ImageModel(name, file.getContentType(),
                 compressBytes(file.getBytes()));
         imageRepository.save(img);
         return ResponseEntity.status(HttpStatus.OK);
@@ -41,10 +42,12 @@ public class ImageApi {
 
     @GetMapping(path = { "get/{imageName}" })
     public ImageModel getImage(@PathVariable("imageName") String imageName) throws IOException {
-        final ImageModel retrievedImage = imageRepository.findByName(imageName);
-        ImageModel img = new ImageModel(retrievedImage.getName(), retrievedImage.getType(),
-                decompressBytes(retrievedImage.getPicByte()));
-        return img;
+         ImageModel retrievedImage = imageRepository.findByName(imageName);
+        if (retrievedImage==null){return new ImageModel();}else{
+            ImageModel img = new ImageModel(retrievedImage.getName(), retrievedImage.getType(),
+                    decompressBytes(retrievedImage.getPicByte()));
+
+            return img;}
     }
 
         // compress the image bytes before storing it in the database
