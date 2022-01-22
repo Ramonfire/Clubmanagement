@@ -84,9 +84,7 @@ public class MemberControl {
         log.info("User {} verifying if he belongs to club {}" ,compte.getEmail(),id);
         boolean Rolee;
         Members members = this.memberService.getMemberbyClubAndStudent(compte.getIdE(),id);
-        if (members==null){
-            return new Members(Long.valueOf(-1),Long.valueOf(-1),Long.valueOf(-1),null);
-        }else
+        log.info(members.toString());
         return members;
     }
     //*************************************************************************************post mapping*************************************************************************//

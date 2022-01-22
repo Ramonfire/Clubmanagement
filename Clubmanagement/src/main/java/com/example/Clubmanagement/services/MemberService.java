@@ -57,7 +57,7 @@ private final EtudiantRepo etudiantRepo;
     public Members getMemberbyClubAndStudent(Long ids,Long idc){
         Members member =new Members();
         if (memberRepo.findByStudentidAndClubid(ids,idc)==null){
-            member=new Members(Long.valueOf(-1),Long.valueOf(-1),"-1");
+            member=new Members(Long.valueOf(-1),Long.valueOf(-1),null);
         }else member=memberRepo.findByStudentidAndClubid(ids,idc);
         return member;
     }

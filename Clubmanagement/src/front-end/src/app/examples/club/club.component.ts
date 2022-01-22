@@ -72,16 +72,16 @@ constructor(private VisitorService:VisitorService
     getMember(){
         this.memberService.getMemberByClub(this.club.idc).subscribe((response:Members)=>{
             this.member=response;
-            console.log(this.member);
-            console.log(response);
-            console.log(this.verifyMemberComite())
+            console.log(response)
+            console.log(this.member.role);
 
         },(error:HttpErrorResponse)=>{alert(error.error)})
     }
 
     verifyMemberComite(){
         if (this.authentifserv.isUserLoggedIn()){
-        if (this.member.role=="member" || this.member.role==null){
+            let x:string=this.member.role;
+        if (x==="member" || x===null){
             return false;
         }else return true;}else return false;
     }
@@ -103,6 +103,9 @@ constructor(private VisitorService:VisitorService
             else return true
         }else return false
     }
+
+
+
 imageSrc:string;
     srcData : SafeResourceUrl;
     testing:string;
