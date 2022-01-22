@@ -19,6 +19,7 @@ export class AdminclubComponent implements OnInit {
 
 
     ngOnInit() {
+        this.getClub()
     }
 club:Club;
     imageSrc:string;
@@ -31,11 +32,11 @@ club:Club;
     }
 
     async getClub(){
-        console.log(sessionStorage.getItem("id"));
         if (sessionStorage.getItem("id")==null){
             alert("redirecting to all clubs page");
             this.router.navigate(["/clubs"])
         }else {
+            console.log(sessionStorage.getItem("id"))
             this.visitorService.getClubId(parseInt(sessionStorage.getItem("id"))).subscribe(
                 (response: Club) => {
                     this.club = response;
