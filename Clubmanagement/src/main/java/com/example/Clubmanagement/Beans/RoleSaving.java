@@ -16,12 +16,6 @@ public class RoleSaving {
         rclubsService.saveRole(new Role(null, "Role_Manager"));
         rclubsService.saveRole(new Role(null, "Role_Admin"));
 
-        //member roles
-        rclubsService.saveRole(new Role(null, "member_member"));
-        rclubsService.saveRole(new Role(null, "member_Secretary"));
-        rclubsService.saveRole(new Role(null, "member_tresorier"));
-        rclubsService.saveRole(new Role(null, "member_Vpres"));
-        rclubsService.saveRole(new Role(null, "member_pres"));
 
 
         return args -> {

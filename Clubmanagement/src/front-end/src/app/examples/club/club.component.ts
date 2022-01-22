@@ -10,6 +10,7 @@ import {ImageService} from "../../../../Services/ImageService";
 import {ImageModel} from "../../../../Classes/ImageModel";
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import {waitForAsync} from "@angular/core/testing";
+import {MemberService} from "../../../../Services/MemberService";
 
 
 @Component({
@@ -29,7 +30,8 @@ constructor(private VisitorService:VisitorService
             ,private studenService:StudentService,private authentifserv :AuthentificationService,
             private router:Router,
             private imgServ:ImageService,
-            private sanitizer: DomSanitizer) {}
+            private sanitizer: DomSanitizer,
+            private memberService:MemberService) {}
 
 
 
@@ -43,6 +45,7 @@ constructor(private VisitorService:VisitorService
                 (response: Club) => {
                     this.club = response;
                     this.getimage();
+                    this.getMember();
 
                 }, (error: HttpErrorResponse) => {
                     alert("error while finding the club");
@@ -62,9 +65,33 @@ constructor(private VisitorService:VisitorService
             }, (error:HttpErrorResponse)=>{alert(error.error.code)});
     }
 
+
+
+    //getting member
+    member:Members;
+    getMember(){
+        this.memberService.getMemberByClub(this.club.idc).subscribe((response:Members)=>{
+            this.member=response;
+            console.log(this.member);
+            console.log(response);
+            console.log(this.verifyMemberComite())
+
+        },(error:HttpErrorResponse)=>{alert(error.error)})
+    }
+
+    verifyMemberComite(){
+        if (this.authentifserv.isUserLoggedIn()){
+        if (this.member.role=="member" || this.member.role==null){
+            return false;
+        }else return true;}else return false;
+    }
+
+
+
+
 //sending to admin panel of the club
     redirectClubAdminpage() {
-        this.router.navigate(["/clubs"])
+        this.router.navigate(["/adminclub"])
     }
 
 
@@ -78,14 +105,14 @@ constructor(private VisitorService:VisitorService
     }
 imageSrc:string;
     srcData : SafeResourceUrl;
-
+    testing:string;
 
 
 
 
     getimage(){
           this.imgServ.getImage(""+this.club.nomclub).subscribe((response:ImageModel)=>{
-            console.log(response.picByte)
+this.testing=''+response;
             this.imageSrc = 'data:image/'+response.type+';base64,' + response.picByte;
             this.srcData = this.sanitizer.bypassSecurityTrustResourceUrl(this.imageSrc);
         })

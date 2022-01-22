@@ -18,11 +18,13 @@
                 </div>
             </div>
         </div>
-        <button *ngIf="verifyUser()" (click)="rejoindreClub()" class="btn btn-primary" style="float: right;right: 22em;position: relative" ><i class="fa fa-cog"></i>  rejoindre</button>
+        <div class="col-md-12 text-right">
+        <button *ngIf="verifyUser()" (click)="rejoindreClub()" class="btn btn-primary" ><i class="fa fa-cog"></i>  rejoindre</button></div>
     </div>
 <br/>
     <br/>
     <br/>
-    <button *ngIf="authentifserv.isUserLoggedIn()" (click)="redirectClubAdminpage()" class="btn btn-primary" style="margin-left: 45%" ><i class="fa fa-cog"></i>  adminstrate</button>
-
+        <div class="col-md-12 text-center">
+        <button *ngIf="verifyMemberComite()" (click)="redirectClubAdminpage()" class="btn btn-primary"  ><i class="fa fa-cog"></i>  adminstrate</button>
+        </div>
 </div>
