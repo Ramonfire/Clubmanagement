@@ -8,6 +8,7 @@ import {Router} from "@angular/router";
 import {ImageService} from "../../../../Services/ImageService";
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 import {VisitorService} from "../../../../Services/VisitorService";
+import {Members} from "../../../../Classes/Members";
 
 @Component({
     selector: 'app-clubs',
@@ -57,5 +58,9 @@ club:Club;
             this.srcData = this.sanitizer.bypassSecurityTrustResourceUrl(this.imageSrc);
         })
     }
+    members:Members;
+    getMembers(){
+
+}
 
 }
