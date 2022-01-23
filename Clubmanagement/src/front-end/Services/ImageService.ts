@@ -21,7 +21,7 @@ export class ImageService {
         console.log(selectedFile);
         //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
         const uploadImageData = new FormData();
-        uploadImageData.append('imageFile', selectedFile,"placeholder.png");
+        uploadImageData.append('imageFile', selectedFile,selectedFile.name);
 
       return   this.httpClient.post(`${this.apiBaseUrl}/image/upload/${nom}`, uploadImageData, { responseType:"text" });
     }
