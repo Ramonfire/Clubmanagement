@@ -9,6 +9,8 @@ import {ImageService} from "../../../../Services/ImageService";
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 import {VisitorService} from "../../../../Services/VisitorService";
 import {Members} from "../../../../Classes/Members";
+import {MemberService} from "../../../../Services/MemberService";
+import {StudentMember} from "../../../../Classes/StudentMember";
 
 @Component({
     selector: 'app-clubs',
@@ -21,6 +23,7 @@ export class AdminclubComponent implements OnInit {
 
     ngOnInit() {
         this.getClub()
+        console.log(sessionStorage.getItem("pagenumadmin"))
     }
 club:Club;
     imageSrc:string;
@@ -29,7 +32,8 @@ club:Club;
     constructor(private visitorService:VisitorService,private authentifserv :AuthentificationService,
                 private router:Router,
                 private imgServ:ImageService,
-                private sanitizer: DomSanitizer) {
+                private sanitizer: DomSanitizer,
+                private memberService:MemberService) {
     }
 
     async getClub(){
@@ -42,6 +46,8 @@ club:Club;
                 (response: Club) => {
                     this.club = response;
                     this.getimage();
+                    this.getMembers()
+                    console.log(this.test)
 
                 }, (error: HttpErrorResponse) => {
                     alert("error while finding the club");
@@ -50,17 +56,35 @@ club:Club;
         }
     }
 
-
+test:boolean=false;
     getimage(){
         this.imgServ.getImage(""+this.club.nomclub).subscribe((response:ImageModel)=>{
-            console.log(response.picByte)
+            if (response.picByte==null) this.test=false; else this.test=true;
             this.imageSrc = 'data:image/'+response.type+';base64,' + response.picByte;
             this.srcData = this.sanitizer.bypassSecurityTrustResourceUrl(this.imageSrc);
         })
     }
-    members:Members;
+
+    //getting members with their ids and roles
+    members:StudentMember[];
     getMembers(){
+        this.memberService.getMembersByClubid(parseInt(sessionStorage.getItem("id")),parseInt(sessionStorage.getItem("pagenumadmin")),100)
+            .subscribe((response:StudentMember[])=>{
+                this.members=response;
+        },(error:HttpErrorResponse)=>{alert(error.error)})
 
 }
+
+
+//image upload
+
+SelectedFile:File;
+    OnImageUplaod(){
+    this.imgServ.onUpload(this.SelectedFile,this.club.nomclub).subscribe((response:string)=>{
+        console.log(response);
+        location.reload();
+    },(error:HttpErrorResponse)=>{ alert(error.error)})
+    }
+
 
 }

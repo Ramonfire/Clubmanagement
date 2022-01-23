@@ -25,6 +25,7 @@ export class ClubComponent implements OnInit {
     ngOnInit(): void {
 
         this.getClub();
+        sessionStorage.setItem("pagenumadmin",""+0);
     }
 constructor(private VisitorService:VisitorService
             ,private studenService:StudentService,private authentifserv :AuthentificationService,
@@ -70,12 +71,13 @@ constructor(private VisitorService:VisitorService
     //getting member
     member:Members;
     getMember(){
+        if (this.authentifserv.isUserLoggedIn()){
         this.memberService.getMemberByClub(this.club.idc).subscribe((response:Members)=>{
             this.member=response;
             console.log(response)
             console.log(this.member.role);
 
-        },(error:HttpErrorResponse)=>{alert(error.error)})
+        },(error:HttpErrorResponse)=>{alert(error.error)})}
     }
 
     verifyMemberComite(){

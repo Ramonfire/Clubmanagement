@@ -5,15 +5,31 @@ import {Rpedag} from "./r_pedag";
 export class Club {
     //image a ajouter
     private _idc:number;
-    private _nomclub:String;
+    private _nomclub:string;
     private _etat: number;
-    private _description:String;
+    private _description:string;
     private _students:etudiant[];
     private _budget:number;
     //private budget
     private _ev:Evenement[];
     private _ped:Rpedag;
 
+
+    get nomclub(): string {
+        return this._nomclub;
+    }
+
+    set nomclub(value: string) {
+        this._nomclub = value;
+    }
+
+    get description(): string {
+        return this._description;
+    }
+
+    set description(value: string) {
+        this._description = value;
+    }
 
     get idc(): number {
         return this._idc;
@@ -24,13 +40,7 @@ export class Club {
     }
 
 
-    get nomclub(): String {
-        return this._nomclub;
-    }
 
-    set nomclub(value: String) {
-        this._nomclub = value;
-    }
 
     get etat(): number {
         return this._etat;
@@ -40,13 +50,7 @@ export class Club {
         this._etat = value;
     }
 
-    get description(): String {
-        return this._description;
-    }
 
-    set description(value: String) {
-        this._description = value;
-    }
 
     get students(): etudiant[] {
         return this._students;

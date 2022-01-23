@@ -22,13 +22,13 @@ export class ImageService {
         selectedFile = event.target.files[0];
     }*/
     //Gets called when the user clicks on submit to upload the image
-    public onUpload(selectedFile: File,nom:string)  {
+    public onUpload(selectedFile: File,nom:string) :Observable<string> {
         console.log(selectedFile);
         //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
         const uploadImageData = new FormData();
         uploadImageData.append('imageFile', selectedFile, selectedFile.name);
 
-      return   this.httpClient.post(`${this.apiBaseUrl}/image/upload/${nom}`, uploadImageData, { observe: 'response' });
+      return   this.httpClient.post(`${this.apiBaseUrl}/image/upload/${nom}`, uploadImageData, { responseType:"text" });
     }
     //Gets called when the user clicks on retieve image button to get the image from back end
    public getImage(name:string) :Observable<ImageModel>{

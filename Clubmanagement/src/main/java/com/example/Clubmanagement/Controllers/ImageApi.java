@@ -30,14 +30,21 @@ public class ImageApi {
     ImageRepo imageRepository;
 
     @PostMapping("upload/{name}")
-    public BodyBuilder uplaodImage(@RequestParam("imageFile") MultipartFile file,@PathVariable("name") String name) throws IOException {
+    public String uplaodImage(@RequestParam("imageFile") MultipartFile file,@PathVariable("name") String name) throws IOException {
 
         System.out.println("Original Image Byte Size - " + file.getBytes().length);
 
         ImageModel img = new ImageModel(name, file.getContentType(),
                 compressBytes(file.getBytes()));
-        imageRepository.save(img);
-        return ResponseEntity.status(HttpStatus.OK);
+
+        ImageModel verif = imageRepository.findByName(name);
+        if (verif==null){imageRepository.save(img);
+            return "successfuly saved";
+        }else {
+            verif.setType(file.getContentType());
+            verif.setPicByte(compressBytes(file.getBytes()));
+            return "successfuly updated";
+        }
     }
 
     @GetMapping(path = { "get/{imageName}" })

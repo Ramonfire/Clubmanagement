@@ -7,6 +7,7 @@ import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
 import com.example.Clubmanagement.entities.compte.generlAc.Compte;
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
 import com.example.Clubmanagement.services.*;
+import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,6 +75,23 @@ public class MemberControl {
         return etudiants;
     }
 
+    @GetMapping(path = "GetClubMembers/{idClub}/{page}/{size}")
+    public List<studentMember> getClubMembers(@PathVariable("idClub") Long idClub,@PathVariable("page") int page,@PathVariable("size") int size){
+    List<Members> members= this.memberService.getClubMembers(idClub,page,size);
+    List<Etudiant> etudiants = new ArrayList<>();
+    List<studentMember> studentMembers =new ArrayList<>();
+        for (Members x: members) {
+            etudiants.add(this.etudiantService.getStudentbyid(x.getStudentid()));
+        }
+        for (Members x: members) {
+            for (Etudiant y: etudiants) {
+                if (x.getStudentid()==y.getIdE()){studentMembers.add(new studentMember(y.getfullname(),y.getEmail(),x.getRole()));}
+            }
+        }
+
+        return studentMembers;
+    }
+
 
 
 //checking if User is Part of the club
@@ -96,4 +114,10 @@ public class MemberControl {
 
 
 
+}
+@AllArgsConstructor
+class studentMember{
+   public String name;
+   public String email;
+    public String role;
 }

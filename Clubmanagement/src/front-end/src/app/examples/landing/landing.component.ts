@@ -71,7 +71,11 @@ export class LandingComponent implements OnInit {
     focus: any;
     focus1: any;
     value:boolean ;
-    constructor(private  visitorService :VisitorService, private  authServie : AuthentificationService,private studentservice : StudentService,private accoutnServ:AccountService) { }
+    constructor(private  visitorService :VisitorService, private  authServie : AuthentificationService,private studentservice : StudentService,private accoutnServ:AccountService) {
+        sessionStorage.setItem("pagenumadmin",""+0);
+        sessionStorage.setItem("id",""+0);
+        sessionStorage.setItem("pagenum",""+0);
+    }
 
     ngOnInit() {
         sessionStorage.setItem("pagenum","0");

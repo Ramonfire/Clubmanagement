@@ -10,13 +10,25 @@
                 </div>
 
                 <div class="image">
-                    <img id="test"  style="height: 250px;width: 250px" class="img-thumbnail" [src]="srcData">
+                    <img  id="test"  style="height: 250px;width: 250px" class="img-thumbnail" [src]="srcData"><br/>
+                    <div >
+                    <input [(ngModel)]="SelectedFile"  type="file" accept="image/*" class="col-md-3 text-center" ><br/><br/>
+                        <button  (click)="OnImageUplaod()" class="btn-round btn btn-secondary col-md-3 text-center">upload the image</button>
+                    </div>
                 </div>
 
                 <div class="name">
                     <h6 style="padding: 22px" class="title">Members</h6>
                 </div>
-                <div *ngFor="let m in members" class="table scroll-area text-center " >
+                <div class="scroll-area"  style="margin-right: auto;margin-left: auto">
+                    <table class="table text-center" >
+                        <tr *ngFor="let m of members" class="row-cols-md-4" >
+                            <td>{{m.name}}</td>
+                            <td>{{m.email}}</td>
+                            <td>{{m.role}}</td>
+                            <td><button class="btn btn-danger"> delete</button></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
