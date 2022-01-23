@@ -3,8 +3,8 @@ import {Facture} from "./facture";
 
 export class Evenement {
     private _idevent:number;
-    private _description:String;
-    private _nomevent:String;
+    private _description:string;
+    private _nomevent:string;
     private _type :number;
     private _state : number;
     private _terminer : boolean;
@@ -19,19 +19,19 @@ export class Evenement {
         this._idevent = value;
     }
 
-    get description(): String {
+    get description(): string {
         return this._description;
     }
 
-    set description(value: String) {
+    set description(value: string) {
         this._description = value;
     }
 
-    get nomevent(): String {
+    get nomevent(): string {
         return this._nomevent;
     }
 
-    set nomevent(value: String) {
+    set nomevent(value: string) {
         this._nomevent = value;
     }
 

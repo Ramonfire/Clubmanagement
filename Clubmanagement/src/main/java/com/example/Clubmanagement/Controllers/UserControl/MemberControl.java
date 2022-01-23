@@ -112,6 +112,12 @@ public class MemberControl {
 
     }
 
+    @PostMapping(path = "Createevent/{id}")
+    public String CreateEvent(@RequestBody evenement e,@PathVariable("id") Long id){
+    if (eventService==null) return "evenement est null";
+    return  this.eventService.Createevent(e,id);
+    }
+
 
 
 }

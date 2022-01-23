@@ -27,4 +27,6 @@ public interface EventRepo extends JpaRepository<evenement,Long> {
 
     Page<evenement> findAllByState(int i, Pageable pageable);
     Page<evenement> findAllByStateAndTypeAndTerminer(int state,int type,boolean terminer,Pageable pageable);
+
+    evenement findByNomeventAndTerminer(String nomevent, boolean b);
 }

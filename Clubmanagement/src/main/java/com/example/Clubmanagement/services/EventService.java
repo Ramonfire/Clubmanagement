@@ -1,6 +1,7 @@
 package com.example.Clubmanagement.services;
 
 
+import com.example.Clubmanagement.Repositories.ClubRepo;
 import com.example.Clubmanagement.Repositories.EventRepo;
 import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.club.evenement;
@@ -23,6 +24,7 @@ import java.util.Optional;
 public class EventService {
 
     private final EventRepo eventrepo;
+    public final ClubRepo clubRepo;
 
     public List<evenement> getPevent(int pagenum,int size){
         Pageable pageable = PageRequest.of(pagenum, size);
@@ -71,5 +73,18 @@ public class EventService {
 
     public String ChangeEventState(int i) {
         return "beeboop" ;
+    }
+
+    public String Createevent(evenement e,Long id) {
+        String response="error";
+        evenement test = eventrepo.findByNomeventAndTerminer(e.getNomevent(),false);
+        Club club =clubRepo.findByIdc(id);
+        if (test==null){
+            e.setC(club);
+            eventrepo.save(e);
+            response="Successfully saved event";
+        }else response="Event under this name already exists";
+
+        return response;
     }
 }
