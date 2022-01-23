@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import {LoginCredentials} from "../../../../Classes/LoginCredentials";
 import {Observable} from "rxjs";
 import {Session} from "../../../../Classes/Session";
+import {Router} from "@angular/router";
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +17,7 @@ export class AuthentificationService {
   public password: String;
   public formated = new FormData();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private router:Router) {
 
   }
 //to review
@@ -48,7 +49,7 @@ authenticationService(login:LoginCredentials) {
     this.password = null;
     this.formated.delete("email");
     this.formated.delete("password");
-    window.location.reload();
+    this.router.navigate(['/signin']);
   }
 
   isUserLoggedIn() {

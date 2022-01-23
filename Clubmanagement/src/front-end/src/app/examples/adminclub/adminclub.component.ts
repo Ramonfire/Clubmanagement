@@ -83,7 +83,7 @@ SelectedFile:File;
     this.imgServ.onUpload(this.SelectedFile,this.club.nomclub).subscribe((response:string)=>{
         console.log(response);
         location.reload();
-    },(error:HttpErrorResponse)=>{ alert(error.error)})
+    },(error:HttpErrorResponse)=>{ alert(error.error.code)})
     }
 
 
