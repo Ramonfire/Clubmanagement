@@ -16,11 +16,6 @@ export class ImageService {
     message: string;
     imageName: any;
     private  apiBaseUrl = environment.apiBaseUrl;
-    //Gets called when the user selects an image
-  /*  public onFileChanged(event) {
-        //Select File
-        selectedFile = event.target.files[0];
-    }*/
     //Gets called when the user clicks on submit to upload the image
     public onUpload(selectedFile: File,nom:string) :Observable<string> {
         console.log(selectedFile);
