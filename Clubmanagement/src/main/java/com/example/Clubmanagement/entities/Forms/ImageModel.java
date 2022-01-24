@@ -23,7 +23,7 @@ public class ImageModel {
     private String type;
     //image bytes can have large lengths so we specify a value
         //which is more than the default length for picByte column
-    @Column(name = "picByte", length = 10000)
+    @Column(name = "picByte", length = 100000000)
     private byte[] picByte;
 
     public ImageModel(String name, String type, byte[] picByte) {
