@@ -29,7 +29,7 @@
                             <td *ngIf="m.role=='secr'">secretaire</td>
                             <td *ngIf="m.role=='Vpres'">vise-president</td>
                             <td *ngIf="m.role=='member'">{{m.role}}</td>
-                            <td><button (click)="deletemember()" class="btn btn-danger"> delete</button></td>
+                            <td><button *ngIf="m.role!='pres'" (click)="deletemember()" class="btn btn-danger"> delete</button></td>
                         </tr>
                     </table>
                 </div>
