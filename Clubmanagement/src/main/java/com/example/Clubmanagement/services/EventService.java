@@ -71,8 +71,19 @@ public class EventService {
     public Optional<evenement> getEventById(Long id) {return this.eventrepo.findById(id);
     }
 
-    public String ChangeEventState(int i) {
-        return "beeboop" ;
+    public String ChangeEventState(Long id,int i) {
+        String response="error";
+        evenement e=eventrepo.findByIdevent(id);
+        if (e==null){
+            response="event Not found";
+        }else{
+            e.setState(i);
+            eventrepo.save(e);
+            if (i==1){
+                response="accepted!";
+            }else{response="done";}
+        }
+        return response ;
     }
 
     public String Createevent(evenement e,Long id) {

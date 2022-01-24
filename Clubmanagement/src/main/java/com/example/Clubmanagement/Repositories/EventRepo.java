@@ -29,4 +29,5 @@ public interface EventRepo extends JpaRepository<evenement,Long> {
     Page<evenement> findAllByStateAndTypeAndTerminer(int state,int type,boolean terminer,Pageable pageable);
 
     evenement findByNomeventAndTerminer(String nomevent, boolean b);
+    evenement findByIdevent(Long id);
 }

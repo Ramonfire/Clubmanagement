@@ -3,6 +3,7 @@ import {VisitorService} from "../../../../Services/VisitorService";
 import {Evenement} from "../../../../Classes/evenement";
 import {HttpErrorResponse} from "@angular/common/http";
 import {AdminSerivce} from "../../../../Services/AdminSerivce";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-clubs',
@@ -11,7 +12,7 @@ import {AdminSerivce} from "../../../../Services/AdminSerivce";
 })
 export class EventComponent implements OnInit {
 
-  constructor(private visitorService:VisitorService,private adminServ:AdminSerivce) { }
+  constructor(private visitorService:VisitorService,private adminServ:AdminSerivce,private router:Router) { }
 
   ngOnInit(): void {
     this.getEvent()
@@ -52,6 +53,7 @@ verifySession(){
   RefuseEvent(idevent: number) {
     this.adminServ.RefuserEvent(this.event.idevent).subscribe((response:string)=>{
       alert(response);
+      this.router.navigate(['/vieweventdemand'])
     },()=>{})
     
   }
@@ -59,6 +61,7 @@ verifySession(){
   AcceptEvent(idevent: number) {
     this.adminServ.Acceptevent(this.event.idevent).subscribe((response:string)=>{
       alert(response);
+      this.router.navigate(['/vieweventdemand'])
     },()=>{})
   }
 

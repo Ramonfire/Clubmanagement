@@ -48,14 +48,14 @@ public class AdminControl {
     public List<evenement> getWatingevents(@PathVariable("page") int page,@PathVariable("size") int size){
     return eventService.geteventbyState(0,page,size);
     }
-
+/***accepter/refuser events**/
     @GetMapping("Refuserevent/{id}")
     public String RefuseEvent(@PathVariable("id") Long id){
-    return eventService.ChangeEventState(-1);
+    return eventService.ChangeEventState(id,-1);
     }
     @GetMapping("Acecpterevent/{id}")
     public String AccepterEvent(@PathVariable("id") Long id){
-        return eventService.ChangeEventState(1);
+        return eventService.ChangeEventState(id,1);
     }
 
 
