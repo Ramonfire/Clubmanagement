@@ -84,8 +84,14 @@ public class MemberControl {
         for (Members x: members) {
             etudiants.add(this.etudiantService.getStudentbyid(x.getStudentid()));
         }
+        List<Etudiant> verif=new ArrayList<>();
+        for (Etudiant j:etudiants){
+            if (!verif.contains(j)){
+                verif.add(j);
+            }
+        }
         for (Members x: members) {
-            for (Etudiant y: etudiants) {
+            for (Etudiant y: verif) {
                 if (x.getStudentid()==y.getIdE()){studentMembers.add(new studentMember(y.getfullname(),y.getEmail(),x.getRole()));}
             }
         }
