@@ -79,6 +79,10 @@ test:boolean=false;
 
 
 //image upload
+    public onFileChanged(event) {
+        //Select File
+        this.SelectedFile = event.target.files[0];
+    }
 
 SelectedFile:File;
     OnImageUplaod(){

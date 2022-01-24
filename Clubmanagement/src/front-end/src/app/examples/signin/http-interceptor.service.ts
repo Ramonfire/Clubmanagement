@@ -25,6 +25,7 @@ export class HttpInterceptorService implements HttpInterceptor {
           'Authorization': `${sessionStorage.getItem('acces_token')}`
         })
       });
+      //do an if to change header?
       return next.handle(authReq)
           .pipe(
 

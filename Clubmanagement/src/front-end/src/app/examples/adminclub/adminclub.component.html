@@ -12,7 +12,7 @@
                 <div class="image">
                     <img  id="test"  style="height: 250px;width: 250px" class="img-thumbnail" [src]="srcData"><br/>
                     <div >
-                    <input [(ngModel)]="SelectedFile"  type="file" accept="image/*" class="col-md-3 text-center" ><br/><br/>
+                    <input   type="file" accept="image/*" class="col-md-3 text-center"  (change)="onFileChanged($event)"><br/><br/>
                         <button  (click)="OnImageUplaod()" class="btn-round btn btn-secondary col-md-3 text-center">upload the image</button>
                     </div>
                 </div>
