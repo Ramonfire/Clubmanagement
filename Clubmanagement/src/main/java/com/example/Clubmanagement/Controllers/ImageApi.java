@@ -39,6 +39,7 @@ public class ImageApi {
         }else {
             verif.setType(file.getContentType());
             verif.setPicByte(compressBytes(file.getBytes()));
+            imageRepository.save(verif);
             return "successfuly updated";
         }
     }
