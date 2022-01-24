@@ -102,10 +102,23 @@ SelectedFile:File;
         }if (this.role==null){
             alert("choose a role")
         }else {
+            if (sessionStorage.getItem("role")==="Role_Admin"){
 this.adminService.AddComiteMember(parseInt(sessionStorage.getItem("id")),this.role,this.email).subscribe((response:string)=>{
 alert(response);
-},(error:HttpErrorResponse)=>{alert(error.status)})
+},(error:HttpErrorResponse)=>{alert(error.status)});
+            }else {
+                this.memberService.AddComiteMember(parseInt(sessionStorage.getItem("id")),this.role,this.email).subscribe((response:string)=>{
+                    alert(response);
+                },(error:HttpErrorResponse)=>{alert(error.status)});
 
+            }
         }
     }
+
+    verifyUser(){
+        if (sessionStorage.getItem("role")==="Role_Admin") return true; else return false;
+    }
+
+
+
 }

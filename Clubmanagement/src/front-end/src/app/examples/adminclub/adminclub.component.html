@@ -39,7 +39,7 @@
                     <input type="email" name="email" [(ngModel)]="email" class="col-md-3 text-center"><br/>
                     <label class="label label-info">role:</label>
                     <select [(ngModel)]="role" class="custom-select col-md-3 text-center">
-                        <option value="pres" >president</option>
+                        <option value="pres" *ngIf="verifyUser()" >president</option>
                         <option value="Vpres">Vise-president</option>
                         <option value="secr">secretaire</option>
                         <option value="tres">tresorier</option>

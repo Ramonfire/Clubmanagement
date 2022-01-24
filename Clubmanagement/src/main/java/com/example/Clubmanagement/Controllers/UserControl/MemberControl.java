@@ -122,7 +122,13 @@ public class MemberControl {
         return  this.eventService.Createevent(e,id);
     }
 
-
+    @PostMapping(path = "saveComite/{id}")
+    public String insertMember(@RequestBody newMember newMember,@PathVariable("id") Long id){
+        Compte compte=accountService.getAccountbymail(newMember.getEmail());
+        if (compte==null){return"Account not found";}
+        Members member = new Members(id,compte.getIdE(),newMember.getRole());
+        return this.memberService.saveComite(member);
+    }
 
 }
 @AllArgsConstructor
