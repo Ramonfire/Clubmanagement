@@ -37,6 +37,7 @@ export class SigninComponent implements OnInit {
 
     //handling the login
     handleLogin() {
+        if (this.loginCred.email==""|| this.loginCred.password==""){this.invalidEmail=true}else {
         this.authenticationService.authenticationService(this.loginCred).subscribe((result)=> {
             this.invalidEmail = false;
             this.loginSuccess = true;
@@ -46,7 +47,7 @@ export class SigninComponent implements OnInit {
             this.invalidEmail = true;
             this.loginSuccess = false;
             location.reload();
-        });
+        });}
     }
 
 
