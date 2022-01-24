@@ -112,7 +112,6 @@ public class Club {
 
     @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_reunions")
     private  List<reunion> reunions = new ArrayList<reunion>();
 
 
