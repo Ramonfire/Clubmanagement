@@ -8,7 +8,7 @@ export class Evenement {
     private _type :number;
     private _state : number;
     private _terminer : boolean;
-    private _fact:Facture;
+    private _fact:Facture=new Facture();
 
 
     get idevent(): number {

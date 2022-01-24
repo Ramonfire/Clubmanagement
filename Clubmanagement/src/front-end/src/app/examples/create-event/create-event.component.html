@@ -28,21 +28,21 @@
 
 
                 <div class="wrap-input3 validate-input" data-validate="Name is required">
-                    <input  class="input3" type="text" name="nomClubD" placeholder="Nom de l'évenement">
+                    <input [(ngModel)]="event.nomevent" class="input3" type="text" name="nomClubD" placeholder="Nom de l'évenement">
                     <span class="focus-input3"></span>
                 </div>
 
                 <div class="wrap-contact3-form-radio">
                     <p>type d'évenement</p>
                     <div class="contact3-form-radio m-r-42">
-                        <input class="input-radio3" id="radio1" type="radio" name="choice" value="say-hi" checked="checked">
+                        <input [(ngModel)]="event.type" class="input-radio3" id="radio1" type="radio" name="choice" [value]="0" checked="checked">
                         <label class="label-radio3" for="radio1">
                             Public
                         </label>
                     </div>
 
                     <div class="contact3-form-radio">
-                        <input class="input-radio3" id="radio2" type="radio" name="choice" value="get-quote">
+                        <input [(ngModel)]="event.type" class="input-radio3" id="radio2" type="radio" name="choice" [value]="1">
                         <label class="label-radio3" for="radio2">
                             privé
                         </label>
@@ -51,22 +51,18 @@
 
 
                 <div class="wrap-input3 validate-input" data-validate = "Message is required">
-                    <textarea  class="input3" name="descrpt" placeholder="Description"></textarea>
+                    <textarea  [(ngModel)]="event.description" class="input3" name="descrpt" placeholder="Description,Location (amphitheatre,Au seins de l'uir ou non...)"></textarea>
                     <span class="focus-input3"></span>
                 </div>
 
-                <div class="wrap-input3 validate-input" data-validate = "Message is required">
-                    <textarea  class="input3" name="descrpt" placeholder="Location (amphitheatre,Au seins de l'uir ou non...)"></textarea>
-                    <span class="focus-input3"></span>
-                </div>
 
                 <div class="wrap-input3 validate-input" data-validate="Name is required">
-                    <input  class="input3" type="text" name="nomClubD" placeholder="Cost">
+                    <input  [(ngModel)]="event.fact.frais" class="input3" type="number" name="Cost" placeholder="Cost">
                     <span class="focus-input3"></span>
                 </div>
 
                 <div class="container-contact3-form-btn">
-                    <button  class="contact3-form-btn">
+                    <button  (click)="Createevent()" class="contact3-form-btn">
                         Envoyer la demande
                     </button>
                 </div>

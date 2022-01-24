@@ -26,6 +26,6 @@ export class MemberService {
     }
 
     CreateEvent(evenement: Evenement, id: number):Observable<string> {
-        return this.http.post(`${this.apiBaseUrl}/member/Createevent/${id}`,evenement,{responseType:"text"})
+        return this.http.post(`${this.apiBaseUrl}/member/Createevent/${id}/${evenement.fact.frais}`,{idevent:null,description:evenement.description,nomevent:evenement.nomevent,type:evenement.type,state:evenement.state},{responseType:"text"})
     }
 }

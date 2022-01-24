@@ -19,7 +19,7 @@ public class evenement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_events")
     private  Long idevent;
-    private String Description;
+    private String description;
     private  String nomevent;
     private int type ; // 0 public  /-1 club members only /1 uir students
     private int state = 0; //(IntRange(-1,1);) 0 waiting  1 accepted -1 refused
@@ -36,11 +36,11 @@ public class evenement {
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public String getNomevent() {
@@ -70,7 +70,7 @@ public class evenement {
     public evenement(Long id_event, String nomevent, String description,int type) {
         this.nomevent =nomevent;
         this.idevent = id_event;
-        Description = description;
+        this.description = description;
         this.type = type;
         this.state=0;
 
@@ -79,7 +79,7 @@ public class evenement {
     public evenement(Long id_event, String nomevent, String description, int state,int type) {
         this.nomevent =nomevent;
         this.idevent = id_event;
-        Description = description;
+        this.description = description;
         this.state=state;
         this.type=type;
 
@@ -87,7 +87,7 @@ public class evenement {
 
     public evenement(String nomevent,String description,int type) {
         this.nomevent =nomevent;
-        this.Description = description;
+        this.description = description;
         this.state=0;
         this.type=type;
 

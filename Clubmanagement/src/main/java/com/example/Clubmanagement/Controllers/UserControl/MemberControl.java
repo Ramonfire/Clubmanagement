@@ -3,6 +3,7 @@ package com.example.Clubmanagement.Controllers.UserControl;
 
 import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.club.evenement;
+import com.example.Clubmanagement.entities.club.facture;
 import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
 import com.example.Clubmanagement.entities.compte.generlAc.Compte;
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
@@ -112,10 +113,13 @@ public class MemberControl {
 
     }
 
-    @PostMapping(path = "Createevent/{id}")
-    public String CreateEvent(@RequestBody evenement e,@PathVariable("id") Long id){
-    if (eventService==null) return "evenement est null";
-    return  this.eventService.Createevent(e,id);
+    @PostMapping(path = "Createevent/{id}/{cost}")
+    public String CreateEvent(@RequestBody evenement e,@PathVariable("id") Long id,@PathVariable("cost") Long cost){
+    if(e==null) return "evenement est null";
+        e.setFact(new facture(cost,e.getNomevent()));
+        e.setC(clubService.getclub(id));
+        log.info(e.toString());
+        return  this.eventService.Createevent(e,id);
     }
 
 
