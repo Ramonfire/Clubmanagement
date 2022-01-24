@@ -85,7 +85,7 @@ SelectedFile:File;
     this.imgServ.onUpload(this.SelectedFile,this.club.nomclub).subscribe((response:string)=>{
         console.log(response);
         location.reload();
-    },(error:HttpErrorResponse)=>{ alert(error.error.code)})
+    },(error:HttpErrorResponse)=>{ alert(error.status)})
     }
 
 //remove member from club
