@@ -53,4 +53,8 @@ public  GetCountDemandeByState(state:number):Observable<number>{
         return   this.http.get(`${this.apiBaseUrl}/admin/Refuserevent/${id}`,{responseType:"text"});
     }
 
+    public AddComiteMember(id:number,role:string,email:string):Observable<string>{
+        return this.http.post(`${this.apiBaseUrl}/admin/saveComite/${id}`,{email:email,role:role},{responseType:"text"})
+    }
+
 }

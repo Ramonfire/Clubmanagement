@@ -11,6 +11,7 @@ import {VisitorService} from "../../../../Services/VisitorService";
 import {Members} from "../../../../Classes/Members";
 import {MemberService} from "../../../../Services/MemberService";
 import {StudentMember} from "../../../../Classes/StudentMember";
+import {AdminSerivce} from "../../../../Services/AdminSerivce";
 
 @Component({
     selector: 'app-clubs',
@@ -33,7 +34,8 @@ club:Club;
                 private router:Router,
                 private imgServ:ImageService,
                 private sanitizer: DomSanitizer,
-                private memberService:MemberService) {
+                private memberService:MemberService,
+                private adminService:AdminSerivce) {
     }
 
     async getClub(){
@@ -86,5 +88,24 @@ SelectedFile:File;
     },(error:HttpErrorResponse)=>{ alert(error.error.code)})
     }
 
+//remove member from club
+    deletemember() {
 
+    }
+
+    email: string;
+    role: string;
+
+    addComite() {
+        if (this.email==null){
+            alert("insert an email");
+        }if (this.role==null){
+            alert("choose a role")
+        }else {
+this.adminService.AddComiteMember(parseInt(sessionStorage.getItem("id")),this.role,this.email).subscribe((response:string)=>{
+alert(response);
+},(error:HttpErrorResponse)=>{alert(error.status)})
+
+        }
+    }
 }

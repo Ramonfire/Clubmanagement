@@ -25,11 +25,31 @@
                         <tr *ngFor="let m of members" class="row-cols-md-4" >
                             <td>{{m.name}}</td>
                             <td>{{m.email}}</td>
-                            <td>{{m.role}}</td>
-                            <td><button class="btn btn-danger"> delete</button></td>
+                            <td *ngIf="m.role=='pres'">president</td>
+                            <td *ngIf="m.role=='secr'">secretaire</td>
+                            <td *ngIf="m.role=='Vpres'">vise-president</td>
+                            <td *ngIf="m.role=='member'">{{m.role}}</td>
+                            <td><button (click)="deletemember()" class="btn btn-danger"> delete</button></td>
                         </tr>
                     </table>
                 </div>
+                <div id="add member" style="margin-left: auto;margin-right: auto">
+                    <label class="label label-default" >add new commity member</label><br/>
+                    <label class="label label-info">email</label>
+                    <input type="email" name="email" [(ngModel)]="email" class="col-md-3 text-center"><br/>
+                    <label class="label label-info">role:</label>
+                    <select [(ngModel)]="role" class="custom-select col-md-3 text-center">
+                        <option value="pres" >president</option>
+                        <option value="Vpres">Vise-president</option>
+                        <option value="secr">secretaire</option>
+                        <option value="tres">tresorier</option>
+                    </select><br/>
+
+                    <button (click)="addComite()" class="btn btn-secondary">add the member</button>
+                </div>
+
+
+
             </div>
         </div>
     </div>

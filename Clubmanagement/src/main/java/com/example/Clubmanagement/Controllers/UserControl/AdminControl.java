@@ -5,8 +5,13 @@ import com.example.Clubmanagement.entities.Forms.CreationDemand;
 import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.club.evenement;
 import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
+import com.example.Clubmanagement.entities.compte.generlAc.Compte;
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
 import com.example.Clubmanagement.services.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,15 +32,17 @@ public class AdminControl {
     private final ClubService clubService;
     private final MemberService memberService;
     private final RclubsService rclubs;
+    private final AccountService accountService;
 
 @Autowired
-    public AdminControl(EventService eventService, DemandeService demandeService, EtudiantService etudiantService, ClubService clubService, MemberService memberService, RclubsService rclubs) {
+    public AdminControl(EventService eventService, DemandeService demandeService, EtudiantService etudiantService, ClubService clubService, MemberService memberService, RclubsService rclubs, AccountService accountService) {
         this.eventService = eventService;
     this.demandeService = demandeService;
     this.etudiantService = etudiantService;
     this.clubService = clubService;
     this.memberService = memberService;
     this.rclubs = rclubs;
+    this.accountService = accountService;
 }
 
     @GetMapping(path = "Allevents/{page}/{size}")
@@ -193,12 +200,30 @@ public class AdminControl {
 
     }
 
+    @PostMapping(path = "saveComite/{id}")
+    public String insertMember(@RequestBody newMember newMember,@PathVariable("id") Long id){
+        Compte compte=accountService.getAccountbymail(newMember.getEmail());
+        if (compte==null){return"Account not found";}
+        Members member = new Members(id,compte.getIdE(),newMember.getRole());
+        return this.memberService.saveComite(member);
+    }
+
 
     /****put mapping***/
 
 
 
 
+}
+
+
+@Data
+@Getter
+@Setter
+@AllArgsConstructor
+class newMember{
+   private String email;
+    private String role;
 }
 
 

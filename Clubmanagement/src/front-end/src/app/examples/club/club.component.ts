@@ -82,10 +82,11 @@ constructor(private VisitorService:VisitorService
 
     verifyMemberComite(){
         if (this.authentifserv.isUserLoggedIn()){
+            if (sessionStorage.getItem("role")==="Role_Admin"){return true}else {
             let x:string=this.member.role;
         if (x==="member" || x===null){
             return false;
-        }else return true;}else return false;
+        }else return true;}}else return false;
     }
 
 

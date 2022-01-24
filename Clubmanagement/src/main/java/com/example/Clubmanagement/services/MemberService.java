@@ -104,4 +104,27 @@ private final EtudiantRepo etudiantRepo;
     public int getClubCount(Long idE) {
         return this.memberRepo.countByStudentid(idE);
     }
+
+    public String saveComite(Members member) {
+        String response="error";
+        Members test = memberRepo.findByRoleAndAndClubid(member.getRole(),member.getClubid());
+        if (test==null){
+            memberRepo.save(member);
+            log.info("saved " + member.toString());
+            response="saved Succefully";
+        }else{
+            if (test.getStudentid()==member.getStudentid()){
+               response= "Already " + test.getRole();
+                log.info("Already comite " + member.toString());
+            }else{
+            test.setRole("member");
+            memberRepo.save(test);
+            memberRepo.save(member);
+            response= "Promoted succefully";
+                log.info("Promoted  " + member.toString());
+            }
+
+        }
+return response;
+    }
 }

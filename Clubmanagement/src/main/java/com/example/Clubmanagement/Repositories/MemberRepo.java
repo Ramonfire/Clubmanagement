@@ -25,5 +25,7 @@ public interface MemberRepo extends JpaRepository<Members,Long> {
     Page<Members> findAllByClubid(Long id, Pageable pageable);
     int countByStudentid(Long idE);
 
+    Members findByRoleAndAndClubid(String role,Long id);
+
 
 }
