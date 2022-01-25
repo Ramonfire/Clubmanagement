@@ -111,7 +111,7 @@ private final EtudiantRepo etudiantRepo;
         if (test==null){
             memberRepo.save(member);
             log.info("saved " + member.toString());
-            response="saved Succefully";
+            response="saved Successfully";
         }else{
             if (test.getStudentid()==member.getStudentid()){
                response= "Already " + test.getRole();
@@ -128,11 +128,20 @@ private final EtudiantRepo etudiantRepo;
                     verif.setRole(member.getRole());
                     memberRepo.save(verif);
                  }
-            response= "saved succefully";
+            response= "saved Successfully";
                 log.info("Promoted  " + member.toString());
             }
 
         }
 return response;
+    }
+
+
+    public String deleteMember(Long ids,Long idC) {
+        Members members = memberRepo.findByStudentidAndClubid(ids,idC);
+        if (members==null) return "member not found";
+        else {memberRepo.delete(members);
+        return "Deleted Successfully";
+        }
     }
 }

@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;
-/*
+
 @Configuration
 public class MemberSaving {
     ClubRepo Crp;
@@ -37,4 +37,3 @@ public class MemberSaving {
         };
     }
 }
-*/

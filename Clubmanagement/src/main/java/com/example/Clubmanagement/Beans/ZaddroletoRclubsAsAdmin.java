@@ -4,7 +4,7 @@ import com.example.Clubmanagement.services.RclubsService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-/*
+
 @Configuration
 public class ZaddroletoRclubsAsAdmin {
     @Bean
@@ -16,4 +16,3 @@ public class ZaddroletoRclubsAsAdmin {
         return  args -> {};
     }
 }
-*/

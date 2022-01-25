@@ -12,6 +12,7 @@ import {Members} from "../../../../Classes/Members";
 import {MemberService} from "../../../../Services/MemberService";
 import {StudentMember} from "../../../../Classes/StudentMember";
 import {AdminSerivce} from "../../../../Services/AdminSerivce";
+import {resolve} from "@angular/compiler-cli/src/ngtsc/file_system";
 
 @Component({
     selector: 'app-clubs',
@@ -93,7 +94,11 @@ SelectedFile:File;
     }
 
 //remove member from club
-    deletemember() {
+    deletemember(email:string) {
+        this.memberService.DeleteMember(email,parseInt(sessionStorage.getItem("id"))).subscribe((response:string)=>{
+            alert(response);
+            location.reload();
+        })
 
     }
 
@@ -113,6 +118,7 @@ alert(response);
             }else {
                 this.memberService.AddComiteMember(parseInt(sessionStorage.getItem("id")),this.role,this.email).subscribe((response:string)=>{
                     alert(response);
+                    location.reload()
                 },(error:HttpErrorResponse)=>{alert(error.status)});
 
             }

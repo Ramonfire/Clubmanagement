@@ -112,6 +112,15 @@ public class MemberControl {
         log.info(members.toString());
         return members;
     }
+
+
+    @GetMapping(path = "DeleteMember/{email}/{idc}")
+    public String Deletemember(@PathVariable("email") String email,@PathVariable("idc") Long idc){
+    Compte compte=accountService.getAccountbymail(email);
+    if (compte==null) return "Account not found";
+    else return memberService.deleteMember(compte.getIdE(),idc);
+    }
+
     //*************************************************************************************post mapping*************************************************************************//
     @PostMapping(path = "saveMember")
     public String insertMember(@RequestBody Members member){

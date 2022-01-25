@@ -32,4 +32,9 @@ export class MemberService {
     public AddComiteMember(id:number,role:string,email:string):Observable<string>{
         return this.http.post(`${this.apiBaseUrl}/member/saveComite/${id}`,{email:email,role:role},{responseType:"text"})
     }
+
+
+    DeleteMember( email:string,idc:number):Observable<string> {
+        return this.http.get(`${this.apiBaseUrl}/member/DeleteMember/${email}/${idc}`,{responseType:"text"})
+    }
 }

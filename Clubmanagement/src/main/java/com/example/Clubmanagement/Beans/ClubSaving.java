@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
-/*
+
 @Configuration
 public class ClubSaving {
 
@@ -26,4 +26,4 @@ repo.saveAll(List.of(C1,C2,C3));
 
         };
     }
-}*/
+}

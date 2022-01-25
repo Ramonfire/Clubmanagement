@@ -7,7 +7,7 @@ import com.example.Clubmanagement.entities.club.facture;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-/*
+
 @Configuration
 public class eventSaving {
     //create facture then insert into event
@@ -21,4 +21,3 @@ public class eventSaving {
         return args -> {};
     }
 }
-*/
