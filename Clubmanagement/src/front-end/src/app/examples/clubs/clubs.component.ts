@@ -8,6 +8,9 @@ import {Router} from "@angular/router";
 import {stringify} from "@angular/compiler/src/util";
 import {waitForAsync} from "@angular/core/testing";
 import {AuthentificationService} from "../signin/auth.service";
+import {ImageService} from "../../../../Services/ImageService";
+import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
+import {ImageModel} from "../../../../Classes/ImageModel";
 
 @Component({
   selector: 'app-clubs',
@@ -20,7 +23,10 @@ export class ClubsComponent implements OnInit {
   clublenght: number;
 
 
-  constructor(private visservice:VisitorService,private router :Router,private authenServ:AuthentificationService) { }
+  constructor(private visservice:VisitorService,private router :Router,
+              private authenServ:AuthentificationService,
+              private imgServ:ImageService,
+              private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
 
@@ -81,5 +87,19 @@ verifyUser(){
           else return true
       }else return false
 }
+
+
+
+
+    test:boolean=false;
+    imageSrc:string;
+    srcData:SafeResourceUrl;
+    getimage(club:Club){
+        this.imgServ.getImage(""+club.nomclub).subscribe((response:ImageModel)=>{
+            if (response.picByte==null) this.test=false; else this.test=true;
+            this.imageSrc = 'data:image/'+response.type+';base64,' + response.picByte;
+            this.srcData = this.sanitizer.bypassSecurityTrustResourceUrl(this.imageSrc);
+        })
+    }
 
 }
