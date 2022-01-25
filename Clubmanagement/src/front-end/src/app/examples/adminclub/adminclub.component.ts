@@ -114,6 +114,7 @@ SelectedFile:File;
             if (sessionStorage.getItem("role")==="Role_Admin"){
 this.adminService.AddComiteMember(parseInt(sessionStorage.getItem("id")),this.role,this.email).subscribe((response:string)=>{
 alert(response);
+    location.reload()
 },(error:HttpErrorResponse)=>{alert(error.status)});
             }else {
                 this.memberService.AddComiteMember(parseInt(sessionStorage.getItem("id")),this.role,this.email).subscribe((response:string)=>{
