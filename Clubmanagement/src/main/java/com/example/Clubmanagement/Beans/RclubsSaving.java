@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
-
+/*
 @Configuration
 @RequiredArgsConstructor
 public class RclubsSaving {
@@ -32,3 +32,4 @@ private final PasswordEncoder passwordEncoder;
         };
     }
 }
+*/
