@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
-
+/*
 @Configuration
 
 @RequiredArgsConstructor
@@ -33,3 +33,4 @@ private final PasswordEncoder passwordEncoder;
         };
     }
 }
+*/
