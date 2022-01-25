@@ -117,10 +117,18 @@ private final EtudiantRepo etudiantRepo;
                response= "Already " + test.getRole();
                 log.info("Already comite " + member.toString());
             }else{
+                Members verif= memberRepo.findByStudentidAndClubid(member.getStudentid(),member.getClubid());
+                if (verif ==null){
             test.setRole("member");
             memberRepo.save(test);
-            memberRepo.save(member);
-            response= "Promoted succefully";
+            memberRepo.save(member);}else
+
+                {     test.setRole("member");
+                    memberRepo.save(test);
+                    verif.setRole(member.getRole());
+                    memberRepo.save(verif);
+                 }
+            response= "saved succefully";
                 log.info("Promoted  " + member.toString());
             }
 
