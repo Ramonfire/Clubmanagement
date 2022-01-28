@@ -11,6 +11,7 @@ import {AuthentificationService} from "../signin/auth.service";
 import {ImageService} from "../../../../Services/ImageService";
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 import {ImageModel} from "../../../../Classes/ImageModel";
+import {AdminSerivce} from "../../../../Services/AdminSerivce";
 
 @Component({
   selector: 'app-clubs',
@@ -26,7 +27,7 @@ export class ClubsComponent implements OnInit {
   constructor(private visservice:VisitorService,private router :Router,
               private authenServ:AuthentificationService,
               private imgServ:ImageService,
-              private sanitizer: DomSanitizer) { }
+              private sanitizer: DomSanitizer,private adminserv:AdminSerivce) { }
 
   ngOnInit(): void {
 
@@ -35,7 +36,23 @@ export class ClubsComponent implements OnInit {
   }
 
 getClubs(){
-
+if(sessionStorage.getItem("role")==="Role_Admin"){
+    this.adminserv.getAllclubs(parseInt(sessionStorage.getItem("pagenum")),6).subscribe(
+        (response: Club[]) => {
+            this.clubs = response;
+            this.clublenght=response.length;
+        },
+        (error: HttpErrorResponse) => {
+            if (sessionStorage.getItem("pagenum")){
+                sessionStorage.setItem("pagenum","0");
+                location.reload();}
+            else {
+                alert("Session expired");
+                this.router.navigate(["/signin"])
+            }
+        }
+    );
+}else
     this.visservice.getAllclubs(parseInt(sessionStorage.getItem("pagenum")),6).subscribe(
         (response: Club[]) => {
           this.clubs = response;

@@ -105,8 +105,8 @@ public class AdminControl {
     }
 
     @GetMapping(path ="allclubs/{page}/{size}")
-    public List<Club> getallActiveClubs(@PathVariable(name = "page") int page,@PathVariable("size") int size){
-        return clubService.getAllActiveClub(page,size);
+    public List<Club> getallClubs(@PathVariable(name = "page") int page,@PathVariable("size") int size){
+        return clubService.getAllClub(page,size);
     }
 
     @GetMapping(path = "Club/{id}")

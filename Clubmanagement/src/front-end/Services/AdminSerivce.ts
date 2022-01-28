@@ -4,6 +4,7 @@ import {environment} from "../src/environments/environment";
 import {Observable} from "rxjs";
 import {Evenement} from "../Classes/evenement";
 import {Demande} from "../Classes/demande";
+import {Club} from "../Classes/Club";
 
 @Injectable({
     providedIn: 'root'
@@ -11,6 +12,10 @@ import {Demande} from "../Classes/demande";
 export class AdminSerivce {
     private  apiBaseUrl = environment.apiBaseUrl;
     constructor(private http:HttpClient) {
+    }
+
+    public getAllclubs(page:number,size :number) :Observable<Club[]> {
+        return this.http.get<Club[]>(`${this.apiBaseUrl}/admin/allclubs/${page}/${size}`);
     }
 
 public  GetCountEventsByState(state:number):Observable<number>{

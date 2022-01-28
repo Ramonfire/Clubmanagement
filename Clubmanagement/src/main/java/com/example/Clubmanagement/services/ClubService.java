@@ -28,7 +28,7 @@ public class ClubService {
 
     public List<Club> getAllActiveClub(int pagenum,int size){
         org.springframework.data.domain.Pageable pageable=  PageRequest.of(pagenum,size);
-        Page<Club> page=this.clubRepo.findAll(pageable);
+        Page<Club> page=this.clubRepo.findAllByEtat(Boolean.TRUE,pageable);
 
         List<Club> clubs =  Arrays.asList(page.getContent().toArray(new Club[0]));
         return clubs;
@@ -99,5 +99,14 @@ public class ClubService {
             }
 
         }
+    }
+
+    public List<Club> getAllClub(int pagen, int size) {
+
+        org.springframework.data.domain.Pageable pageable=  PageRequest.of(pagen,size);
+        Page<Club> page=this.clubRepo.findAll(pageable);
+        List<Club> clubs =Arrays.asList(page.getContent().toArray(new Club[0]));
+
+        return clubs;
     }
 }
