@@ -109,4 +109,19 @@ public class ClubService {
 
         return clubs;
     }
+
+    public String changeClubState(Long id,boolean state) {
+        String response="Error";
+        Club club = clubRepo.findByIdc(id);
+        if (club==null)response="Club not found";
+        else {
+            club.setEtat(state);
+            clubRepo.save(club);
+            if (state==true){
+                response = "activated Successfully";
+            }else response="deactivated succefully";
+        }
+
+        return response;
+    }
 }

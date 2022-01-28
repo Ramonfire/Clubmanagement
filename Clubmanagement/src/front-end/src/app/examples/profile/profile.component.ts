@@ -32,7 +32,7 @@ export class ProfileComponent implements OnInit {
             this.logUser.pass="";
             this.getimage();
         },(error:HttpErrorResponse)=>{
-            alert(error.error.code + "\n" + error.message)
+            alert(error.status + "\n" + error.error.code)
         })
     }
 

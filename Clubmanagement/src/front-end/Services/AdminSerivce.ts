@@ -62,4 +62,11 @@ public  GetCountDemandeByState(state:number):Observable<number>{
         return this.http.post(`${this.apiBaseUrl}/admin/saveComite/${id}`,{email:email,role:role},{responseType:"text"})
     }
 
+
+
+
+    public  ChangeClubState(state:boolean,id:number):Observable<string>{
+        return this.http.get(`${this.apiBaseUrl}/admin/ChangeClubstate/${state}/${id}`,{responseType:"text"});
+    }
+
 }

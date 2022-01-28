@@ -11,6 +11,7 @@ import {ImageModel} from "../../../../Classes/ImageModel";
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import {waitForAsync} from "@angular/core/testing";
 import {MemberService} from "../../../../Services/MemberService";
+import {AdminSerivce} from "../../../../Services/AdminSerivce";
 
 
 @Component({
@@ -28,7 +29,9 @@ export class ClubComponent implements OnInit {
         sessionStorage.setItem("pagenumadmin",""+0);
     }
 constructor(private VisitorService:VisitorService
-            ,private studenService:StudentService,private authentifserv :AuthentificationService,
+            ,private studenService:StudentService,
+            private authentifserv :AuthentificationService,
+            private adminServ:AdminSerivce,
             private router:Router,
             private imgServ:ImageService,
             private sanitizer: DomSanitizer,
@@ -107,6 +110,13 @@ constructor(private VisitorService:VisitorService
         }else return false
     }
 
+    verifyAdmin(){
+        if (this.authentifserv.isUserLoggedIn()){
+            if (sessionStorage.getItem("role")=="Role_Admin"){return true;}
+            else return false;
+        }else return false;
+    }
+
 
 
 imageSrc:string;
@@ -124,4 +134,14 @@ this.testing=''+response;
         })
     }
 
+    desactiverClub() {
+        this.adminServ.ChangeClubState(false,this.club.idc).subscribe((response:string)=>{alert(response)
+        location.reload()});
+
+    }
+
+
+    ActiverClub() {
+        this.adminServ.ChangeClubState(true,this.club.idc).subscribe((response:string)=>{alert(response);location.reload()});
+    }
 }

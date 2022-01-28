@@ -30,9 +30,6 @@ authenticationService(login:LoginCredentials) {
     }));
   }
 
-  createBasicAuthToken(email: String, password: String) {
-    return 'Basic ' + window.btoa(email + ":" + password)
-  }
 
   registerSuccessfulLogin(email:Session) {
     alert("Login Succesfull");
@@ -42,13 +39,13 @@ authenticationService(login:LoginCredentials) {
 
   logout() {
     alert("Logging out!");
+    this.formated.delete("email");
+    this.formated.delete("password");
     sessionStorage.removeItem("acces_token");
     sessionStorage.removeItem("refresh_token");
 
     this.email = null;
     this.password = null;
-    this.formated.delete("email");
-    this.formated.delete("password");
     this.router.navigate(['/signin']);
   }
 

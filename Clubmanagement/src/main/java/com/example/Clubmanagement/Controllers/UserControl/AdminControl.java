@@ -176,6 +176,11 @@ public class AdminControl {
 
     }
 
+    @GetMapping(path = "ChangeClubstate/{state}/{id}")
+    public String ChangeClubState(@PathVariable("state") boolean state,@PathVariable("id") Long id){
+        return this.clubService.changeClubState(id,state);
+    }
+
     @PostMapping(path = "updatemot")
     public String UpdateMot(@RequestBody mot mot){
         log.info("updated mot \n"+mot.mot);
