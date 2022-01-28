@@ -23,8 +23,8 @@ public class StudentSaving {
         Etudiant e1 = new Etudiant("AA5449","Omar Zaida","omar.zaida@uir.ac.ma",passwordEncoder.encode("test"),Long.valueOf(653822371),Long.valueOf(4),"info");
         Etudiant e2 = new Etudiant("AA5445","Jloul bazkoul","jb@uir.ac.ma",passwordEncoder.encode("123"),Long.valueOf(653822371),Long.valueOf(4),"info");
         Etudiant e3 = new Etudiant("AA5446","anas lfrnass","omar.sedrati@uir.ac.ma",passwordEncoder.encode("test"),Long.valueOf(653822371),Long.valueOf(4),"info");
-
-        repo.saveAll(List.of(e1,e2,e3));
+        Etudiant e4 = new Etudiant("56464","omar test","omario-555@hotmail.fr",passwordEncoder.encode("test"),Long.valueOf(653822371),Long.valueOf(4),"info");
+        repo.saveAll(List.of(e1,e2,e3,e4));
 
         return args -> {
 
