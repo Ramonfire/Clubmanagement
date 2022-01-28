@@ -34,7 +34,7 @@
                     </table>
                 </div>
                 <div id="add member" style="margin-left: auto;margin-right: auto">
-                    <label class="label label-default" >add new commity member</label><br/>
+                    <label class="label label-default text-center" ><h5>add new commity member</h5> </label><br/>
                     <label class="label label-info">email</label>
                     <input type="email" name="email" [(ngModel)]="email" class="col-md-3 text-center"><br/>
                     <label class="label label-info">role:</label>
@@ -46,6 +46,13 @@
                     </select><br/>
 
                     <button (click)="addComite()" class="btn btn-secondary">add the member</button>
+                </div>
+<br/><br/>
+                <div style="margin-left: auto;margin-right: auto" *ngIf="verifyUser()" class="row-cols-md-3 text-center">
+                    <label class="label label-success"><h5>Set Budget</h5></label><br/>
+                    <label>input the new budget</label>
+                    <input type="number" class="col-md-3 text-center" placeholder="{{club.budget}}" [(ngModel)]="budget">
+                    <button class="btn btn-secondary" (click)="addnewBudget()">validate</button>
                 </div>
 
 

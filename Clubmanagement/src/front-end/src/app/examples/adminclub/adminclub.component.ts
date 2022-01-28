@@ -104,6 +104,7 @@ SelectedFile:File;
 
     email: string;
     role: string;
+    budget: any;
 
     addComite() {
         if (this.email==null){
@@ -131,5 +132,7 @@ alert(response);
     }
 
 
-
+    addnewBudget() {
+        this.adminService.addnewBudget(this.budget)
+    }
 }
