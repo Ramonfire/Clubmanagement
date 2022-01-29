@@ -36,9 +36,10 @@ export class CreateEventComponent implements OnInit {
     this.event.state=0;
     this.event.terminer=false;
     console.log(this.event)
+    if (this.event.fact.frais>this.Club.budget){alert("The club doesnt have enough fonds")}else {
     this.memberservice.CreateEvent(this.event,this.Club.idc).subscribe((response:string)=>{
       alert(response);
-    },(error:HttpErrorResponse)=>{alert("Error : "+error.status)});
+    },(error:HttpErrorResponse)=>{alert("Error : "+error.status)});}
   }
 
   getClub(){
