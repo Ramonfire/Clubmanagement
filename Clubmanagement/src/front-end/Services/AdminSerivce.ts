@@ -69,7 +69,7 @@ public  GetCountDemandeByState(state:number):Observable<number>{
         return this.http.get(`${this.apiBaseUrl}/admin/ChangeClubstate/${state}/${id}`,{responseType:"text"});
     }
 //not done yet
-    public addnewBudget(budget:number):Observable<string>{
-        return this.http.get(`${this.apiBaseUrl}/admin/newBudget/${budget}`,{responseType:"text"});
+    public addnewBudget(id:number,budget:number):Observable<string>{
+        return this.http.get(`${this.apiBaseUrl}/admin/newBudget/${id}/${budget}`,{responseType:"text"});
     }
 }

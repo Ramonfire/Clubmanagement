@@ -181,6 +181,11 @@ public class AdminControl {
         return this.clubService.changeClubState(id,state);
     }
 
+    @GetMapping(path = "newBudget/{id}/{budget}")
+    public String AddBudget(@PathVariable("budget") float budget,@PathVariable("id") Long id){
+        return clubService.addBudget(id,budget);
+    }
+
     @PostMapping(path = "updatemot")
     public String UpdateMot(@RequestBody mot mot){
         log.info("updated mot \n"+mot.mot);

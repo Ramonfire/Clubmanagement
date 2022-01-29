@@ -105,12 +105,13 @@ SelectedFile:File;
     email: string;
     role: string;
     budget: any;
+    message1:string;
+    verify1:boolean=false;
 
     addComite() {
-        if (this.email==null){
-            alert("insert an email");
-        }if (this.role==null){
-            alert("choose a role")
+        if (this.email==null||this.role==null){
+            this.verify1=true;
+           this.message1="invalid credentials";
         }else {
             if (sessionStorage.getItem("role")==="Role_Admin"){
 this.adminService.AddComiteMember(parseInt(sessionStorage.getItem("id")),this.role,this.email).subscribe((response:string)=>{
@@ -131,8 +132,17 @@ alert(response);
         if (sessionStorage.getItem("role")==="Role_Admin") return true; else return false;
     }
 
-
+verify:boolean=false;
+    message:string;
     addnewBudget() {
-        this.adminService.addnewBudget(this.budget)
+        if (this.budget==null){
+            this.verify=true;
+            this.message="insert a budget before confirming"
+        }else {
+        this.adminService.addnewBudget(this.club.idc,this.budget).subscribe((response:string)=>{
+            alert(response);
+            location.reload();
+        });
+        }
     }
 }

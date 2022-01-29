@@ -124,4 +124,16 @@ public class ClubService {
 
         return response;
     }
+
+    public String addBudget(Long id,float budget) {
+        String response="error";
+        Club club=clubRepo.findByIdc(id);
+        if (club==null){response="club not found";}
+        else {
+            club.setBudget(budget);
+            clubRepo.save(club);
+            response="saved the new budget";
+        }
+        return response;
+    }
 }
