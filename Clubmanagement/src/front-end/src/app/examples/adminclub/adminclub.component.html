@@ -53,8 +53,8 @@
                 <div style="margin-left: auto;margin-right: auto" *ngIf="verifyUser()" class="row-cols-md-3 text-center">
                     <label class="label label-success"><h5>Set Budget</h5></label><br/>
                     <label class="label label-warning" *ngIf="verify">{{message}}</label><br/>
-                    <label>input the new budget</label>
-                    <input type="number" class="col-md-3 text-center" placeholder="{{club.budget}}" [(ngModel)]="budget">
+                    <label>input the new budget</label><br/>
+                    <input type="number"  placeholder="{{club.budget}}" [(ngModel)]="budget">
                     <button class="btn btn-secondary" (click)="addnewBudget()">validate</button>
                 </div>
 
