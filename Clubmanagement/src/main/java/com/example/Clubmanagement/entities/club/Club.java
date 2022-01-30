@@ -114,7 +114,7 @@ public class Club {
     @OneToMany(cascade = CascadeType.ALL)
     private  List<reunion> reunions = new ArrayList<reunion>();
 
-
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     private Rpedag ped;
 
