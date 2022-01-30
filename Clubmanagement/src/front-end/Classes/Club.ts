@@ -68,11 +68,11 @@ export class Club {
         this._ev = value;
     }
 
-    get Ped(): Rpedag {
+    get ped(): Rpedag {
         return this._ped;
     }
 
-    set Ped(value: Rpedag) {
+    set ped(value: Rpedag) {
         this._ped = value;
     }
 
