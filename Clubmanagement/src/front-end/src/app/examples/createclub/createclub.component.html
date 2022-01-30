@@ -38,6 +38,13 @@
                     <textarea [(ngModel)]="demande.descrpt" class="input3" name="descrpt" placeholder="Description"></textarea>
                     <span class="focus-input3"></span>
                 </div>
+                <div class="wrap-input3 validate-input" data-validate = "Message is required">
+                    <label> responsable pedagogique</label>
+                    <select [(ngModel)]="demande.idpedag" class="input3" name="descrpt" placeholder="responsable">
+                        <option class="input3 text-black" *ngFor="let p of pedag" [value]="p.idE">{{p.fullname}}</option>
+                    </select>
+                    <span class="focus-input3"></span>
+                </div>
 
                 <div class="container-contact3-form-btn">
                     <button (click)="SendDemande()" class="contact3-form-btn">

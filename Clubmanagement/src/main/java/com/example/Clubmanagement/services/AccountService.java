@@ -25,10 +25,7 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
@@ -77,7 +74,8 @@ public class AccountService implements UserDetailsService {
     }
 
 
-
-
+    public List<Compte> getallaccounts() {
+      return   accountRepo.findAll();
+    }
 }
 

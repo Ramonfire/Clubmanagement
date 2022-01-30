@@ -7,6 +7,7 @@ import {Injectable} from "@angular/core";
 import {Session} from "../Classes/Session";
 import {Members} from "../Classes/Members";
 import {Demande} from "../Classes/demande";
+import {compte} from "../Classes/compte";
 
 @Injectable({
     providedIn: 'root'
@@ -66,14 +67,6 @@ export class StudentService {
 
 
 
-
-
-
-
-
-
-
-//not working to be reviewed
     public JoinClub(member:Members): Observable<string>{
         console.log(member);
         return this.http.post(`${this.apiBaseUrl}/student/joinClub`,{idmember:member.idmember,clubid:member.clubid,studentid:member.studentid,role:member.role},{responseType : 'text'});
@@ -84,8 +77,13 @@ export class StudentService {
 
     public makeDemande(Demande : Demande) :Observable<string> {
         return this.http.post(`${this.apiBaseUrl}/student/newDemande`,{idDem:Demande.idDem,idEtudiant:Demande.idEtudiant,typedeDem:Demande.typedeDem,nomClubD:Demande.nomClubD,
-                                                                                descrpt:Demande.descrpt,etatD:Demande.etatD},{responseType:"text"});
+                                                                                descrpt:Demande.descrpt,etatD:Demande.etatD,idpedag:Demande.idpedag},{responseType:"text"});
 
+    }
+
+    public getpedag():Observable<compte[]>{
+
+        return this.http.get<compte[]>(`${this.apiBaseUrl}/student/getAllpedag`);
     }
 
 }

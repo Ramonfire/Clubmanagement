@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 @ComponentScan
 public interface RpedaRepo extends JpaRepository<Rpedag,Long> {
+    Rpedag findByIdE(Long id);
 }

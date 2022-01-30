@@ -2,6 +2,7 @@ package com.example.Clubmanagement.services;
 
 import com.example.Clubmanagement.Repositories.ClubRepo;
 import com.example.Clubmanagement.Repositories.MemberRepo;
+import com.example.Clubmanagement.Repositories.RpedaRepo;
 import com.example.Clubmanagement.entities.Forms.CreationDemand;
 import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
@@ -24,6 +25,7 @@ public class ClubService {
 
     private final ClubRepo clubRepo;
     private final MemberRepo memberRepo;
+    private final RpedaRepo rpedaRepo;
 
 
     public List<Club> getAllActiveClub(int pagenum,int size){
@@ -79,6 +81,13 @@ public class ClubService {
         Club club= new Club();
         club.setDescription(demand.getDescrpt());
         club.setEtat(true);
+
+        if (rpedaRepo.findByIdE(demand.getIdpedag())==null){
+            return "responsable pedagogique not found";
+        }
+
+        else {
+        club.setPed(rpedaRepo.findByIdE(demand.getIdpedag()));
         log.info(demand.getNomClubD());
         club.setnomclub(demand.getNomClubD());
         log.info(club.getnomclub());
@@ -98,6 +107,7 @@ public class ClubService {
                 return "Succesfully saved the club";
             }
 
+        }
         }
     }
 

@@ -3,6 +3,7 @@ import {Demande} from "../../../../Classes/demande";
 import {StudentService} from "../../../../Services/StudentService";
 import {Router} from "@angular/router";
 import {HttpErrorResponse} from "@angular/common/http";
+import {compte} from "../../../../Classes/compte";
 
 @Component({
   selector: 'app-createclub',
@@ -15,6 +16,7 @@ export class CreateclubComponent implements OnInit {
   constructor(private StudentServ:StudentService,private router:Router) { }
 
   ngOnInit(): void {
+    this.getPedags()
   }
 
   SendDemande(){
@@ -26,6 +28,15 @@ export class CreateclubComponent implements OnInit {
     },(error:HttpErrorResponse)=>{
       alert(error.error.code)
     });
+  }
+
+  pedag=new Array<compte>();
+
+  getPedags(){
+    this.StudentServ.getpedag().subscribe((response:compte[])=>{
+      this.pedag=response;
+      console.log(this.pedag)
+    })
   }
 
 

@@ -26,6 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -111,6 +112,19 @@ public class EtudiantController {
 public int ClubCount(){
         Compte compte = accountService.getaccoutThroughheader();
         return memberService.getClubCount(compte.getIdE());
+}
+
+@GetMapping("getAllpedag")
+public List<Compte> getpossiblepedag(){
+       List<Compte> comptes= accountService.getallaccounts();
+       List<Compte> valid=new ArrayList<Compte>();
+       for (Compte compte:comptes){
+           if (!(compte instanceof Etudiant)){
+               compte.setPass("");
+               valid.add(compte);
+           }
+       }
+       return valid;
 }
 
 

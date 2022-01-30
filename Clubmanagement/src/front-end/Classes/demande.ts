@@ -5,7 +5,16 @@ export class Demande {
     private _nomClubD:string;
     private _descrpt:string;
     private _etatD:number;
+    private _idpedag:number;
 
+
+    get idpedag(): number {
+        return this._idpedag;
+    }
+
+    set idpedag(value: number) {
+        this._idpedag = value;
+    }
 
     get idDem(): number {
         return this._idDem;

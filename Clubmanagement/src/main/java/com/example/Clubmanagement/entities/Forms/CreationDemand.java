@@ -23,6 +23,7 @@ public class CreationDemand {
     private  String descrpt;
 //0 waiting . -1 denied . 1 accepted
     private  int etatD;
+    private Long idpedag;
 
 
 }
