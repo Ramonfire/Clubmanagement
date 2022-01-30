@@ -36,6 +36,8 @@ authenticationService(login:LoginCredentials) {
     alert("Login Succesfull");
     sessionStorage.setItem("acces_token", "Bearer "+email.acces_token.toString());
     sessionStorage.setItem("refresh_token", "Bearer "+email.refresh_token.toString());
+    this.formated.delete("email");
+    this.formated.delete("password");
   }
 
   logout() {
