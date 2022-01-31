@@ -13,6 +13,7 @@ import {MemberService} from "../../../../Services/MemberService";
 import {StudentMember} from "../../../../Classes/StudentMember";
 import {AdminSerivce} from "../../../../Services/AdminSerivce";
 import {resolve} from "@angular/compiler-cli/src/ngtsc/file_system";
+import {compte} from "../../../../Classes/compte";
 
 @Component({
     selector: 'app-clubs',
@@ -31,7 +32,9 @@ club:Club;
     imageSrc:string;
     srcData:SafeResourceUrl;
 
-    constructor(private visitorService:VisitorService,private authentifserv :AuthentificationService,
+    constructor(private visitorService:VisitorService,
+                private authentifserv :AuthentificationService,
+                private  studentService:StudentService,
                 private router:Router,
                 private imgServ:ImageService,
                 private sanitizer: DomSanitizer,
@@ -49,7 +52,8 @@ club:Club;
                 (response: Club) => {
                     this.club = response;
                     this.getimage();
-                    this.getMembers()
+                    this.getMembers();
+                    this.getPedags();
                     console.log(this.test)
 
                 }, (error: HttpErrorResponse) => {
@@ -145,4 +149,20 @@ verify:boolean=false;
         });
         }
     }
+
+pedag:compte[];
+
+    getPedags(){
+        this.studentService.getpedag().subscribe((response:compte[])=>{
+            this.pedag=response;
+            console.log(this.pedag)
+        })
+    }
+    idpedag: number;
+    changePedag() {
+        this.memberService.ChangePedag(this.idpedag,this.club.idc).subscribe((response:string)=>{
+            alert(response)
+        })
+    }
 }
+

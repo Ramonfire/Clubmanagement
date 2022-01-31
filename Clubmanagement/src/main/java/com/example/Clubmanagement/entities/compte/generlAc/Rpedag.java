@@ -33,10 +33,6 @@ private String departement;
         this.departement = departement;
     }
 
-    @JsonManagedReference
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_Responsable")
-    private List<Club> clubs = new ArrayList<Club>();
 
 
 }

@@ -1,11 +1,13 @@
 package com.example.Clubmanagement.services;
 
+import com.example.Clubmanagement.Repositories.AccountRepo;
 import com.example.Clubmanagement.Repositories.ClubRepo;
 import com.example.Clubmanagement.Repositories.MemberRepo;
 import com.example.Clubmanagement.Repositories.RpedaRepo;
 import com.example.Clubmanagement.entities.Forms.CreationDemand;
 import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
+import com.example.Clubmanagement.entities.compte.generlAc.Compte;
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +28,7 @@ public class ClubService {
     private final ClubRepo clubRepo;
     private final MemberRepo memberRepo;
     private final RpedaRepo rpedaRepo;
+    private final AccountRepo accountRepo;
 
 
     public List<Club> getAllActiveClub(int pagenum,int size){
@@ -145,5 +148,23 @@ public class ClubService {
             response="saved the new budget";
         }
         return response;
+    }
+
+    public String changepedag(Long idpedag, Long idc) {
+        Compte compte = accountRepo.findByIdE(idpedag);
+        Club club=clubRepo.findByIdc(idc);
+        if (compte==null){return "Compte not found";}else {
+            if (club==null){
+                return "error while finding the club";
+            }else {
+                if (club.getPed()==compte){
+                    return "Mr/Ms "+ club.getPed().getfullname()+ " is already pedagogique director of this club";
+                }else{ club.setPed(compte);
+                    clubRepo.save(club);
+                    log.info("saved "+ compte.getfullname()+ " as pedag for club "+ club.getnomclub());
+                    return "done";}
+            }
+        }
+
     }
 }

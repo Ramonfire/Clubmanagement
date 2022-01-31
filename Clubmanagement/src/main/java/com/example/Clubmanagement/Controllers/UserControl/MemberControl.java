@@ -121,6 +121,11 @@ public class MemberControl {
     else return memberService.deleteMember(compte.getIdE(),idc);
     }
 
+    @GetMapping(path = "Changepedag/{idpedag}/{idc}")
+    public String changepedag(@PathVariable Long idpedag,@PathVariable Long idc){
+    return clubService.changepedag(idpedag,idc);
+    }
+
     //*************************************************************************************post mapping*************************************************************************//
     @PostMapping(path = "saveMember")
     public String insertMember(@RequestBody Members member){

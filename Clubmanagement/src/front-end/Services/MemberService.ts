@@ -21,11 +21,11 @@ export class MemberService {
 
     }
 
-    getMembersByClubid(number: number,page:number,size:number):Observable<StudentMember[]> {
+  public  getMembersByClubid(number: number,page:number,size:number):Observable<StudentMember[]> {
         return this.http.get<StudentMember[]>(`${this.apiBaseUrl}/member/GetClubMembers/${number}/${page}/${size}`)
     }
 
-    CreateEvent(evenement: Evenement, id: number):Observable<string> {
+   public CreateEvent(evenement: Evenement, id: number):Observable<string> {
         return this.http.post(`${this.apiBaseUrl}/member/Createevent/${id}/${evenement.fact.frais}`,{idevent:null,description:evenement.description,nomevent:evenement.nomevent,type:evenement.type,state:evenement.state},{responseType:"text"})
     }
 
@@ -34,7 +34,12 @@ export class MemberService {
     }
 
 
-    DeleteMember( email:string,idc:number):Observable<string> {
+   public DeleteMember( email:string,idc:number):Observable<string> {
         return this.http.get(`${this.apiBaseUrl}/member/DeleteMember/${email}/${idc}`,{responseType:"text"})
+    }
+
+   public ChangePedag(idpedag: number, idc: number):Observable<string> {
+        return this.http.get(`${this.apiBaseUrl}/member/Changepedag/${idpedag}/${idc}`,{responseType:"text"})
+        
     }
 }

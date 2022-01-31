@@ -16,6 +16,16 @@
                         <button  (click)="OnImageUplaod()" class="btn-round btn btn-secondary col-md-3 text-center">upload the image</button>
                     </div>
                 </div>
+<br/><br/>
+                <div class="name">
+                    <h6 style="padding: 22px" class="title">Change responsable pedagogique</h6>
+                </div>
+                <div class="select" >
+                    <select class="custom-select" [(ngModel)]="idpedag">
+                        <option *ngFor="let p of pedag" [value]="p.idE" >{{p.fullname}}</option>
+                    </select>
+                    <button class="btn btn-secondary" (click)="changePedag()">Confirm</button>
+                </div>
 
                 <div class="name">
                     <h6 style="padding: 22px" class="title">Members</h6>
@@ -34,7 +44,9 @@
                     </table>
                 </div>
                 <div id="add member" style="margin-left: auto;margin-right: auto">
-                    <label class="label label-success text-center" ><h5>add new commity member</h5> </label><br/>
+                    <div class="name">
+                        <h6 style="padding: 22px" class="title"> add or promote to comite Member</h6>
+                    </div>
 
                     <label class="label label-warning" *ngIf="verify1">{{message1}}</label><br/>
                     <label class="label label-info">email</label>
@@ -51,7 +63,9 @@
                 </div>
 <br/><br/>
                 <div style="margin-left: auto;margin-right: auto" *ngIf="verifyUser()" class="row-cols-md-3 text-center">
-                    <label class="label label-success"><h5>Set Budget</h5></label><br/>
+                    <div class="name">
+                        <h6 style="padding: 22px" class="title">Set budget</h6>
+                    </div>
                     <label class="label label-warning" *ngIf="verify">{{message}}</label><br/>
                     <label>input the new budget</label><br/>
                     <input type="number"  placeholder="{{club.budget}}" [(ngModel)]="budget">

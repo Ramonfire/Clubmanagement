@@ -1,5 +1,6 @@
 package com.example.Clubmanagement.entities.club;
 
+import com.example.Clubmanagement.entities.compte.generlAc.Compte;
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
 import com.example.Clubmanagement.entities.compte.generlAc.Rpedag;
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -116,7 +117,7 @@ public class Club {
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
-    private Rpedag ped;
+    private Compte ped;
 
 
         }

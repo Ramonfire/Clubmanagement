@@ -1,6 +1,8 @@
 package com.example.Clubmanagement.entities.compte.generlAc;
 
 
+import com.example.Clubmanagement.entities.club.Club;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 
 @Entity
@@ -119,7 +122,10 @@ public class Compte {
     }
 
 
-
+    @JsonManagedReference
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_Responsable")
+    private List<Club> clubs = new ArrayList<Club>();
 
 
 
