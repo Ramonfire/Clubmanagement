@@ -15,10 +15,11 @@ public class DemandSaving {
     @Bean
     CommandLineRunner commandLineRunnerDemande(DemandeRepo demandeRepo) {
 
-        CreationDemand d1 = new CreationDemand(null,Long.valueOf(5),"Club","testDemande1","testing",0,Long.valueOf(1));
-        CreationDemand d2 = new CreationDemand(null,Long.valueOf(5),"Club","testDemande1","testing",0,Long.valueOf(2));
-        CreationDemand d3 = new CreationDemand(null,Long.valueOf(5),"Club","testDemande1","testing",0,Long.valueOf(1));
-        demandeRepo.saveAll(List.of(d1,d2,d3));
+        CreationDemand d1 = new CreationDemand(null,Long.valueOf(7),"Club","testDemande1","testing",0,Long.valueOf(1));
+        CreationDemand d2 = new CreationDemand(null,Long.valueOf(7),"Club","testDemande1","testing",0,Long.valueOf(2));
+        CreationDemand d3 = new CreationDemand(null,Long.valueOf(7),"Club","testDemande1","testing",0,Long.valueOf(1));
+        CreationDemand d4 = new CreationDemand(null,Long.valueOf(8),"Club","testDemande1","testing",0,Long.valueOf(1));
+        demandeRepo.saveAll(List.of(d1,d2,d3,d4));
         return args -> {
 
 
