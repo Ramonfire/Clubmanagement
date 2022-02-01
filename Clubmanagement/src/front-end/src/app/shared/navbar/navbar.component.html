@@ -11,7 +11,9 @@
         </div>
         <div class="navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav ml-auto">
-
+                <li class="nav-item" *ngIf="!isDocumentation()">
+                    <a routerLink="/eventsclub" class="nav-link" ><i class="nc-icon nc-book-bookmark"></i> Les evenements</a>
+                </li>
 
                 <li class="nav-item" *ngIf="!isDocumentation()">
                     <a routerLink="/clubs" class="nav-link" ><i class="nc-icon nc-book-bookmark"></i> Les clubs</a>
