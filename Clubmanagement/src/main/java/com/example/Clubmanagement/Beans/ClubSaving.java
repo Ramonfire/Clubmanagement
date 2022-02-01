@@ -20,9 +20,9 @@ public class ClubSaving {
     @Bean
     CommandLineRunner commandLineRunnerClub(ClubRepo repo) {
 
-        Club C1 = new Club("Chillin side",Boolean.TRUE," Games.and.Movies ");
-        Club C2 = new Club("Rotarac",Boolean.TRUE," Donor ");
-        Club C3 = new Club("Bridge",Boolean.FALSE," Media ");
+        Club C1 = new Club("Chillin side",Boolean.TRUE," Un club d’animation qui aide à l’organisation de différents événements et activités de divertissement au sein de la communauté UIR, notamment des projections de films hebdomadaires, l’organisation de tournois de jeux vidéo, des chasses au trésor etc.. ");
+        Club C2 = new Club("Rotarac",Boolean.TRUE," Le Club, branche reconnue du Rotaract Morocco, s’engage dans des actions sociales au profit de certains quartiers marginalisés dans la région de Rabat et les zones enclavés du Royaume. ");
+        Club C3 = new Club("Bridge",Boolean.FALSE," Le journal universitaire des étudiants par excellence. Une passerelle permettant d’établir un lien entre les étudiants en les dotant d’une voix unifiée fondée sur la liberté d’expression. ");
         C1.setPed(repo1.getById(Long.valueOf(1)));
         C2.setPed(repo1.getById(Long.valueOf(2)));
         C3.setPed(repo1.getById(Long.valueOf(1)));
