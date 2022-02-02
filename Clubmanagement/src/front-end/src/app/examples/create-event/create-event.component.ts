@@ -39,11 +39,12 @@ export class CreateEventComponent implements OnInit {
     if (this.event.fact.frais>this.Club.budget){alert("The club doesnt have enough fonds")}else {
     this.memberservice.CreateEvent(this.event,this.Club.idc).subscribe((response:string)=>{
       alert(response);
+      this.router.navigate(["/adminclub"])
     },(error:HttpErrorResponse)=>{alert("Error : "+error.status)});}
   }
 
   getClub(){
-    if (sessionStorage.getItem("id")==null){
+    if (sessionStorage.getItem("id")==null||sessionStorage.getItem("id")=="0"){
       this.router.navigate(['/clubs'])
     }else {
     this.visitorService.getClubId(parseInt(sessionStorage.getItem("id"))).subscribe(
