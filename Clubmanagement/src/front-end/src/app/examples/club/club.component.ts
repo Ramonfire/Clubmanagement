@@ -40,7 +40,6 @@ constructor(private VisitorService:VisitorService
 
 
    async getClub(){
-        console.log(sessionStorage.getItem("id"));
         if (sessionStorage.getItem("id")==null){
             alert("redirecting to all clubs page");
             this.router.navigate(["/clubs"])

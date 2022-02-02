@@ -1,6 +1,7 @@
 import {etudiant} from "./Etudiant";
 import {Evenement} from "./evenement";
 import {Rpedag} from "./r_pedag";
+import {Reunion} from "./reunion";
 
 export class Club {
     //image a ajouter
@@ -13,6 +14,7 @@ export class Club {
     //private budget
     private _ev:Evenement[];
     private _ped:Rpedag;
+    private _reunions:Reunion[];
 
 
     get nomclub(): string {
@@ -82,5 +84,21 @@ export class Club {
 
     set budget(value: number) {
         this._budget = value;
+    }
+
+    get ev(): Evenement[] {
+        return this._ev;
+    }
+
+    set ev(value: Evenement[]) {
+        this._ev = value;
+    }
+
+    get reunions(): Reunion[] {
+        return this._reunions;
+    }
+
+    set reunions(value: Reunion[]) {
+        this._reunions = value;
     }
 }

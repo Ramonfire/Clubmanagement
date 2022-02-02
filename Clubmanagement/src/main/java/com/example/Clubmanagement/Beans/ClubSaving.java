@@ -4,12 +4,19 @@ import com.example.Clubmanagement.Repositories.ClubRepo;
 import com.example.Clubmanagement.Repositories.EtudiantRepo;
 import com.example.Clubmanagement.Repositories.RpedaRepo;
 import com.example.Clubmanagement.entities.club.Club;
+import com.example.Clubmanagement.entities.club.reunion;
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Configuration
@@ -26,6 +33,9 @@ public class ClubSaving {
         C1.setPed(repo1.getById(Long.valueOf(1)));
         C2.setPed(repo1.getById(Long.valueOf(2)));
         C3.setPed(repo1.getById(Long.valueOf(1)));
+         List<reunion> arrays= new ArrayList<reunion>();
+      arrays.add(new reunion(LocalDateTime.now(),Long.valueOf(60),"test","home"));
+        C1.setReunions(arrays);
 
 repo.saveAll(List.of(C1,C2,C3));
         return args -> {

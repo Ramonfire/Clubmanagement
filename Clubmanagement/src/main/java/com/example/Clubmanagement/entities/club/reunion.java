@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -17,26 +18,26 @@ import java.util.Date;
 public class reunion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id_reunion;
-    private Date datedebut;
+    private  Long idreunion;
+    private LocalDateTime datedebut;
     private Long duree;//minute
     private  String object;
     private String lieu;
 
 
-    public Long getId_reunion() {
-        return id_reunion;
+    public Long getIdreunion() {
+        return idreunion;
     }
 
-    public void setId_reunion(Long id_reunion) {
-        this.id_reunion = id_reunion;
+    public void setIdreunion(Long idreunion) {
+        this.idreunion = idreunion;
     }
 
-    public Date getDatedebut() {
+    public LocalDateTime getDatedebut() {
         return datedebut;
     }
 
-    public void setDatedebut(Date datedebut) {
+    public void setDatedebut(LocalDateTime datedebut) {
         this.datedebut = datedebut;
     }
 
@@ -64,15 +65,15 @@ public class reunion {
         this.lieu = lieu;
     }
 
-    public reunion(Long id_reunion, Date datedebut, Long duree, String object, String lieu) {
-        this.id_reunion = id_reunion;
+    public reunion(Long idreunion, LocalDateTime datedebut, Long duree, String object, String lieu) {
+        this.idreunion = idreunion;
         this.datedebut = datedebut;
         this.duree = duree;
         this.object = object;
         this.lieu = lieu;
     }
 
-    public reunion(Date datedebut, Long duree, String object, String lieu) {
+    public reunion(LocalDateTime datedebut, Long duree, String object, String lieu) {
         this.datedebut = datedebut;
         this.duree = duree;
         this.object = object;
