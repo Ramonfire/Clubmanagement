@@ -8,6 +8,7 @@ import {Session} from "../Classes/Session";
 import {Members} from "../Classes/Members";
 import {Demande} from "../Classes/demande";
 import {compte} from "../Classes/compte";
+import {Reunion} from "../Classes/reunion";
 
 @Injectable({
     providedIn: 'root'
@@ -86,4 +87,7 @@ export class StudentService {
         return this.http.get<compte[]>(`${this.apiBaseUrl}/student/getAllpedag`);
     }
 
+    addreunion(reun: Reunion, idc: number) {
+    return this.http.post(`${this.apiBaseUrl}/student/addreunion/${idc}`,reun,{responseType : 'text'});
+    }
 }

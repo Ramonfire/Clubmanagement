@@ -6,6 +6,7 @@ import com.example.Clubmanagement.Repositories.MemberRepo;
 import com.example.Clubmanagement.Repositories.RpedaRepo;
 import com.example.Clubmanagement.entities.Forms.CreationDemand;
 import com.example.Clubmanagement.entities.club.Club;
+import com.example.Clubmanagement.entities.club.reunion;
 import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
 import com.example.Clubmanagement.entities.compte.generlAc.Compte;
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
@@ -166,5 +167,17 @@ public class ClubService {
             }
         }
 
+    }
+
+    public String addReunion(reunion r, Long idc) {
+        String response="Error";
+        Club club= clubRepo.findByIdc(idc);
+        if (club==null) {response ="Club not found";}
+        else {
+            response="Successfully added the reunion";
+        club.getReunions().add(r);
+        log.info(club.getReunions().toString());
+        clubRepo.save(club);}
+        return response;
     }
 }

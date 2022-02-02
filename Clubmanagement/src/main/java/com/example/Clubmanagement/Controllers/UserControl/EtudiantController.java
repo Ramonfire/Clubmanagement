@@ -9,6 +9,7 @@ import com.example.Clubmanagement.Generalmethode;
 import com.example.Clubmanagement.entities.Forms.CreationDemand;
 import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.club.evenement;
+import com.example.Clubmanagement.entities.club.reunion;
 import com.example.Clubmanagement.entities.compte.Clubsmembers.Members;
 import com.example.Clubmanagement.entities.compte.generlAc.Compte;
 import com.example.Clubmanagement.entities.compte.generlAc.Etudiant;
@@ -158,6 +159,11 @@ public List<Compte> getpossiblepedag(){
 
     }
 
+
+    @PostMapping(path = "addreunion/{idc}")
+    public String addreunion(@RequestBody reunion r ,@PathVariable("idc") Long idc){
+        return clubService.addReunion(r,idc);
+    }
 
 }
 
