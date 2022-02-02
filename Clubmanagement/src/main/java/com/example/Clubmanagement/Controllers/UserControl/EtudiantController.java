@@ -128,6 +128,11 @@ public List<Compte> getpossiblepedag(){
        return valid;
 }
 
+@GetMapping("removereunion/{id}/{idc}")
+public String removeReunion(@PathVariable Long id,@PathVariable Long idc){
+        return clubService.removereunion(id,idc);
+}
+
 
 
 

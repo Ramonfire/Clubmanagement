@@ -40,6 +40,7 @@
                         <h5 class="card-title text-light">When : {{c.datedebut}}</h5>
                         <h5 class="card-title text-light">Where :{{c.lieu}}</h5>
                         <h5 class="card-title text-light">for :{{c.duree}} min</h5>
+                        <button *ngIf="verifyMemberComite()" class="btn btn-danger" (click)="RemoveReunion(c.idreunion)">Delete</button>
                     </div>
                 </div>
             </div>
@@ -47,6 +48,9 @@
         </div>
         <button *ngIf="verifyMemberComite()" class="btn btn-success" [routerLink]="['/reunion']">set a Reunion</button>
     </div>
+    <br/>
+    <br/>
+    <br/>
         <div class="col-md-12 text-center">
         <button *ngIf="verifyMemberComite()" (click)="redirectClubAdminpage()" class="btn btn-primary"  ><i class="fa fa-cog"></i>  adminstrate</button>
         </div>

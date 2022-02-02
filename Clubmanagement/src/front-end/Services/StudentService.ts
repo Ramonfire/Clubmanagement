@@ -87,7 +87,11 @@ export class StudentService {
         return this.http.get<compte[]>(`${this.apiBaseUrl}/student/getAllpedag`);
     }
 
-    addreunion(reun: Reunion, idc: number) {
+    addreunion(reun: Reunion, idc: number) :Observable<string>{
     return this.http.post(`${this.apiBaseUrl}/student/addreunion/${idc}`,reun,{responseType : 'text'});
+    }
+
+    DeleteReunion(id: number,idc:number):Observable<string> {
+        return this.http.get(`${this.apiBaseUrl}/student/removereunion/${id}/${idc}`,{responseType : 'text'});
     }
 }

@@ -76,9 +76,6 @@ constructor(private VisitorService:VisitorService
         if (this.authentifserv.isUserLoggedIn()){
         this.memberService.getMemberByClub(this.club.idc).subscribe((response:Members)=>{
             this.member=response;
-            console.log(response)
-            console.log(this.member.role);
-
         },(error:HttpErrorResponse)=>{alert(error.error)})}
     }
 
@@ -142,5 +139,9 @@ this.testing=''+response;
 
     ActiverClub() {
         this.adminServ.ChangeClubState(true,this.club.idc).subscribe((response:string)=>{alert(response);location.reload()});
+    }
+
+    RemoveReunion(id:number) {
+this.studenService.DeleteReunion(id,this.club.idc).subscribe((response:string)=>{alert(response),location.reload()})
     }
 }

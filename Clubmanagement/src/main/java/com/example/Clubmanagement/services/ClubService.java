@@ -1,9 +1,6 @@
 package com.example.Clubmanagement.services;
 
-import com.example.Clubmanagement.Repositories.AccountRepo;
-import com.example.Clubmanagement.Repositories.ClubRepo;
-import com.example.Clubmanagement.Repositories.MemberRepo;
-import com.example.Clubmanagement.Repositories.RpedaRepo;
+import com.example.Clubmanagement.Repositories.*;
 import com.example.Clubmanagement.entities.Forms.CreationDemand;
 import com.example.Clubmanagement.entities.club.Club;
 import com.example.Clubmanagement.entities.club.reunion;
@@ -30,6 +27,7 @@ public class ClubService {
     private final MemberRepo memberRepo;
     private final RpedaRepo rpedaRepo;
     private final AccountRepo accountRepo;
+    private final ReunionRepo reunionRepo;
 
 
     public List<Club> getAllActiveClub(int pagenum,int size){
@@ -178,6 +176,16 @@ public class ClubService {
         club.getReunions().add(r);
         log.info(club.getReunions().toString());
         clubRepo.save(club);}
+        return response;
+    }
+
+    public String removereunion(Long id, Long idc) {
+        String response="Error";
+        Club club=clubRepo.findByIdc(idc);
+        if (club==null){response ="Club not found";}else {
+            club.getReunions().remove(reunionRepo.findByIdreunion(id));
+           return "deleted Succefully";
+        }
         return response;
     }
 }
