@@ -81,6 +81,8 @@ public class EventService {
             eventrepo.save(e);
             if (i==1){
                 response="accepted!";
+                e.getC().setBudget(e.getC().getBudget() - e.getFact().getFrais());
+                clubRepo.save(e.getC());
             }else{response="done";}
         }
         return response ;
