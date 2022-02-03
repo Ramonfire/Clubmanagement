@@ -27,7 +27,6 @@ verifySession(){
   getEvent(){
     this.visitorService.getEventId(parseInt(sessionStorage.getItem("id"))).subscribe((response:Evenement)=>{
       this.event=response;
-      console.log(this.event)
     },(error:HttpErrorResponse)=>{
       alert(error.error.code);
     })
@@ -73,4 +72,6 @@ verifySession(){
   DeleteEvent() {
     this.adminServ.Changeeventterminer(this.event.idevent).subscribe((response:string)=>{alert(response)})
   }
+
+
 }
