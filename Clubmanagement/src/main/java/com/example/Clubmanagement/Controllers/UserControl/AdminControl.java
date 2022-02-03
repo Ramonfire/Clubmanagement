@@ -186,6 +186,13 @@ public class AdminControl {
         return clubService.addBudget(id,budget);
     }
 
+    @GetMapping(path = "changeterminer/{terminer}")
+    public String changeterminer(@PathVariable Long terminer){
+        return eventService.ChangeTerminer(terminer);
+    }
+
+
+
     @PostMapping(path = "updatemot")
     public String UpdateMot(@RequestBody mot mot){
         log.info("updated mot \n"+mot.mot);

@@ -34,6 +34,10 @@
                 <button (click)="RefuseEvent(event.idevent)" class="btn btn-danger float-left">Refuser</button>
                 <button (click)="AcceptEvent(event.idevent)" class="btn btn-success float-right">Accepter</button>
             </div>
+            <div *ngIf="verifyAdmin()">
+
+                <button class="btn btn-danger" (click)="DeleteEvent()">Delete event</button>
+            </div>
 
 
 

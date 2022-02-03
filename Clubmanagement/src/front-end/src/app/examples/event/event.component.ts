@@ -69,4 +69,8 @@ verifySession(){
   verifyAdmin(){
     if (sessionStorage.getItem("role")=="Role_Admin"){return true}else return false;
   }
+
+  DeleteEvent() {
+    this.adminServ.Changeeventterminer(this.event.idevent).subscribe((response:string)=>{alert(response)})
+  }
 }

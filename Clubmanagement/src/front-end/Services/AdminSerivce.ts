@@ -72,4 +72,8 @@ public  GetCountDemandeByState(state:number):Observable<number>{
     public addnewBudget(id:number,budget:number):Observable<string>{
         return this.http.get(`${this.apiBaseUrl}/admin/newBudget/${id}/${budget}`,{responseType:"text"});
     }
+
+    Changeeventterminer(ide:number) :Observable<string>{
+        return this.http.get(`${this.apiBaseUrl}/admin/changeterminer/${ide}`,{responseType:"text"});
+    }
 }

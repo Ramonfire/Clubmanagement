@@ -35,7 +35,7 @@ public class EventService {
 
     public List<evenement> getallevents(int pagenum,int size) {
         Pageable pageable = PageRequest.of(pagenum, size);
-        Page<evenement> page= this.eventrepo.findAll(pageable);
+        Page<evenement> page= this.eventrepo.findAllByTerminer(false,pageable);
         List<evenement> evenements =Arrays.asList(page.getContent().toArray(new evenement[0]));
         return evenements; }
 
@@ -57,7 +57,7 @@ public class EventService {
 
     public List<evenement> geteventbyState(int i, int pagenum,int size) {
         Pageable pageable = PageRequest.of(pagenum, size);
-        Page<evenement> page= this.eventrepo.findAllByState(i,pageable);
+        Page<evenement> page= this.eventrepo.findAllByStateAndTerminer(i,false,pageable);
         List<evenement> evenements = Arrays.asList(page.getContent().toArray(new evenement[0]));
         return evenements;
 
@@ -99,5 +99,15 @@ public class EventService {
         }else response="Event under this name already exists";
 
         return response;
+    }
+
+    public String ChangeTerminer(Long terminer) {
+        evenement evenement=eventrepo.findByIdevent(terminer);
+        if (evenement==null)return "event not found";
+        else {
+            evenement.setTerminer(true);
+            eventrepo.save(evenement);
+            return "event terminated";
+        }
     }
 }
