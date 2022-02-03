@@ -44,11 +44,19 @@ this.studentServ.Clubcount().subscribe((response:number)=>{
     }
     imageSrc:string;
     srcData:SafeResourceUrl;
+    password1: string;
+    password2: string;
 
     getimage(){
         this.imgServ.getImage(""+this.logUser.fullname).subscribe((response:ImageModel)=>{
             this.imageSrc = 'data:image/'+response.type+';base64,' + response.picByte;
             this.srcData = this.sanitizer.bypassSecurityTrustResourceUrl(this.imageSrc);
         })
+    }
+
+    verifypasswordandsend(){
+        if (this.password1===this.password2) {
+this.AccountServ.Changepassword(this.password1).subscribe((response:string)=>{alert(response)})
+        } else alert('password dont match')
     }
 }

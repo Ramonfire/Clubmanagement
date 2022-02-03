@@ -77,5 +77,19 @@ public class AccountService implements UserDetailsService {
     public List<Compte> getallaccounts() {
       return   accountRepo.findAll();
     }
+
+    public String Changepassword(Compte compte, String password) {
+String response="error";
+if (compte==null) response="account not found";
+else {compte.setPass(passwordEncoder.encode(password));
+    accountRepo.save(compte);
+    response="password updated";
+}
+
+
+return  response;
+
+
+    }
 }
 

@@ -19,4 +19,7 @@ export  class AccountService {
     }
 
 
+    Changepassword(password1: string) :Observable<string>{
+        return this.http.get(`${this.apiBaseUrl}/changepassword/${password1}`,{responseType:"text"});
+    }
 }

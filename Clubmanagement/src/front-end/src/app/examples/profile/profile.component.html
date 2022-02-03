@@ -130,12 +130,12 @@
                             <div class="card-box ">
                                 <div  style="margin-left: fill"> <label class="label label-info"> change password</label>
                                     <br/>
-                                    <input type="password" placeholder="insert our new password" class="input-group-text">
+                                    <input type="password" placeholder="insert our new password" [(ngModel)]="password1" class="input-group-text">
                                     <br/>
-                                    <input type="password" placeholder="confirm your password" class="input-group-text">
+                                    <input type="password" placeholder="confirm your password" [(ngModel)]="password2" class="input-group-text">
                                 </div>
 <br/>
-                                <button  class="btn btn-success">change password <i class="fa fa-arrow-circle-right"></i></button>
+                                <button (click)="verifypasswordandsend()" class="btn btn-success">change password <i class="fa fa-arrow-circle-right"></i></button>
                             </div>
                         </div>
 

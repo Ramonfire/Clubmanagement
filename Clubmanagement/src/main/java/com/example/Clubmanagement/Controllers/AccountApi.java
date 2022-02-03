@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -86,4 +87,12 @@ private final AccountService accountService;
         return accountService.getaccoutThroughheader();
     }
 
+    @SneakyThrows
+    @GetMapping("changepassword/{password}")
+    public String Changepwd(@PathVariable String password){
+
+        Compte compte= accountService.getaccoutThroughheader();
+
+        return  accountService.Changepassword(compte,password);
+    }
 }
