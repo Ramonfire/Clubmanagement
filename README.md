@@ -1,3 +1,3 @@
 # Clubmanagement
-this app is a University project and is by no means a 100% reliable .
+this app is a class project ,it'll be updated frenquently
 progress is still to be made 
